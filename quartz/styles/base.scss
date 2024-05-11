@@ -111,6 +111,7 @@ a {
 }
 
 .page {
+  min-height: 95vh;
   @media all and (max-width: $fullPageWidth) {
     margin: 0 auto;
     padding: 0 1rem;
@@ -145,6 +146,7 @@ a {
 
   & > #quartz-body {
     width: 100%;
+    min-height: 90vh;
     display: flex;
     @media all and (max-width: $fullPageWidth) {
       flex-direction: column;
@@ -199,7 +201,7 @@ a {
     }
   }
 
-  & .center {
+  & .center, & .footer {
     margin-left: auto;
     margin-right: auto;
     width: $pageWidth;

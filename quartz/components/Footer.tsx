@@ -8,7 +8,7 @@ export default ((opts?: Options) => {
     const year = new Date().getFullYear()
     const links = opts?.links ?? []
     return (
-      <footer class="footer">
+      <footer class="footer" id="footer">
         <div class="outer">
           <div class="footer-left">
             © {year} icepro
@@ -24,24 +24,22 @@ export default ((opts?: Options) => {
 
   // 不知道为什么修改这个没有作用
   Footer.css = `
-footer {
+footer#footer {
   font-size: 12px;
   font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
   text-shadow: 0 1px #fff;
   opacity: 0.6;
-  width: 100%;
   text-align: center;
   margin-bottom: 24px;
   margin-top: 12px;
 }
-footer a {
+footer#footer a {
   background: rgba(0, 0, 0, 0);
   text-decoration: none;
   color: #08c;
 }
-footer .outer {
+footer#footer .outer {
   display: flex;
-  padding: 0 30px;
   justify-content: space-between;
 }`;
   return Footer
