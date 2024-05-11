@@ -7,7 +7,7 @@ comments: true
 tags:
   - 前端
 permalink: /2016/04/16/2016/2016-04-16-angular-4th/
-updated: 2024-05-09T11:27:32+08:00
+updated: 2024-05-11T18:26:42+08:00
 ---
 
 生产模拟仿真考试考完终于可以继续写博客了，这里我要把之前的坑填完，这里将会讲述关于angular的路由功能，服务和指令。
@@ -90,9 +90,9 @@ CartModule.config(function($routeProvider){
 });
 ```
 
-这里是路由功能的全部功能了，你可以将其放在controllers.js的任意空白位置，但是不要放在var CartModule = angular.module('CartApp', ['ngRoute']);之前
+这里是路由功能的全部功能了，你可以将其放在controllers.js的任意空白位置，但是不要放在 `var CartModule = angular.module('CartApp', ['ngRoute']);` 之前
 
-然后创建/tpl/closingCost.html
+然后创建 `/tpl/closingCost.html`
 
 内容简单一点就是
 

@@ -6,7 +6,7 @@ tags:
   - android
 comments: true
 permalink: /2020/05/05/2020/pass-image-to-android/
-updated: 2024-05-10T18:02:39+08:00
+updated: 2024-05-11T18:24:00+08:00
 ---
 
 ## 序
@@ -128,7 +128,7 @@ alertDialog.show()
 
 然后看一下效果， 也 ok ，没啥问题。
 
-<vblock video="https://cdn.iceprosurface.com/upload/md/video/2020-05-05-10-30-45.mp4"></vblock>
+<video src="https://cdn.iceprosurface.com/upload/md/video/2020-05-05-10-30-45.mp4" controls />
 
 ## 后记
 

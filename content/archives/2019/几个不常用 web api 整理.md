@@ -1,9 +1,11 @@
 ---
 title: 几个不常用 web api 整理
 date: 2019-06-12T20:10:00+08:00
-tags: [javascript, 前端]
+tags:
+  - javascript
+  - 前端
 comments: true
-updated: 2023-04-23T18:46:13+08:00
+updated: 2024-05-11T18:23:17+08:00
 permalink: /2019/06/12/2019/seldom-web-api/
 ---
 
@@ -151,7 +153,7 @@ navigator.vibrate(0)
 
 就比如之前我们打算做的一个效果（~~虽然最后被废弃了怨念（（（）））~~）
 
-<vblock video="https://cdn.iceprosurface.com/upload/md/video/parallax.mp4"></vblock>
+<video src="https://cdn.iceprosurface.com/upload/md/video/parallax.mp4"  controls />
 
 
 ### bettery status

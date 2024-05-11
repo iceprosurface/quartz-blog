@@ -1,7 +1,7 @@
 ---
 title: MC 服务器更新相关
 date: 2019-06-30T20:10:00+08:00
-updated: 2024-05-09T10:07:49+08:00
+updated: 2024-05-11T18:27:44+08:00
 tags:
   - 生活
 comments: true
@@ -35,7 +35,7 @@ HMCL 专用整合包下载 （最新） 下载地址： [【点击这里】](htt
 
 ![](https://cdn.iceprosurface.com/upload/md/2019-08-02-025211.png)
 
-如果没有启动器的请下载[HMCL 启动器](https://cdn.iceprosurface.com/file/HMCL-3.2.130.jar)
+如果没有启动器的请下载 [HMCL 启动器](https://cdn.iceprosurface.com/file/HMCL-3.2.130.jar)
 
 
 历史客户端 mod patch 包版本

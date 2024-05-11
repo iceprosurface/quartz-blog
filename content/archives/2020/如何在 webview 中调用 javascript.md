@@ -129,7 +129,6 @@ webview.addJavascriptInterface(object: JsCallbackFn {
 
 随后你就可以开始测试了，随便试一下，嗯传指什么的是没问题的了！
 
-<vblock video="https://cdn.iceprosurface.com/upload/md/video/2020-05-04-14-37-20.mp4"></vblock>
 <video src="https://cdn.iceprosurface.com/upload/md/video/2020-05-04-14-37-20.mp4" controls />
 
 

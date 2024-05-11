@@ -4,7 +4,7 @@ date: 2019-03-28T15:42:00+08:00
 tags:
   - 前端
 comments: true
-updated: 2024-05-08T15:35:26+08:00
+updated: 2024-05-11T18:25:07+08:00
 permalink: /2019/03/28/2019/download-fail-with-qrcode-on-safari/
 ---
 
@@ -54,7 +54,7 @@ ios safari： 长按下载，点击后无效（3d touch 上滑，并点击下载
 
 这个时候我忽然发现了问题，对确实不一样！看下面你的视频：
 
-<vblock video="https://cdn.iceprosurface.com/upload/md/video/safari-bug-demo.MP4"></vblock>
+<video src="https://cdn.iceprosurface.com/upload/md/video/safari-bug-demo.MP4" controls />
 
 经过一番排查终于发现了，原来是二维码的内容导致的！
 
