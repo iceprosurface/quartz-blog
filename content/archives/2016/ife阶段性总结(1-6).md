@@ -1,10 +1,11 @@
 ---
-layout: post
-title: "ife阶段性总结(1-6)"
+title: ife阶段性总结(1-6)
 date: 2016-08-04 14:11:29 +0800
 comments: true
-tag: [javascript]
+tag:
+  - javascript
 permalink: /2016/08/04/2016/2016-08-04-ife-feeling-slash-s/
+updated: 2024-05-12T00:11:17+08:00
 ---
 
 ## 1. 零零碎碎的ife感想

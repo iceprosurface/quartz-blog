@@ -1,10 +1,11 @@
 ---
-layout: post
-title: "fetch api"
+title: fetch api
 date: 2016-10-12 10:06:08 +0800
 comments: true
-tags: [javascript]
+tags:
+  - javascript
 permalink: /2016/10/12/2016/2016-10-12-fetch-api/
+updated: 2024-05-12T00:11:17+08:00
 ---
 
 ### 1. 前情提要

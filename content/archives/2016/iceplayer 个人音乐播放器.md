@@ -1,12 +1,11 @@
 ---
-layout: post
 title: 第一篇 iceplayer 个人音乐播放器
 date: 2016-05-01 21:55:41 +0800
 comments: true
 tags:
   - 前端
 permalink: /2016/05/01/2016/2016-05-01-iceplayer-1st/
-updated: 2024-05-09T11:26:54+08:00
+updated: 2024-05-12T00:11:17+08:00
 ---
 
 > 时隔半月，我又开始码字了，这次带来的是electron的使用方案，制作一个桌面播放器。

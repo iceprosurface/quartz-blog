@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 如何将node程序和nginx结合
 date: 2016-06-06 12:57:56 +0800
 comments: true
@@ -7,7 +6,7 @@ tags:
   - 后端
   - 前端
 permalink: /2016/05/29/2016/2016-05-29-base-of-node-1/
-updated: 2024-05-09T11:26:34+08:00
+updated: 2024-05-12T00:11:17+08:00
 ---
 
 > express是node处理静态文件的良好框架，但是专业的事情还是要交给专业的来，那么有请nginx给我们的node服务器提供转接服务吧~

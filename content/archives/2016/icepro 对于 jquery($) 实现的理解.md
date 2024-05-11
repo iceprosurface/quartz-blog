@@ -1,10 +1,11 @@
 ---
-layout: post
-title: "icepro对于jquery($)实现的理解"
+title: icepro对于jquery($)实现的理解
 date: 2016-06-13 19:28:49 +0800
 comments: true
-tags: [前端]
+tags:
+  - 前端
 permalink: /2016/05/29/2016/2016-05-29-base-of-node-1/
+updated: 2024-05-12T00:11:17+08:00
 ---
 
 ## 前言

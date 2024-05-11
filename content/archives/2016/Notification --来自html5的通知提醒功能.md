@@ -1,10 +1,11 @@
 ---
-layout: post
-title: "Notification --来自html5的通知提醒功能"
+title: Notification --来自html5的通知提醒功能
 date: 2016-12-08 13:29:58 +0800
 comments: true
-tags: [前端]
+tags:
+  - 前端
 permalink: /2016/12/08/2016/2016-12-08-web-notification/
+updated: 2024-05-12T00:11:17+08:00
 ---
 
 ## 1. 起因

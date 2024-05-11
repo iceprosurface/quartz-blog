@@ -1,12 +1,11 @@
 ---
-layout: post
 title: select 联动
 date: 2016-08-10 17:09:57 +0800
 comments: true
 tags:
   - javascript
 permalink: /2016/08/10/2016/2016-08-10-formlinkage/
-updated: 2024-05-11T15:36:43+08:00
+updated: 2024-05-12T00:11:17+08:00
 ---
 
 ## 1. 介绍

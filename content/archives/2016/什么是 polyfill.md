@@ -1,10 +1,11 @@
 ---
-layout: post
-title: "什么是 polyfill"
+title: 什么是 polyfill
 date: 2016-10-10 09:18:35 +0800
 comments: true
-tags: [javascript]
+tags:
+  - javascript
 permalink: /2016/10/10/2016/2016-10-10-what-is-polyfill/
+updated: 2024-05-12T00:11:17+08:00
 ---
 
 ### 1 前言

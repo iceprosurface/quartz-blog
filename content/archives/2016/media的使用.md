@@ -1,8 +1,7 @@
 ---
-layout: post
-title: "media的使用"
+title: media的使用
 date: 2016-03-15 22:34:40 +0800
-updated: 2016-05-29 20:51:45 +0800
+updated: 2024-05-12T00:11:17+08:00
 comments: true
 tags: javascript
 permalink: /2016/03/15/2016/2016-03-15-media-control/

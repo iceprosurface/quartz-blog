@@ -1,10 +1,11 @@
 ---
-layout: post
-title: "从零开始编写属于你的前端mvc框架[3]"
+title: 从零开始编写属于你的前端mvc框架[3]
 date: 2017-05-13 23:54:25 +0800
 comments: true
-tags: [javascript]
+tags:
+  - javascript
 permalink: /2017/05/13/2017/2017-05-13-how-to-implement-a-simple-mvc-3/
+updated: 2024-05-12T00:11:17+08:00
 ---
 
 ## 1. 前言

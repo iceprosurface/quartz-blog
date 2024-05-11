@@ -1,10 +1,10 @@
 ---
-layout: post
-title: "lrc控制器试验"
+title: lrc控制器试验
 date: 2016-03-18 14:55:41 +0800
 comments: true
 tags: javascript
 permalink: /2016/03/18/2016/2016-03-18-lrc-cont/
+updated: 2024-05-12T00:11:17+08:00
 ---
 
 > 本例用于在lrc控制模块，在用于在timeupdate时间中同步更新lrc使用。

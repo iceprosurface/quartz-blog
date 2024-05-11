@@ -1,10 +1,11 @@
 ---
-layout: post
-title: "object.freeze & const"
+title: object.freeze & const
 date: 2016-12-07 17:31:26 +0800
 comments: true
-tags: [javascript] 
+tags:
+  - javascript
 permalink: /2016/12/07/2016/2016-12-07-object-freeze/
+updated: 2024-05-12T00:11:17+08:00
 ---
 
 ## 1. 起因

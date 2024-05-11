@@ -5,7 +5,7 @@ tags:
   - javascript
   - 前端
 comments: true
-updated: 2024-05-11T21:35:47+08:00
+updated: 2024-05-12T01:23:51+08:00
 permalink: /2019/06/12/2019/seldom-web-api/
 ---
 
@@ -154,7 +154,7 @@ navigator.vibrate(0)
 
 就比如之前我们打算做的一个效果（~~虽然最后被废弃了怨念（（（）））~~）
 
-<video src="https://cdn.iceprosurface.com/upload/md/video/parallax.mp4"  controls />
+<video src="https://cdn.iceprosurface.com/upload/md/video/parallax.mp4"  controls preload="none" />
 
 
 ### bettery status

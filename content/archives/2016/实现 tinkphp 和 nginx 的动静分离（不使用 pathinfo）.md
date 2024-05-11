@@ -1,12 +1,11 @@
 ---
-layout: post
 title: 实现tinkphp和nginx的动静分离（不使用pathinfo）
 date: 2016-06-13 13:14:16 +0800
 comments: true
 tags:
   - 后端
 permalink: /2016/06/13/2016/2016-06-13-use-tp-on-niginx/
-updated: 2024-05-09T11:26:12+08:00
+updated: 2024-05-12T00:11:17+08:00
 ---
 
 ## 前言 

@@ -1,10 +1,10 @@
 ---
-layout: post
-title: "现代 vim 编辑器指北"
+title: 现代 vim 编辑器指北
 date: 2022-02-08T18:15:00+08:00
-updated: 2023-04-24T11:14:04+08:00
+updated: 2024-05-12T00:11:17+08:00
 comments: true
-tags: [编辑器]
+tags:
+  - 编辑器
 permalink: /2022/02/08/2022/lunar-vim/
 ---
 

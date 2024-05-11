@@ -1,8 +1,7 @@
 ---
-layout: post
 title: "[Octopress]基础指引"
 date: 2016-02-27 13:40:54 +0800
-updated: 2024-05-11T15:38:04+08:00
+updated: 2024-05-12T00:11:17+08:00
 comments: true
 permalink: /2016/02/27/2016/2016-02-27-octopress-base/
 tags:

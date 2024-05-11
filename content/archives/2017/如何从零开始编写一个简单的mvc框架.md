@@ -1,10 +1,11 @@
 ---
-layout: post
-title: "如何从零开始编写一个简单的mvc框架[0]"
+title: 如何从零开始编写一个简单的mvc框架[0]
 date: 2017-04-15 23:21:32 +0800
 comments: true
-tags: [javascript]
+tags:
+  - javascript
 permalink: /2017/04/15/2017/2017-04-15-how-to-implement-a-simple-mvc/
+updated: 2024-05-12T00:11:17+08:00
 ---
 
 ## html解析器的原理以及实现
