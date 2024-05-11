@@ -4,7 +4,7 @@ date: 2018-04-18T20:30:10+08:00
 tags:
   - javascript
 comments: true
-updated: 2024-05-09T11:27:40+08:00
+updated: 2024-05-11T15:34:19+08:00
 ---
 
 ### 导读
@@ -60,7 +60,7 @@ var time = "2018-01-03 13:30:00"
 
 这里我们就照着 ECMA-262 [^2] 来看: 位于 20.3.1 date 一章中有关于 Date Time String Format 的描述
 
-具体如下:[]()
+具体如下:
 
 > 20.3.1.16 Date Time String Format
 > ECMAScript defines a string interchange format for date‑times based upon a simplification of the ISO 8601
@@ -105,7 +105,6 @@ moment('2017-8-8') // Invalid Date
 
 但是从使用者角度来讲, chrome / firefox 这种优秀的容错体验确实要比 safari/IE 来的好用的多,在这些可以 flexible 的地方, chrome 考虑的更为周全和详细。
 
-### 参考文献:
 
 [^1]: Wikipedia, ISO 8601, [https://en.wikipedia.org/wiki/ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 [^2]: Ecma, ECMA-262, [http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf)

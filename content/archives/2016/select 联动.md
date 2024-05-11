@@ -1,10 +1,12 @@
 ---
 layout: post
-title: "select 联动"
+title: select 联动
 date: 2016-08-10 17:09:57 +0800
 comments: true
-tags: [javascript]
+tags:
+  - javascript
 permalink: /2016/08/10/2016/2016-08-10-formlinkage/
+updated: 2024-05-11T15:36:43+08:00
 ---
 
 ## 1. 介绍
@@ -193,4 +195,4 @@ new formLinkage(datas, ['province', 'city', 'county']);
 
 ## 6 完整demo
 
-需要查看完整的demo的话 --->[点击这里](http://iceprosurface.com/demo/linkagedemo.html "demo")
+需要查看完整的demo的话 --->[点击这里](http://cdn.iceprosurface.com/demo/linkagedemo.html "demo")

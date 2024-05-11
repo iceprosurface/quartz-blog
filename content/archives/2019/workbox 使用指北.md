@@ -4,7 +4,7 @@ date: 2019-03-27T20:10:00+08:00
 tags:
   - javascript
 comments: true
-updated: 2024-05-09T11:27:01+08:00
+updated: 2024-05-11T15:34:51+08:00
 permalink: /2019/03/27/2019/guide-of-workbox/
 ---
 
@@ -232,7 +232,6 @@ workbox.routing.registerRoute(
 
 
 
-## 参考文献：
 
 [^1]: Matt Gaunt,Service Worker：简介, [https://developers.google.com/web/fundamentals/primers/service-workers/?hl=zh-cn](https://developers.google.com/web/fundamentals/primers/service-workers/?hl=zh-cn)
 [^2]: mnot,Two HTTP Caching Extensions, [https://www.mnot.net/blog/2007/12/12/stale](https://www.mnot.net/blog/2007/12/12/stale)
