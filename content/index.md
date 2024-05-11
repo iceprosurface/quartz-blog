@@ -1,7 +1,7 @@
 ---
 title: 欢迎来到 icepro`s blog
 date: 2024-05-11T09:57:08+08:00
-updated: 2024-05-11T15:50:32+08:00
+updated: 2024-05-11T16:08:11+08:00
 ---
 
 hello 👋，我是 iceprosurface, 当然一般来说我用 icepro 这个名字更多一点。
@@ -17,4 +17,8 @@ hello 👋，我是 iceprosurface, 当然一般来说我用 icepro 这个名字�
 归档的长文地址将会固定不变，同时旧的文章会按照相对合理的方式做 MOC 进行整理。
 
 在本站中搜索东西可以使用快捷键 `command+K` win 上我没咋使用，估计应该是 `control+K`
-，
+
+目前来讲比较大块的知识点是下面这几个：
+
++ #前端 
++ #javascript 
