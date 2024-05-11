@@ -1,18 +1,11 @@
-# Quartz v4
+# icepro`s blog
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+这里是 icepro 博客的源码站，由于 obisidian 本身的博客内容中存在一些敏感内容（部分可能存在密码等），所以单独划分了一块区域用于对外发布。
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
-Quartz v4 features a from-the-ground rewrite focusing on end-user extensibility and ease-of-use.
+他们会使用 github action 的方式合并到这个仓库，通常标题是 ：
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
+```
+sync from the knowledge base
+```
 
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
-
-## Sponsors
-
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+本身知识库和对外展示会逐渐适配 quartz ，所以在很长一段的时间内浏览体验肯定是不如之前的。
