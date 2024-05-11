@@ -19,6 +19,7 @@ import DesktopOnly from "./DesktopOnly"
 import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
+import DirectLink from "./DirectLink"
 
 export {
   ArticleTitle,
@@ -26,6 +27,7 @@ export {
   TagContent,
   FolderContent,
   Darkmode,
+  DirectLink,
   Head,
   PageTitle,
   ContentMeta,
