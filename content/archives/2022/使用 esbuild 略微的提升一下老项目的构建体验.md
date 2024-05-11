@@ -1,10 +1,11 @@
 ---
 title: 使用 esbuild 略微的提升一下老项目的构建体验
 date: 2022-10-27T19:32:10+08:00
-updated: 2024-05-09T11:27:17+08:00
+updated: 2024-05-11T15:45:28+08:00
 permalink: /2022/esbuild-speed-up-project/
 tags:
   - 编译
+  - 前端
 ---
 
 ## 前言

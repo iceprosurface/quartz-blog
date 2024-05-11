@@ -1,9 +1,10 @@
 ---
 title: leetcode：Add Two Numbers(#2)
 date: 2018-06-26T15:36:51+08:00
-tags: [算法, javascript]
+tags:
+  - 算法
 comments: true
-updated: 2022-10-22T21:02:58+08:00
+updated: 2024-05-11T15:44:28+08:00
 permalink: /2018/06/24/2018/leetcode/2/
 ---
 

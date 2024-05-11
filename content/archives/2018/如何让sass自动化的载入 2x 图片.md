@@ -1,9 +1,10 @@
 ---
 title: 如何让sass自动化的载入 2x 图片
 date: 2018-09-27T06:16:46+08:00
-tags: [样式]
+tags:
+  - 前端
 comments: true
-updated: 2023-04-23T18:37:10+08:00
+updated: 2024-05-11T15:40:48+08:00
 permalink: /2018/09/26/2018/auto-bg-with-sass/
 ---
 

@@ -1,10 +1,12 @@
 ---
 title: 用户自定义icon的纯色显示
 date: 2018-01-21T21:33:15+08:00
-tags: [javascript]
+tags:
+  - javascript
+  - 工具
 comments: true
 permalink: /2018/01/21/2018/custom-icon/
-updated: 2022-10-22T21:05:05+08:00
+updated: 2024-05-11T15:44:50+08:00
 ---
 
 ## 1. 需求

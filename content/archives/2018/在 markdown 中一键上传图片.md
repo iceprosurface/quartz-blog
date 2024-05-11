@@ -1,9 +1,10 @@
 ---
 title: 在 markdown 中一键上传图片
 date: 2018-04-09T07:00:53+08:00
-tags: 
+tags:
+  - 工具
 comments: true
-updated: 2024-05-09T11:26:45+08:00
+updated: 2024-05-11T15:39:24+08:00
 permalink: /2018/04/08/2018/qiniu-picture-clould/
 ---
 

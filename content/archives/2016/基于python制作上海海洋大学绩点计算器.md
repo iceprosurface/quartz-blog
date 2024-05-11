@@ -1,11 +1,12 @@
 ---
 layout: post
-title: "基于python制作上海海洋大学绩点计算器"
+title: 基于python制作上海海洋大学绩点计算器
 date: 2016-04-04 17:07:49 +0800
-updated: 2016-05-29 20:41:06 +0800
+updated: 2024-05-11T15:41:09+08:00
 comments: true
 permalink: /2016/04/04/2016-04-04-base-on-python-cal/
-tags: [python]
+tags:
+  - 工具
 ---
 
 ## 原因
