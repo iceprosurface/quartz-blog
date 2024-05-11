@@ -37,6 +37,10 @@ export function googleFontHref(theme: Theme) {
 }
 
 export function joinStyles(theme: Theme, ...stylesheet: string[]) {
+
+  // --headerFont: "${theme.typography.header}", ${DEFAULT_SANS_SERIF};
+  // --bodyFont: "${theme.typography.body}", ${DEFAULT_SANS_SERIF};
+  // --codeFont: "${theme.typography.code}", ${DEFAULT_MONO};
   return `
 ${stylesheet.join("\n\n")}
 
@@ -49,10 +53,6 @@ ${stylesheet.join("\n\n")}
   --secondary: ${theme.colors.lightMode.secondary};
   --tertiary: ${theme.colors.lightMode.tertiary};
   --highlight: ${theme.colors.lightMode.highlight};
-
-  --headerFont: "${theme.typography.header}", ${DEFAULT_SANS_SERIF};
-  --bodyFont: "${theme.typography.body}", ${DEFAULT_SANS_SERIF};
-  --codeFont: "${theme.typography.code}", ${DEFAULT_MONO};
 }
 
 :root[saved-theme="dark"] {

@@ -12,6 +12,7 @@
     "url": "https://github.com/jackyzha0/quartz.git"
   },
   "scripts": {
+    "collectFont": "node ./scripts/collect-font.mjs",
     "quartz": "./quartz/bootstrap-cli.mjs",
     "dev": "npx quartz build --serve",
     "build": "npx quartz build",
@@ -112,6 +113,8 @@
     "@types/ws": "^8.5.10",
     "@types/yargs": "^17.0.32",
     "esbuild": "^0.19.9",
+    "fontmin": "^1.0.1",
+    "klaw": "^4.1.0",
     "prettier": "^3.2.4",
     "tsx": "^4.7.1",
     "typescript": "^5.4.3"
