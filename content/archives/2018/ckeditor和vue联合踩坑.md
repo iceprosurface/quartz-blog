@@ -1,9 +1,12 @@
 ---
-title: ckeditor + vue联合踩坑
+title: ckeditor和vue联合踩坑
 date: 2018-01-19T05:16:46+08:00
-tags: [vue, 编辑器, 前端]
+tags:
+  - vue
+  - 编辑器
+  - 前端
 comments: true
-updated: 2022-10-22T21:04:51+08:00
+updated: 2024-05-11T16:28:48+08:00
 permalink: /2018/01/18/2018/ckeditor/
 ---
 
