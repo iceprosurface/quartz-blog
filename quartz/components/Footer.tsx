@@ -1,34 +1,48 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import style from "./styles/footer.scss"
-import { version } from "../../package.json"
-import { i18n } from "../i18n"
 
 interface Options {
   links: Record<string, string>
 }
-
 export default ((opts?: Options) => {
   const Footer: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
     const year = new Date().getFullYear()
     const links = opts?.links ?? []
     return (
-      <footer class={`${displayClass ?? ""}`}>
-        <hr />
-        <p>
-          {i18n(cfg.locale).components.footer.createdWith}{" "}
-          <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a> © {year}
-        </p>
-        <ul>
-          {Object.entries(links).map(([text, link]) => (
-            <li>
-              <a href={link}>{text}</a>
-            </li>
-          ))}
-        </ul>
+      <footer class="footer">
+        <div class="outer">
+          <div class="footer-left">
+            © {year} icepro
+          </div>
+          <div class="footer-right">
+            powered by
+            <a href="https://github.com/jackyzha0/quartz" target="_blank">quartz</a>
+          </div>
+        </div>
       </footer>
     )
   }
 
-  Footer.css = style
+  // 不知道为什么修改这个没有作用
+  Footer.css = `
+footer {
+  font-size: 12px;
+  font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
+  text-shadow: 0 1px #fff;
+  opacity: 0.6;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 24px;
+  margin-top: 12px;
+}
+footer a {
+  background: rgba(0, 0, 0, 0);
+  text-decoration: none;
+  color: #08c;
+}
+footer .outer {
+  display: flex;
+  padding: 0 30px;
+  justify-content: space-between;
+}`;
   return Footer
 }) satisfies QuartzComponentConstructor

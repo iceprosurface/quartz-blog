@@ -24,8 +24,8 @@ export const defaultContentPageLayout: PageLayout = {
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
-    Component.DesktopOnly(Component.RecentNotes()),
     Component.Darkmode(),
+    Component.DesktopOnly(Component.RecentNotes()),
     Component.DirectLink({
       link: '/archives/',
       title: '归档'

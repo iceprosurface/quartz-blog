@@ -147,7 +147,10 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> 
   const opts = { ...defaultOptions, ...userOpts }
 
   const mdastToHtml = (ast: PhrasingContent | Paragraph) => {
-    const hast = toHast(ast, { allowDangerousHtml: true })!
+    const hast = toHast(ast, {
+      allowDangerousHtml: true,
+      footnoteLabel: "脚注"
+    })!
     return toHtml(hast, { allowDangerousHtml: true })
   }
 
@@ -276,9 +279,8 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> 
                     return {
                       type: "html",
                       data: { hProperties: { transclude: true } },
-                      value: `<blockquote class="transclude" data-url="${url}" data-block="${block}"><a href="${
-                        url + anchor
-                      }" class="transclude-inner">Transclude of ${url}${block}</a></blockquote>`,
+                      value: `<blockquote class="transclude" data-url="${url}" data-block="${block}"><a href="${url + anchor
+                        }" class="transclude-inner">Transclude of ${url}${block}</a></blockquote>`,
                     }
                   }
 

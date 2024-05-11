@@ -65,12 +65,33 @@ dependencies:
   mdast-util-find-and-replace:
     specifier: ^3.0.1
     version: 3.0.1
+  mdast-util-gfm:
+    specifier: ^3.0.0
+    version: 3.0.0
+  mdast-util-gfm-autolink-literal:
+    specifier: ^2.0.0
+    version: 2.0.0
+  mdast-util-gfm-footnote:
+    specifier: ^2.0.0
+    version: 2.0.0
+  mdast-util-gfm-strikethrough:
+    specifier: ^2.0.0
+    version: 2.0.0
+  mdast-util-gfm-table:
+    specifier: ^2.0.0
+    version: 2.0.0
+  mdast-util-gfm-task-list-item:
+    specifier: ^2.0.0
+    version: 2.0.0
   mdast-util-to-hast:
     specifier: ^13.1.0
     version: 13.1.0
   mdast-util-to-string:
     specifier: ^4.0.0
     version: 4.0.0
+  micromark-extension-gfm:
+    specifier: ^3.0.0
+    version: 3.0.0
   micromorph:
     specifier: ^0.4.5
     version: 0.4.5
