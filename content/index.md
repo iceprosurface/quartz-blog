@@ -1,7 +1,7 @@
 ---
 title: 欢迎来到 icepro`s blog
 date: 2024-05-11T09:57:08+08:00
-updated: 2024-05-11T16:08:11+08:00
+updated: 2024-05-11T16:13:38+08:00
 ---
 
 hello 👋，我是 iceprosurface, 当然一般来说我用 icepro 这个名字更多一点。
@@ -22,3 +22,8 @@ hello 👋，我是 iceprosurface, 当然一般来说我用 icepro 这个名字�
 
 + #前端 
 + #javascript 
+
+希望未来能茁壮成长的知识点有：
++ #csharp 
++ #游戏开发 
++ #方法论 
