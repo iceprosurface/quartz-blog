@@ -1,10 +1,12 @@
 ---
-title: 如何在 webview 中调用 javascript 
+title: 如何在 webview 中调用 javascript
 date: 2020-05-04T19:19:16+08:00
-tags: [javascript, android]
+tags:
+  - javascript
+  - android
 comments: true
 permalink: /2020/05/04/2020/call-js-for-android/
-updated: 2023-04-23T19:00:54+08:00
+updated: 2024-05-11T18:18:51+08:00
 ---
 ## 序
 
@@ -128,6 +130,7 @@ webview.addJavascriptInterface(object: JsCallbackFn {
 随后你就可以开始测试了，随便试一下，嗯传指什么的是没问题的了！
 
 <vblock video="https://cdn.iceprosurface.com/upload/md/video/2020-05-04-14-37-20.mp4"></vblock>
+<video src="https://cdn.iceprosurface.com/upload/md/video/2020-05-04-14-37-20.mp4" controls />
 
 
 ## 更简单的方法？
