@@ -5,7 +5,7 @@ tags:
   - javascript
   - 前端
 comments: true
-updated: 2024-05-11T18:23:17+08:00
+updated: 2024-05-11T21:35:47+08:00
 permalink: /2019/06/12/2019/seldom-web-api/
 ---
 
@@ -47,6 +47,7 @@ window.addEventListener('visibilitychange', () => {
 ```
 
 效果差不多是这样：
+
 ![效果图](https://cdn.iceprosurface.com/upload/md/2018-12-24-1.gif)
 
 这个 api 有很多用途，比如当手机锁屏时，把播放的内容暂停等等，兼容性在桌面端也是足够使用了：

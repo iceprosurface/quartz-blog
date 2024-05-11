@@ -3,7 +3,7 @@ title: notion blog
 date: 2021-11-14T18:35:16+08:00
 tags: 生活
 comments: true
-updated: 2022-10-22T21:10:34+08:00
+updated: 2024-05-11T21:34:22+08:00
 permalink: /2021/11/14/2021/notion-blog/
 ---
 
@@ -17,4 +17,4 @@ permalink: /2021/11/14/2021/notion-blog/
 
 __来自 2022年09月04日的更新__
 
-由于 notion 在国内访问速度实在太慢了，所以最终还是继续发布在这里了，并且 目前主要使用 Obsidian 代替作为管理器了。
+由于 notion 在国内访问速度实在太慢了，所以最终还是继续发布在这里了，并且目前主要使用 Obsidian 代替作为管理器了。
