@@ -3,7 +3,7 @@ title: notion blog
 date: 2021-11-14T18:35:16+08:00
 tags: 生活
 comments: true
-updated: 2024-05-12T10:53:41+08:00
+updated: 2024-05-12T17:24:29+08:00
 permalink: /2021/11/14/2021/notion-blog/
 ---
 
@@ -15,6 +15,6 @@ permalink: /2021/11/14/2021/notion-blog/
 
 当然不排除以后，我用 react-notion-x 搭建一个基于 notion cms 管理的页面，当然这是后话了。
 
-__来自 2022年09月04日的更新__ ^10myd0
+__来自 2022年09月04日的更新__
 
 由于 notion 在国内访问速度实在太慢了，所以最终还是继续发布在这里了，并且目前主要使用 Obsidian 代替作为管理器了。

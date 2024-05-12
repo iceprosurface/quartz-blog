@@ -1,9 +1,10 @@
 ---
 title: url 地址栏的长度上限
 date: 2020-05-06T17:37:22+08:00
-tags: [javascript]
+tags:
+  - javascript
 comments: true
-updated: 2022-10-22T21:09:56+08:00
+updated: 2024-05-12T17:27:15+08:00
 permalink: /2020/05/06/2020/max-length-of-url/
 ---
 
