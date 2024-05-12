@@ -1,7 +1,7 @@
 ---
 title: icepro 博客开发故事
 date: 2024-05-12T10:48:07+08:00
-updated: 2024-05-12T11:51:39+08:00
+updated: 2024-05-12T11:55:48+08:00
 permalink: /blog/moc
 tags:
   - 生活
@@ -10,7 +10,7 @@ ccby: true
 
 # 博客开发的框架
 
-首先在早些时候的 [文章](./archives/2021/notion-blog#^10myd0)  里面就提到过博客的管理其实很早就以前到了 obisidian 中了，[obsidian](https://obsidian.md/) 也是我日常笔记的软件了，本身 obsidian 是有一个 [发布服务](https://obsidian.md/pricing) 的 ，用来将站点整个发布为网站，收费 8 到 大概 60 块钱不到，按这个价格给我用肯定是不划算的。
+首先在早些时候的 [文章](./archives/2021/notion-blog#^10myd0)  里面就提到过博客的管理其实很早就以前到了 obisidian 中了，[obsidian](https://obsidian.md/) 也是我日常笔记的软件了，本身 obsidian 是有一个 [发布服务](https://obsidian.md/pricing) 的 ，用来将站点整个发布为网站，收费 $8 大概 60 块钱不到每月，按这个价格给我用肯定是不划算的，毕竟我们有可以白嫖的对象存储 & cdn 以及优秀的 github 构建服务。
 
 ![image.png](https://cdn.iceprosurface.com/upload/md/20240512105911.png)
 
@@ -19,7 +19,7 @@ ccby: true
 
 ![image.png](https://cdn.iceprosurface.com/upload/md/20240512110846.png)
 
-总的来说还是很方便的，因为 obsidian 虽然内置的 git 性能很差，但是如果只是增量同步到 git 去 commit stage 的修改还是不错的。
+总的来说还是很方便的，因为 obsidian 虽然内置的 git 性能很差，但是如果只是 *增量同步* 到 git 去 commit stage 的修改还是不错的。
 
 后来在年初的时候看到了 [quartz](https://github.com/jackyzha0/quartz) 这个是一个把 obsidian 的 markdown 文件直接转换成网站的框架，用 preact 开发（只是当模板引擎，功能上似乎有一些额外的开发成本）。
 
@@ -80,6 +80,7 @@ const textSet = new Set();
 const dir = path.resolve(__dirname, "../content");
 const files = klaw(dir);
 for await (const file of files) {
+  // 我这里是全收集，可以考虑只收集 markdown 的字符
   if (!file.stats.isDirectory()) {
     const content = fs.readFileSync(file.path, 'utf8');
     for(let i = 0; i < content.length; i++) {
@@ -97,7 +98,7 @@ const fontmin = new Fontmin()
     hinting: false 
   }))
   .use(Fontmin.ttf2woff({
-    deflate: true           // deflate woff. default = false
+    deflate: true
   }))
   .use(Fontmin.ttf2woff2())
   .use(Fontmin.ttf2eot())
@@ -121,7 +122,7 @@ fontmin.run(function (err, files) {
 
 ![image.png](https://cdn.iceprosurface.com/upload/md/20240512113650.png)
 
-woff2 444k 的大小对于 web 来说已经完全可以接受，而且更新频率不会太高，毕竟常用字就这些，难得会修改一次。
+woff2 444k 的大小对于 web 来说已经 **完全可以接受**，而且更新频率不会太高，毕竟常用字就这些，难得会修改一次。
 
 随后只需要去 head 里面添加内容即可：
 
