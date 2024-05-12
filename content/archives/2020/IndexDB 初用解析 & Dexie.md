@@ -1,9 +1,11 @@
 ---
 title: IndexDB 初用解析 & Dexie
 date: 2020-07-04T19:19:16+08:00
-tags: [javascript, 数据库]
+tags:
+  - javascript
+  - 数据库
 comments: true
-updated: 2023-04-24T11:06:57+08:00
+updated: 2024-05-12T12:42:32+08:00
 permalink: /2020/07/04/2020/dexiejs/
 ---
 
