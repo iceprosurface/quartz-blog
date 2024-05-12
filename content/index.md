@@ -1,7 +1,7 @@
 ---
 title: 欢迎来到 icepro`s blog
 date: 2024-05-11T09:57:08+08:00
-updated: 2024-05-12T11:57:25+08:00
+updated: 2024-05-12T13:46:37+08:00
 ---
 
 hello 👋，我是 iceprosurface, 当然一般来说我用 icepro 这个名字更多一点。
@@ -34,3 +34,4 @@ hello 👋，我是 iceprosurface, 当然一般来说我用 icepro 这个名字�
 附录：
 
 [[相关协议]]
+[[关于访问速度]]
