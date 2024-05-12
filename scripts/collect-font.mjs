@@ -19,7 +19,7 @@ for await (const file of files) {
 const allText = Array.from(textSet).join('');
 console.log(allText);
 const fontmin = new Fontmin()
-  .src(path.resolve(__dirname,'./LXGWWenKaiLite-Light.ttf'))
+  .src(path.resolve(__dirname,'./LXGWWenKai-Light.ttf'))
   .use(Fontmin.glyph({
     text: allText,
     hinting: false 

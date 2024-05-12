@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "blwk-lite";
+    src: url("LXGWWenKai-Light.eot"); /* IE9 */
+    src: local("blwk-lite"), url("LXGWWenKai-Light.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("LXGWWenKai-Light.woff2") format("woff2"), /* chrome 36+, firefox 39+,iOS 10+, Android 67+ */
+    url("LXGWWenKai-Light.woff") format("woff"), /* chrome, firefox */
+    url("LXGWWenKai-Light.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url("LXGWWenKai-Light.svg#blwk-lite") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+
+
