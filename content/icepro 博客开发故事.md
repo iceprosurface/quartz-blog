@@ -1,7 +1,7 @@
 ---
 title: icepro 博客开发故事
 date: 2024-05-12T10:48:07+08:00
-updated: 2024-05-12T11:42:29+08:00
+updated: 2024-05-12T11:51:39+08:00
 permalink: /blog/moc
 tags:
   - 生活
@@ -21,7 +21,7 @@ ccby: true
 
 总的来说还是很方便的，因为 obsidian 虽然内置的 git 性能很差，但是如果只是增量同步到 git 去 commit stage 的修改还是不错的。
 
-后来在年初的时候看到了 [quartz][https://github.com/jackyzha0/quartz] 这个是一个把 obsidian 的 markdown 文件直接转换成网站的框架，用 preact 开发（只是当模板引擎，功能上似乎有一些额外的开发成本）。
+后来在年初的时候看到了 [quartz](https://github.com/jackyzha0/quartz) 这个是一个把 obsidian 的 markdown 文件直接转换成网站的框架，用 preact 开发（只是当模板引擎，功能上似乎有一些额外的开发成本）。
 
 所以就打算用他来转换一下博客，这两天试了一下，总体很顺利，下面记录一下是怎么做的。
 
@@ -36,28 +36,28 @@ ccby: true
 + [https://github.com/actions/checkout](https://github.com/actions/checkout)
 + [https://github.com/pnpm/action-setup](https://github.com/pnpm/action-setup)
 + [https://quartz.jzhao.xyz/hosting#vercel](https://quartz.jzhao.xyz/hosting#vercel)
-+
+
 当然推荐对这方便知识薄弱的同学还是直接使用 Cloudflare Pages 更容易点，框架也有官方的指南： [https://quartz.jzhao.xyz/hosting#cloudflare-pages](https://quartz.jzhao.xyz/hosting#cloudflare-pages)
 
 
 # 源码改动
 
-对于源码这边还是会做一些修改的，这里会记录一些比较有意义的修改。由于修改应该不会向上游推送（如果需要推送会单独起一个仓库），所以修改上怎么方便怎么来，并且也不会特意做 i18n。
+对于源码这边还是会做一些修改的，这里会记录一些比较有意义的修改。由于修改应该不会向上游推送（如果需要推送会单独起一个仓库），所以修改上 _怎么方便怎么来_，并且也不会 **特意** 做 i18n。
 
 ## 字体
 本身网站的字体设置上有 self host 和 google font 两种，对我来说一般情况 google font 就足够了，不过这个字体和我用的还不太一致，所以这里对字体做了一些处理。
 
-本身 obsidian 中在使用的全局字体是 [霞鹜文楷](https://github.com/lxgw/LxgwWenKai) 是一个我认为比较精美且字比较齐全的字体。
+本身 obsidian 中在使用的全局字体是 [霞鹜文楷](https://github.com/lxgw/LxgwWenKai) 是一个我认为 **比较精美** 且字 **比较齐全** 的字体。
 
-不过他也有一个比较大问题，字越全，字体就越大，全部的字体大小高达 20M，即使转换 ttf 变成 woff2 也是不能 **接受的字体大小**。
+不过他也有一个比较大问题，字越全，字体就越大，全部的字体大小 **高达 20M**，即使转换 ttf 变成 woff2 也是不能 **接受的字体大小**。
 
 ![image.png](https://cdn.iceprosurface.com/upload/md/20240512112602.png)
 
-即使是 LxgwWenKai-Lite 这个轻便版本也足足有 10m：
+即使是 LxgwWenKai-Lite 这个轻便版本 <u>也足足有 10m</u>：
 
 ![image.png](https://cdn.iceprosurface.com/upload/md/20240512113414.png)
 
-这对于 web 的加载几乎是不可接受的。不过好在他的协议上允许对字体进行改造，这就带来了比较大的空间。
+这对于 web 的加载几乎 _**是不可接受的**_ 。不过好在他的协议上允许对字体进行改造，这就带来了比较大的空间。
 
 因为本身对外使用的博客常用字不会太多，所以我们只需要裁剪出现在在使用的字体即可，这里常用的字体裁剪工具是 [fontmin](https://github.com/ecomfe/fontmin) , 以前做页面基本都使用这个方法裁切字体。
 
