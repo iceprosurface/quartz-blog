@@ -1,7 +1,7 @@
 ---
 title: godot4 C# 单例获取节点
 date: 2024-05-08T14:40:22+08:00
-updated: 2024-05-09T11:52:26+08:00
+updated: 2024-05-13T10:33:23+08:00
 permalink: /2024/godot4-singleton/
 tags:
   - 游戏开发

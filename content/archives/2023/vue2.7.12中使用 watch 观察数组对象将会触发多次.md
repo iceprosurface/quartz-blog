@@ -1,9 +1,10 @@
 ---
 title: vue2.7.12中使用 watch 观察数组对象将会触发多次
 date: 2023-03-08T23:29:49+08:00
-updated: 2024-04-08T21:23:09+08:00
+updated: 2024-05-13T10:32:03+08:00
 permalink: /2023/vue-watch-bug-for-array-obj/
-tags: [vue]
+tags:
+  - vue
 ---
 
 ## 举个例子

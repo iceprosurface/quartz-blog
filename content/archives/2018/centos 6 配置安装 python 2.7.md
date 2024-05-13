@@ -1,9 +1,10 @@
 ---
 title: centos 6 配置安装 python 2.7
 date: 2018-04-18T05:19:01+08:00
-tags: [服务器]
+tags:
+  - 服务器
 comments: true
-updated: 2022-10-22T21:06:13+08:00
+updated: 2024-05-13T10:32:03+08:00
 permalink: /2018/04/17/2018/ss-on-centos6/
 ---
 

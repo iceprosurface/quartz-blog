@@ -5,7 +5,7 @@ tags:
 permalink: /2022/05/19/2022/class-validator/
 comments: true
 date: 2022-05-19T23:58:31+08:00
-updated: 2024-05-09T11:25:31+08:00
+updated: 2024-05-13T10:32:03+08:00
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: "[angular.js]第一章 基础知识篇"
 date: 2016-02-26 19:56:38 +0800
-updated: 2024-05-12T00:11:17+08:00
+updated: 2024-05-13T10:32:03+08:00
 comments: true
 tags:
   - 前端

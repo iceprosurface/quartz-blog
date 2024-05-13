@@ -1,9 +1,10 @@
 ---
-title: vscode vim 配置  
+title: vscode vim 配置
 date: 2022-09-04T12:46:40+08:00
-updated: 2022-09-13T17:29:21+08:00
+updated: 2024-05-13T10:32:03+08:00
 permalink: /2022/vscode-vim-config/
-tags: [编辑器]
+tags:
+  - 编辑器
 ---
 
 之前我介绍了一下 lunar-vim，lunar-vim 诚然是一个不错的选择，但是实际上在 vscode 中直接开启 vim 已经能有不错的体验的了，这里只需要稍稍做一下配置的修改即可。

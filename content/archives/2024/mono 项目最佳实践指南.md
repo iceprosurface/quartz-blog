@@ -1,7 +1,7 @@
 ---
 title: mono 项目最佳实践指南
 date: 2024-05-08T15:27:37+08:00
-updated: 2024-05-12T00:16:12+08:00
+updated: 2024-05-13T10:32:03+08:00
 permalink: /2024/monorepo-best-practices/
 tags:
   - 方法论

@@ -5,7 +5,7 @@ comments: true
 tags:
   - javascript
 permalink: /2017/04/15/2017/2017-04-15-how-to-implement-a-simple-mvc/
-updated: 2024-05-12T00:11:17+08:00
+updated: 2024-05-13T10:32:03+08:00
 ---
 
 ## html解析器的原理以及实现

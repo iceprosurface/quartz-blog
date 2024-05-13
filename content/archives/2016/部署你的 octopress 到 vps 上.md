@@ -5,7 +5,7 @@ comments: true
 permalink: /2016/05/23/2016/2016-05-23-octopress-to-new-vps/
 tags:
   - 服务器
-updated: 2024-05-12T00:11:12+08:00
+updated: 2024-05-13T10:32:03+08:00
 ---
 
 在github上挂了这么久的博客最后还是决定迁出blog，原因很简单吧，无非是github上面的速度实在有点慢，使用了大量的cnd站屏蔽了许多国外api，仍然无法在不使用vpn的情况下达到合理的访问时间（首次访问3s以下）

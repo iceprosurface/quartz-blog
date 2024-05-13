@@ -1,9 +1,10 @@
 ---
 title: 隐式转换的的部分奥秘-valueOf&toSring
 date: 2018-09-18T14:33:15+08:00
-tags: [javascript]
+tags:
+  - javascript
 comments: true
-updated: 2023-04-23T18:43:13+08:00
+updated: 2024-05-13T10:32:03+08:00
 permalink: /2018/09/18/2018/valueOf-and-toString/
 ---
 
