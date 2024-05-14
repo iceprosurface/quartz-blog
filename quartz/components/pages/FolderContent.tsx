@@ -7,7 +7,10 @@ import { stripSlashes, simplifySlug } from "../../util/path"
 import { Root } from "hast"
 import { htmlToJsx } from "../../util/jsx"
 import { i18n } from "../../i18n"
-
+import { FileNode } from "../ExplorerNode"
+import { QuartzPluginData } from "../../plugins/vfile"
+import { defaultOptions as ExplorerDefaultOptions } from './../Explorer'
+import { FolderList } from "../FolderList"
 interface FolderContentOptions {
   /**
    * Whether to display number of folders
@@ -48,6 +51,10 @@ export default ((opts?: Partial<FolderContentOptions>) => {
     return (
       <div class={classes}>
         <article>{content}</article>
+
+        <div class="folder-listing">
+          <FolderList {...props} />
+        </div>
         <div class="page-listing">
           {options.showFolderCount && (
             <p>
