@@ -38,7 +38,6 @@ export const FolderList: QuartzComponent = ({ allFolders, fileData, allFiles }: 
         此文件夹下有 {folderList.length} 个子文件夹
       </p>
       <ul class="folder-section-ul">
-
         {folderList?.map((folder) => {
           return (
             <li class="folder-section-li">
