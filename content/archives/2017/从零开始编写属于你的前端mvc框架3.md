@@ -5,7 +5,7 @@ comments: true
 tags:
   - javascript
 permalink: /2017/05/13/2017/2017-05-13-how-to-implement-a-simple-mvc-3/
-updated: 2024-05-13T10:32:03+08:00
+updated: 2024-05-14T11:11:11+08:00
 ---
 
 ## 1. 前言

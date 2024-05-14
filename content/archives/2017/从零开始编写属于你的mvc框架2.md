@@ -1,7 +1,7 @@
 ---
 title: 从零开始编写属于你的mvc框架[2]
 date: 2017-05-07 14:12:06 +0800
-updated: 2024-05-13T10:32:03+08:00
+updated: 2024-05-14T11:11:06+08:00
 comments: true
 tags:
   - javascript
@@ -9,7 +9,7 @@ permalink: /2017/05/07/2017/2017-05-7-how-to-implement-a-simple-mvc-2/
 ---
 
 
-##从零开始编写属于你的前端mvc框架[2]
+## 从零开始编写属于你的前端mvc框架 2
 
 ## 项目的工程化与基本架构
 
