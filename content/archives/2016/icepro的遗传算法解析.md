@@ -1,12 +1,13 @@
 ---
 title: icepro的遗传算法解析
 date: 2016-05-18 12:24:12 +0800
-updated: 2024-05-13T10:32:03+08:00
+updated: 2024-05-17T01:59:56+08:00
 comments: true
 tags:
   - javascript
   - 算法
 permalink: /2016/05/18/2016/2016-05-18-chromosome/
+draft: true
 ---
 
 

@@ -1,7 +1,9 @@
 ---
 title: 欢迎来到 icepro`s blog
 date: 2024-05-11T09:57:08+08:00
-updated: 2024-05-14T11:06:42+08:00
+updated: 2024-05-17T02:02:26+08:00
+tags:
+  - 生活
 ---
 
 hello 👋，我是 iceprosurface, 当然一般来说我用 icepro 这个名字更多一点。
@@ -22,6 +24,7 @@ hello 👋，我是 iceprosurface, 当然一般来说我用 icepro 这个名字�
 
 + [归档](/archives)
 + [[知识库/index|知识库入口]]
++ [游戏开发](知识库/游戏开发/index.md) （最近这边更新频率会更高一点）
 
 本博客相关的开发构建请前往 [[icepro 博客开发故事]]。
 

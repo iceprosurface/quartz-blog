@@ -1,11 +1,11 @@
 ---
 title: 基于 decorators 的 ant-design-vue 表单验证声明优化思路
 tags:
-  - javascript
+  - 前端
 permalink: /2022/05/19/2022/class-validator/
 comments: true
 date: 2022-05-19T23:58:31+08:00
-updated: 2024-05-17T00:56:13+08:00
+updated: 2024-05-17T02:01:26+08:00
 ---
 
 

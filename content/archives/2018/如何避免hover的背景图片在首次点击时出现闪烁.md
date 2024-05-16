@@ -3,8 +3,9 @@ title: 如何避免 hover 的背景图片在首次点击时出现闪烁
 date: 2018-09-27T23:16:46+08:00
 tags:
   - 前端
+  - 疑难杂症
 comments: true
-updated: 2024-05-13T10:32:03+08:00
+updated: 2024-05-17T01:55:14+08:00
 permalink: /2018/09/27/2018/avoid-flash-on-hovered-background/
 ---
 

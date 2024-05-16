@@ -1,7 +1,7 @@
 ---
 title: vscode vim 配置
 date: 2022-09-04T12:46:40+08:00
-updated: 2024-05-13T10:32:03+08:00
+updated: 2024-05-17T02:01:47+08:00
 permalink: /2022/vscode-vim-config/
 tags:
   - 编辑器

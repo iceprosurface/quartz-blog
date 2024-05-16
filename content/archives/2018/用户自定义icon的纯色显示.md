@@ -2,11 +2,11 @@
 title: 用户自定义icon的纯色显示
 date: 2018-01-21T21:33:15+08:00
 tags:
-  - javascript
   - 工具
+  - vue
 comments: true
 permalink: /2018/01/21/2018/custom-icon/
-updated: 2024-05-13T10:32:03+08:00
+updated: 2024-05-17T01:55:27+08:00
 ---
 
 ## 1. 需求

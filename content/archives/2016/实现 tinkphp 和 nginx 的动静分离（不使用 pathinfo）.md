@@ -4,8 +4,9 @@ date: 2016-06-13 13:14:16 +0800
 comments: true
 tags:
   - 后端
+  - php
 permalink: /2016/06/13/2016/2016-06-13-use-tp-on-niginx/
-updated: 2024-05-13T10:32:03+08:00
+updated: 2024-05-17T01:58:30+08:00
 ---
 
 ## 前言 

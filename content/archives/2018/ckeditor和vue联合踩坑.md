@@ -3,10 +3,10 @@ title: ckeditor和vue联合踩坑
 date: 2018-01-19T05:16:46+08:00
 tags:
   - vue
-  - 编辑器
   - 前端
+  - 富文本编辑器
 comments: true
-updated: 2024-05-13T10:32:03+08:00
+updated: 2024-05-17T01:55:50+08:00
 permalink: /2018/01/18/2018/ckeditor/
 ---
 

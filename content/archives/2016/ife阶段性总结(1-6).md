@@ -2,10 +2,10 @@
 title: ife阶段性总结(1-6)
 date: 2016-08-04 14:11:29 +0800
 comments: true
-tag:
-  - javascript
+tags:
+  - 生活
 permalink: /2016/08/04/2016/2016-08-04-ife-feeling-slash-s/
-updated: 2024-05-13T10:32:03+08:00
+updated: 2024-05-17T02:00:09+08:00
 ---
 
 ## 1. 零零碎碎的ife感想

@@ -4,8 +4,9 @@ date: 2017-04-16 17:36:06 +0800
 comments: true
 tags:
   - javascript
+  - 框架
 permalink: /2017/04/16/2017/2017-04-16-how-to-implement-a-simple-mvc/
-updated: 2024-05-14T11:11:09+08:00
+updated: 2024-05-17T01:57:27+08:00
 ---
 
 

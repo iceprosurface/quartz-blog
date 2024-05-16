@@ -1,7 +1,7 @@
 ---
 title: volar更新正式版本！
 date: 2022-10-11T11:17:05+08:00
-updated: 2024-05-13T10:32:03+08:00
+updated: 2024-05-17T02:01:44+08:00
 permalink: /2022/volar-1.0/
 tags:
   - vue

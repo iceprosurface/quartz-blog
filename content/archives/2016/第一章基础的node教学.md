@@ -3,9 +3,9 @@ title: "[nodejs]第一章基础的node教学"
 date: 2016-05-29 13:36:19 +0800
 comments: true
 tags:
-  - 前端
+  - node
 permalink: /2016/05/29/2016/2016-05-29-base-of-node-1/
-updated: 2024-05-13T10:32:03+08:00
+updated: 2024-05-17T01:57:42+08:00
 ---
 
 ## 1.起因

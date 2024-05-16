@@ -1,7 +1,7 @@
 ---
 title: media的使用
 date: 2016-03-15 22:34:40 +0800
-updated: 2024-05-13T10:32:03+08:00
+updated: 2024-05-17T02:00:26+08:00
 comments: true
 tags: javascript
 permalink: /2016/03/15/2016/2016-03-15-media-control/

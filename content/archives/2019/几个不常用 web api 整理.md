@@ -2,10 +2,9 @@
 title: 几个不常用 web api 整理
 date: 2019-06-12T20:10:00+08:00
 tags:
-  - javascript
   - 前端
 comments: true
-updated: 2024-05-13T10:32:03+08:00
+updated: 2024-05-17T02:00:51+08:00
 permalink: /2019/06/12/2019/seldom-web-api/
 ---
 

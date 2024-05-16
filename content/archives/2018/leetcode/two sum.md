@@ -3,8 +3,9 @@ title: leetcode： two sum(#1)
 date: 2018-06-24T16:36:51+08:00
 tags:
   - 算法
+  - javascript
 comments: true
-updated: 2024-05-17T01:29:49+08:00
+updated: 2024-05-17T01:54:29+08:00
 permalink: /2018/06/24/2018/leetcode/1/
 ---
 
