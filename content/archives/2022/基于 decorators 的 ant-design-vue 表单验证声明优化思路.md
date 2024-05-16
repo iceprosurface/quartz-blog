@@ -5,7 +5,7 @@ tags:
 permalink: /2022/05/19/2022/class-validator/
 comments: true
 date: 2022-05-19T23:58:31+08:00
-updated: 2024-05-13T10:32:03+08:00
+updated: 2024-05-17T00:56:13+08:00
 ---
 
 
@@ -50,7 +50,7 @@ rules: {
 
 <!-- more -->
 
-> 注意：下文所有代码皆为伪代码，不保证可运行，请自行勘误、编写后使用。
+> [!warning] 注意：下文所有代码皆为伪代码，不保证可运行，请自行勘误、编写后使用。
 
 ## class 方式的表单验证
 
@@ -125,7 +125,7 @@ useFormProvide(provideKey, form)
 
 ### decorators
 
-decorators 是处于 TC39 Stage2 阶段的语法提案，当然这一提案已经大变更过一次，由于各个浏览器厂商和使用者都有自己的想法，所以这块可能没这么容易定下来。
+decorators 是处于 [[../../知识库/编程/tc39|tc39]] Stage2 阶段的语法提案，当然这一提案已经大变更过一次，由于各个浏览器厂商和使用者都有自己的想法，所以这块可能没这么容易定下来。
 
 并且由于目前还处于实验阶段，无论使用 babel 亦或是 typesript 你都需要单独添加对应的配置，譬如 ts 中你需要主动声明 `"experimentalDecorators": true,`。
 

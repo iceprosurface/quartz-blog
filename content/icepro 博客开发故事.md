@@ -1,7 +1,7 @@
 ---
 title: icepro 博客开发故事
 date: 2024-05-12T10:48:07+08:00
-updated: 2024-05-12T17:24:39+08:00
+updated: 2024-05-16T18:30:30+08:00
 permalink: /blog/moc
 tags:
   - 生活

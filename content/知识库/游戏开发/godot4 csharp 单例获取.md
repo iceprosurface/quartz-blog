@@ -1,7 +1,7 @@
 ---
 title: godot4 C# 单例获取节点
 date: 2024-05-08T14:40:22+08:00
-updated: 2024-05-13T10:33:23+08:00
+updated: 2024-05-16T23:41:01+08:00
 permalink: /2024/godot4-singleton/
 tags:
   - 游戏开发
@@ -18,7 +18,7 @@ godot 4.1.2+
 
 
 ####  通过 GetMainLoop + sceneTree 获取
-一般来说需要使用 单例 获取的通常都是 autoloads 的代码，由于 MainLoop 实质上也是单例的，所以可以通过 mainLoop 来获得 sceneTree 通过 root GetNode 来获取
+一般来说需要使用 [[../编程/单例模式|单例模式]] 获取的通常都是 autoloads 的代码，由于 MainLoop 实质上也是单例的，所以可以通过 mainLoop 来获得 sceneTree 通过 root GetNode 来获取
 
 ```csharp
 public partial class Test : Node  

@@ -1,7 +1,7 @@
 ---
 title: Godot autoload 以及 csharp 单例模式
 date: 2024-05-12T15:57:25+08:00
-updated: 2024-05-12T17:23:33+08:00
+updated: 2024-05-16T23:41:30+08:00
 permalink: /game-dev/godot-autoloads-and-csharp/
 tags:
   - 游戏开发
@@ -23,7 +23,7 @@ ccby: false
 
 # c# 方案
 
-在 c# 中我们可以非常方便的实现一个单例
+在 c# 中我们可以非常方便的实现一个 [[../编程/单例模式|单例]]
 
 ```csharp
 public class DataCenter {  
