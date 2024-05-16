@@ -223,6 +223,9 @@ devDependencies:
   '@types/yargs':
     specifier: ^17.0.32
     version: 17.0.32
+  crypto:
+    specifier: ^1.0.1
+    version: 1.0.1
   esbuild:
     specifier: ^0.19.9
     version: 0.19.12
@@ -1727,6 +1730,11 @@ packages:
       shebang-command: 2.0.0
       which: 2.0.2
     dev: false
+
+  /crypto@1.0.1:
+    resolution: {integrity: sha512-VxBKmeNcqQdiUQUW2Tzq0t377b54N2bMtXO/qiLa+6eRRmmC4qT3D4OnTGoT/U6O9aklQ/jTwbOtRMTTY8G0Ig==}
+    deprecated: This package is no longer supported. It's now a built-in Node module. If you've depended on crypto, you should switch to the one that's built-in.
+    dev: true
 
   /css-tree@2.3.1:
     resolution: {integrity: sha512-6Fv1DV/TYw//QF5IzQdqsNDjx/wc8TrMBZsqjL9eW01tWb7R7k/mq+/VXfJCl7SoD5emsJop9cOByJZfs8hYIw==}

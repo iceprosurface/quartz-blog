@@ -1,3 +1,4 @@
+import { xlwkHash } from "../hash"
 import { i18n } from "../i18n"
 import { FullSlug, joinSegments, pathToRoot } from "../util/path"
 import { JSResourceToScriptElement } from "../util/resources"
@@ -29,7 +30,7 @@ export default (() => {
             <link rel="stylesheet" href={googleFontHref(cfg.theme)} />
           </>
         )}
-        <link rel="stylesheet" href="/static/blwk/LXGWWenKaiLite-Light.css" />
+        <link rel="stylesheet" href={`/static/xlwk/LXGWWenKai-Light-${xlwkHash}.css`} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />

@@ -104,12 +104,12 @@ const fontmin = new Fontmin()
   .use(Fontmin.ttf2eot())
   .use(Fontmin.css({
     base64: false,          
-    iconPrefix: 'blwk-lite', 
-    fontFamily: 'blwk-lite',  
+    iconPrefix: 'xlwk-lite', 
+    fontFamily: 'xlwk-lite',  
     asFileName: false,     
     local: true            
   }))
-  .dest('./quartz/static/blwk');
+  .dest('./quartz/static/xlwk');
 fontmin.run(function (err, files) {
   if (err) {
       throw err;
@@ -129,15 +129,15 @@ woff2 444k 的大小对于 web 来说已经 **完全可以接受**，而且更�
 https://github.com/iceprosurface/quartz-blog/blob/d7785f47c40bcf7bb180c17491f011b3e3372694/quartz/components/Head.tsx#L32
 
 ```HTML
-<link rel="stylesheet" href="/static/blwk/LXGWWenKaiLite-Light.css" />
+<link rel="stylesheet" href="/static/xlwk/LXGWWenKaiLite-Light.css" />
 ```
 
 随后前往 [base.scss](https://github.com/iceprosurface/quartz-blog/blob/d7785f47c40bcf7bb180c17491f011b3e3372694/quartz/styles/base.scss) 修改字体定义，并移除 [全局的 font 定义](https://github.com/iceprosurface/quartz-blog/blob/d7785f47c40bcf7bb180c17491f011b3e3372694/quartz/util/theme.ts#L47)_
 
 ```CSS
 :root {
-  --headerFont: "blwk-lite";
-  --bodyFont: "blwk-lite";
-  --codeFont: "blwk-lite";
+  --headerFont: "xlwk-lite";
+  --bodyFont: "xlwk-lite";
+  --codeFont: "xlwk-lite";
 }
 ```

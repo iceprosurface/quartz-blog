@@ -7,9 +7,6 @@ import { stripSlashes, simplifySlug } from "../../util/path"
 import { Root } from "hast"
 import { htmlToJsx } from "../../util/jsx"
 import { i18n } from "../../i18n"
-import { FileNode } from "../ExplorerNode"
-import { QuartzPluginData } from "../../plugins/vfile"
-import { defaultOptions as ExplorerDefaultOptions } from './../Explorer'
 import { FolderList } from "../FolderList"
 interface FolderContentOptions {
   /**
