@@ -1,7 +1,7 @@
 ---
 title: 在 setup 中挂载 vue 实例后 getCurrentInstance 无法获取 instance
 date: 2024-05-27T10:30:48+08:00
-updated: 2024-05-27T11:20:37+08:00
+updated: 2024-05-27T11:23:20+08:00
 permalink: /code/vue/getCurrentInstance-after-mount-vue-app/
 tags:
   - vue
@@ -106,9 +106,13 @@ watch(
 
 所以这里为什么后面的 instance 无法获取呢？回头思索了一下，因为 getCurrentInstanceProxy 这个函数也是我写的，理论上只有 **非 vue 上下文的环境**（currentInstance 是 null）的情况下才会有这个提示，可是为什么 vue 没有上下文呢，现在可还在 setup 里面？
 
+那么这里还是得从 vue CurrentInstance 的工作原理来看看问题的原因。
+
 ## vue currentInstance 的工作原理
 
-vue 的上下文原理是 **基于 js 单线程工作逻辑的**，他简单的维护了一个全局上下文，通过设置 global 的 currentInstance 来切换上下文，坏就坏在了这个 *全局的 currentInstance* 上面，看一下下面这个图：
+vue 的上下文原理是 **基于 js 单线程工作逻辑的**，他简单的维护了一个全局上下文，通过设置 global 的 currentInstance 来切换上下文，由于 vue 的 setup 仅允许工作在同步情况下，所以一般情况下不会出现两个实例同时挂载导致竞争 currentInstance 的问题。
+
+所以这个 bug 的核心问题就是：坏在了这个 *全局的 currentInstance* 上面，好巧不巧，我们成功的实现对 current instance 的多实例竞争，看一下下面这个图：
 
 
 ![](https://cdn.iceprosurface.com/upload/md/202405271106044.png)
