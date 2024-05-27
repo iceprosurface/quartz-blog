@@ -1,7 +1,7 @@
 ---
 title: 在 setup 中挂载 vue 实例后 getCurrentInstance 无法获取 instance
 date: 2024-05-27T10:30:48+08:00
-updated: 2024-05-27T11:05:36+08:00
+updated: 2024-05-27T11:12:37+08:00
 permalink: /code/vue/getCurrentInstance-after-mount-vue-app/
 tags:
   - vue
@@ -64,9 +64,15 @@ const vm = getCurrentInstanceProxy();
 
 `getCurrentInstanceProxy` 抛出了一个错误 `[getCurrentInstanceProxy]: 请勿在非 setup 上下文调用`
 
-而神奇的是，当 watch 函数关闭 immediate 时，这个问题就消失了，很好这 ***很 vue*** ，按照我多年 vue 阅读源码的经验告诉我，这个问题 ***9成9*** 是 vue 的锅。
+而神奇的是，当 watch 函数关闭 immediate 时，这个问题就消失了。
 
-然后我就和 @黄老师 讨论了起来，如果 message 不行，其他的函数可以么，随后实验了 modal 和 drawer 似乎也都有问题，虽然 message 的挂载函数不是我写的，没有什么印象，但是 drawer 和 modal 我可熟悉了，手把手写的，他的原理大致是这样的：
+> [!bug] 很好这 ***很 vue*** ，按照我多年 vue 阅读源码的经验告诉我，这个问题 ***9成9*** 是 vue 的锅。
+
+然后我就和 @黄老师 讨论了起来:
+
+> [!question] 如果 message 不行，其他的函数可以么?
+
+随后实验了 modal 和 drawer 似乎也都有问题，虽然 message 的挂载函数不是我写的，没有什么印象，但是 drawer 和 modal 我可熟悉了，手把手写的，他的原理大致是这样的：
 
 ```ts
 const useDialogShow(component: Component) {
@@ -95,12 +101,14 @@ watch(() => props.xxx, () => {
 
 ## vue currentInstance 的工作原理
 
-vue 的上下文原理是 **基于 js 单线程工作逻辑的**，他简单的维护了一个全局上下文，通过设置 global 的 currentInstance 来切换上下文，坏就坏在了这个全局的 currentInstance 上面，看一下下面这个图：
+vue 的上下文原理是 **基于 js 单线程工作逻辑的**，他简单的维护了一个全局上下文，通过设置 global 的 currentInstance 来切换上下文，坏就坏在了这个 *全局的 currentInstance* 上面，看一下下面这个图：
 
 
 ![](https://cdn.iceprosurface.com/upload/md/202405271106044.png)
 
-不论是 vue2 还是 vue3 在此前的逻辑上都是 在 setup 结束时将 currentInstance 置 null 来完成操作的，一般而言这个是没有问题的，因为很简单，setup 是同步函数，而挂载和初始化上下文也是同步操作，在这个同步上下文里面，随着下一个 setup 初始化，instance 总是正确的。
+不论是 vue2 还是 vue3 在此前的逻辑上都是 在 setup 结束时将 currentInstance 置 null 来完成操作的。
+
+一般而言这个是没有问题的，因为很简单，setup 是同步函数，而挂载和初始化上下文也是同步操作，在这个同步上下文的逻辑下，只要随着下一个 setup 初始化，instance 总是正确的。
 
 但是我们的代码有个问题：
 
