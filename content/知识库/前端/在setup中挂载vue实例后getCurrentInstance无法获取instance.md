@@ -1,7 +1,7 @@
 ---
 title: 在 setup 中挂载 vue 实例后 getCurrentInstance 无法获取 instance
 date: 2024-05-27T10:30:48+08:00
-updated: 2024-05-27T11:12:37+08:00
+updated: 2024-05-27T11:15:20+08:00
 permalink: /code/vue/getCurrentInstance-after-mount-vue-app/
 tags:
   - vue
@@ -121,7 +121,7 @@ watch immediate 也是同步操作，在同步操作中触发 setup 就会导致
 
 ![](https://cdn.iceprosurface.com/upload/md/202405271106046.png)
 
-对于 vue3，由于现在 最新的版本（vue@3.4.26）中已经移除了这个 bug ，你需要前往 vue@3.4.6 版本才能看到 [这个 bug 的源码](https://github.com/vuejs/core/blob/e04d821422102446704e223c03e50d26cbb1fe69/packages/runtime-core/src/component.ts#L683)：
+对于 vue3，由于现在 最新的版本（`vue @ 3.4.26`）中已经移除了这个 bug ，你需要前往 `vue @ 3.4.6` 版本才能看到 [这个 bug 的源码](https://github.com/vuejs/core/blob/e04d821422102446704e223c03e50d26cbb1fe69/packages/runtime-core/src/component.ts#L683)：
 
 ![](https://cdn.iceprosurface.com/upload/md/202405271106047.png)
 
