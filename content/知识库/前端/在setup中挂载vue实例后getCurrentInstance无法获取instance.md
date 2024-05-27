@@ -1,7 +1,7 @@
 ---
 title: 在 setup 中挂载 vue 实例后 getCurrentInstance 无法获取 instance
 date: 2024-05-27T10:30:48+08:00
-updated: 2024-05-27T11:18:41+08:00
+updated: 2024-05-27T11:20:37+08:00
 permalink: /code/vue/getCurrentInstance-after-mount-vue-app/
 tags:
   - vue
@@ -35,7 +35,7 @@ async function mountApi () {
 
 ## 起因
 
-这里需要 @黄老师 给我发的一个问题，我们的 vue2 组件库调用一个 *通知* 通常是这样的：
+问题来源是 @黄老师 给我发的一个问题，我们的 vue2 组件库调用一个 *通知* 通常是这样的：
 
 ```ts
 import { Message } from '@taptap/tds-ui-kit';
@@ -51,7 +51,6 @@ import { getCurrentInstanceProxy } from '@taptap/tds-tool-kit-fe-vue';
 import { watch } from 'vue';
 
 // 假装是在 setup 下
-
 watch(
   () => props.xxx,
   () => {
