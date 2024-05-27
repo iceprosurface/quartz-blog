@@ -1,7 +1,7 @@
 ---
 title: 在 setup 中挂载 vue 实例后 getCurrentInstance 无法获取 instance
 date: 2024-05-27T10:30:48+08:00
-updated: 2024-05-27T11:15:20+08:00
+updated: 2024-05-27T11:18:41+08:00
 permalink: /code/vue/getCurrentInstance-after-mount-vue-app/
 tags:
   - vue
@@ -52,11 +52,15 @@ import { watch } from 'vue';
 
 // 假装是在 setup 下
 
-watch(() => props.xxx, () => {
-	Message.info("xxx")
-}, { 
-	immediate: true 
-});
+watch(
+  () => props.xxx,
+  () => {
+    Message.info("xxx")
+  }, 
+  { 
+    immediate: true 
+  }
+);
 
 const vm = getCurrentInstanceProxy();
 
@@ -76,12 +80,12 @@ const vm = getCurrentInstanceProxy();
 
 ```ts
 const useDialogShow(component: Component) {
-	// 类型就省略了，大致看个意思就好
-	return function show(props) {
-		const app = new Vue({...});
-		const div = document.createElement('div');
-		app.$mount(div);
-	}
+  // 类型就省略了，大致看个意思就好
+  return function show(props) {
+    const app = new Vue({...});
+    const div = document.createElement('div');
+    app.$mount(div);
+  }
 }
 ```
 
@@ -89,11 +93,15 @@ const useDialogShow(component: Component) {
 
 ```ts
 const showXxxDrawer = useDialogShow(XxxDrawer)
-watch(() => props.xxx, () => {
-	showXxxDrawer({})
-}, { 
+watch(
+  () => props.xxx, 
+  () => {
+    showXxxDrawer({})
+  }, 
+  { 
 	immediate: true 
-});
+  }
+);
 
 ```
 
@@ -125,6 +133,5 @@ watch immediate 也是同步操作，在同步操作中触发 setup 就会导致
 
 ![](https://cdn.iceprosurface.com/upload/md/202405271106047.png)
 
-大约在 4 个 月前的版本中修复了这个问题： [修复 commit](https://github.com/vuejs/core/commit/7976f7044e66b3b7adac4c72a392935704658b10)
-
+大约在 4 个 月前的版本中修复了这个问题： [修复 commit](https://github.com/vuejs/core/commit/7976f7044e66b3b7adac4c72a392935704658b10) , 修复的方式也比较简单，基本和 @黄老师说的一样，通过闭包储存上一个 prev 在下一次 unset 的时候还原来实现。
 
