@@ -1,11 +1,12 @@
 ---
 title: icepro 博客开发故事
 date: 2024-05-12T10:48:07+08:00
-updated: 2024-05-28T19:35:34+08:00
+updated: 2024-05-28T20:00:05+08:00
 permalink: /blog/moc/
 tags:
   - 生活
 ccby: true
+comments: true
 ---
 
 # 博客开发的框架

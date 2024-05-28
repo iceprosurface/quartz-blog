@@ -2,10 +2,12 @@
 title: webpack5 资源处理上的小差异
 permalink: /2022/wepack5-asset-diff/
 date: 2022-05-22T19:35:10+08:00
-updated: 2024-05-17T02:01:50+08:00
+updated: 2024-05-28T20:01:24+08:00
 tags:
   - 编译
   - 前端
+ccby: true
+comments: true
 ---
 
 ## 前言

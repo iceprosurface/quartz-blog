@@ -1,10 +1,12 @@
 ---
 title: mono 项目最佳实践指南
 date: 2024-05-08T15:27:37+08:00
-updated: 2024-05-27T11:46:21+08:00
+updated: 2024-05-28T20:00:52+08:00
 permalink: /2024/monorepo-best-practices/
 tags:
   - 方法论
+comments: true
+ccby: true
 ---
 # 序言
 这是一篇 2022年的文章，补档用，里面的某些内容可能已经过时。

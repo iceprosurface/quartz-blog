@@ -1,10 +1,12 @@
 ---
 title: react dnd backend html5 与 默认 dnd 事件冲突
 date: 2024-04-08T23:29:49+08:00
-updated: 2024-05-12T17:27:16+08:00
+updated: 2024-05-28T20:01:10+08:00
 permalink: /2024/react-dnd-backend-html5-conflict-with-native-dnd/
 tags:
   - 前端
+comments: true
+ccby: true
 ---
 
 ## react dnd backend html5 做了什么？

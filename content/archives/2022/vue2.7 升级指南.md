@@ -1,11 +1,12 @@
 ---
 title: vue2.7 升级指南
 date: 2022-09-01T10:44:22+08:00
-updated: 2024-05-17T02:01:48+08:00
+updated: 2024-05-28T20:01:29+08:00
 permalink: /2022/vue-2.7-upgrade-guide/
 tags:
   - vue
   - 前端
+ccby: true
 ---
 
 ## 序
