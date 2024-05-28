@@ -27,7 +27,9 @@ const hash = generateHash(allText);
 const fontSrc = path.resolve(__dirname,`./LXGWWenKai-Light-${hash}.ttf`)
 // 先 cp 一份
 fs.copyFileSync(path.resolve(__dirname,'./LXGWWenKai-Light.ttf'), fontSrc)
-
+fs.rm('./quartz/static/xlwk', {
+  recursive: true
+})
 const fontmin = new Fontmin()
   .src(fontSrc)
   .use(Fontmin.glyph({

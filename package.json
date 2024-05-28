@@ -112,6 +112,7 @@
     "@types/source-map-support": "^0.5.10",
     "@types/ws": "^8.5.10",
     "@types/yargs": "^17.0.32",
+    "cheerio": "1.0.0-rc.12",
     "crypto": "^1.0.1",
     "esbuild": "^0.19.9",
     "fontmin": "^1.0.1",
