@@ -1,8 +1,8 @@
 ---
 title: icepro 博客开发故事
 date: 2024-05-12T10:48:07+08:00
-updated: 2024-05-16T18:30:30+08:00
-permalink: /blog/moc
+updated: 2024-05-28T19:35:34+08:00
+permalink: /blog/moc/
 tags:
   - 生活
 ccby: true
@@ -10,7 +10,7 @@ ccby: true
 
 # 博客开发的框架
 
-首先在早些时候的 [文章](./archives/2021/notion-blog)  里面就提到过博客的管理其实很早就以前到了 obisidian 中了，[obsidian](https://obsidian.md/) 也是我日常笔记的软件了，本身 obsidian 是有一个 [发布服务](https://obsidian.md/pricing) 的 ，用来将站点整个发布为网站，收费 $8 大概 60 块钱不到每月，按这个价格给我用肯定是不划算的，毕竟我们有可以白嫖的对象存储 & cdn 以及优秀的 github 构建服务。
+首先在早些时候的 [文章](../../archives/2021/notion-blog.md)  里面就提到过博客的管理其实很早就以前到了 obisidian 中了，[obsidian](https://obsidian.md/) 也是我日常笔记的软件了，本身 obsidian 是有一个 [发布服务](https://obsidian.md/pricing) 的 ，用来将站点整个发布为网站，收费 $8 大概 60 块钱不到每月，按这个价格给我用肯定是不划算的，毕竟我们有可以白嫖的对象存储 & cdn 以及优秀的 github 构建服务。
 
 ![image.png](https://cdn.iceprosurface.com/upload/md/20240512105911.png)
 
