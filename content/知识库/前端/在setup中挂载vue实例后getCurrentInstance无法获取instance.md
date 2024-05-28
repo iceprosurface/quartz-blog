@@ -1,13 +1,14 @@
 ---
 title: 在 setup 中挂载 vue 实例后 getCurrentInstance 无法获取 instance
 date: 2024-05-27T10:30:48+08:00
-updated: 2024-05-28T15:07:35+08:00
+updated: 2024-05-28T20:04:10+08:00
 permalink: /code/vue/getCurrentInstance-get-null-after-mount-vue-app/
 tags:
   - vue
   - 疑难杂症
 ccby: true
 draft: false
+comments: true
 ---
 # 结论
 
