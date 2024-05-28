@@ -18,6 +18,11 @@ async function init() {
     loadScript("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js")
       .then(() => loadScript("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js")),
   ]);
+  document.getElementById("tcomment")?.addEventListener('click', (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    return false
+  });
   (window as any).twikoo?.init({
     envId: 'https://comment.iceprosurface.com',
     el: '#tcomment',
@@ -26,7 +31,7 @@ async function init() {
 }
 init();
 
-document.addEventListener('nav', () => {
+document.addEventListener('nav', (event) => {
   init();
 })
 

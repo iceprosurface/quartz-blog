@@ -13,7 +13,7 @@ const isLocalUrl = (href: string) => {
     if (window.location.origin === url.origin) {
       return true
     }
-  } catch (e) {}
+  } catch (e) { }
   return false
 }
 
@@ -117,12 +117,17 @@ function createRouter() {
       // dont hijack behaviour, just let browser act normally
       if (!url || event.ctrlKey || event.metaKey) return
       event.preventDefault()
-
+  
       if (isSamePage(url) && url.hash) {
         const el = document.getElementById(decodeURIComponent(url.hash.substring(1)))
         el?.scrollIntoView()
         history.pushState({}, "", url)
         return
+      }
+
+      if(isSamePage(url) && window.location.href.endsWith('#')) {
+        // 说明是没有正确设置 hash 的 a 标签，跳过即可
+        return;
       }
 
       try {
