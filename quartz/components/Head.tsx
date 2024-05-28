@@ -21,6 +21,8 @@ export default (() => {
 
     return (
       <head>
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com"></link>
+        <link rel="preconnect" href="https://cdn.iceprosurface.com/"></link>
         <title>{title}</title>
         <meta charSet="utf-8" />
         {cfg.theme.cdnCaching && cfg.theme.fontOrigin === "googleFonts" && (
