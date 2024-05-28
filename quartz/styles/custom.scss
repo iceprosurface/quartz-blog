@@ -1,3 +1,7 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+.tk-footer {
+  // 移动到底部一起
+  visibility: hidden;
+}

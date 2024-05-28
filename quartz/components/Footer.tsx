@@ -14,8 +14,14 @@ export default ((opts?: Options) => {
             © {year} icepro
           </div>
           <div class="footer-right">
-            powered by
-            <a href="https://github.com/jackyzha0/quartz" target="_blank">quartz</a>
+            <span style="margin-right: 4px">
+              Comments by <a href="https://twikoo.js.org" target="_blank">Twikoo</a>
+            </span>
+            <span style="margin-right: 4px">,Site by</span>
+            <span>
+              <a href="https://github.com/jackyzha0/quartz" target="_blank">quartz</a>
+            </span>
+
           </div>
         </div>
       </footer>
