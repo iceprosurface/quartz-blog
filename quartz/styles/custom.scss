@@ -17,4 +17,7 @@
 
 .twikoo strong {
   color: var(--darkgray);
+  background-image: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
 }
