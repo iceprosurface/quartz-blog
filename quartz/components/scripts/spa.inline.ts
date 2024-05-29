@@ -117,7 +117,7 @@ function createRouter() {
       // dont hijack behaviour, just let browser act normally
       if (!url || event.ctrlKey || event.metaKey) return
       event.preventDefault()
-  
+
       if (isSamePage(url) && url.hash) {
         const el = document.getElementById(decodeURIComponent(url.hash.substring(1)))
         el?.scrollIntoView()
@@ -125,7 +125,7 @@ function createRouter() {
         return
       }
 
-      if(isSamePage(url) && window.location.href.endsWith('#')) {
+      if (isSamePage(url) && url.href.endsWith('#')) {
         // 说明是没有正确设置 hash 的 a 标签，跳过即可
         return;
       }
