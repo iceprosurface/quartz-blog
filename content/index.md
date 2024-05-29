@@ -1,7 +1,7 @@
 ---
 title: 欢迎来到 icepro`s blog
 date: 2024-05-11T09:57:08+08:00
-updated: 2024-05-28T20:23:20+08:00
+updated: 2024-05-28T22:46:50+08:00
 tags:
   - 生活
 ---
@@ -30,6 +30,7 @@ hello 👋，我是 iceprosurface, 当然一般来说我用 icepro 这个名字�
 
 + [icepro 博客开发故事](杂记/icepro%20博客开发故事.md)。
 + [关于评论系统](杂记/关于评论系统.md)
++ [quartz 缓存刷新问题](杂记/quartz%20缓存刷新问题.md)
 
 附录：
 
