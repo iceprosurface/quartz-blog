@@ -1,7 +1,7 @@
 ---
 title: vue2.7.12中使用 watch 观察数组对象将会触发多次
 date: 2023-03-08T23:29:49+08:00
-updated: 2024-05-28T20:01:18+08:00
+updated: 2024-05-30T11:37:45+08:00
 permalink: /2023/vue-watch-bug-for-array-obj/
 tags:
   - vue
@@ -12,7 +12,7 @@ comments: true
 
 ## 举个例子
 
-最近某 @黄同学 发现有这么一个奇怪的情况，使用 watch 监听数组的对象时，会 **奇怪的多触发一遍**。
+最近某 [Sleaf](../../朋友圈/Sleaf.md) 发现有这么一个奇怪的情况，使用 watch 监听数组的对象时，会 **奇怪的多触发一遍**。
 
 本着找找原因的想法，于是他整出一个最小 demo 差不多类似于下面这样：
 
@@ -41,7 +41,7 @@ combObj.value = { ...combObj.value, b: 3 }
 
 <!-- more -->
 
-看到某黄同学发来的视频，我满头问号 ❓ ❓ ❓。是我对 vue 的理解出了偏差？再次拿着下面的例子试了一下确实是这样的：
+看到某 [Sleaf](../../朋友圈/Sleaf.md) 发来的视频，我满头问号 ❓ ❓ ❓。是我对 vue 的理解出了偏差？再次拿着下面的例子试了一下确实是这样的：
 
 <iframe border="0" frameborder="0" height="600" width="100%" src="https://stackblitz.com/edit/github-yoj2vm-rgvmu9?embed=1&file=src/views/Main.vue" > </iframe>
 

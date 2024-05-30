@@ -1,7 +1,7 @@
 ---
 title: 在 setup 中挂载 vue 实例后 getCurrentInstance 无法获取 instance
 date: 2024-05-27T10:30:48+08:00
-updated: 2024-05-28T20:04:10+08:00
+updated: 2024-05-30T11:38:22+08:00
 permalink: /code/vue/getCurrentInstance-get-null-after-mount-vue-app/
 tags:
   - vue
@@ -37,7 +37,7 @@ async function mountApi () {
 
 ## 起因
 
-问题来源是  [@Sleaf](https://github.com/Sleaf)   给我发的一个问题，我们的 vue2 组件库调用一个 *通知* 通常是这样的：
+问题来源是 [Sleaf](../../朋友圈/Sleaf.md)  给我发的一个问题，我们的 vue2 组件库调用一个 *通知* 通常是这样的：
 
 ```ts
 import { Message } from '@taptap/tds-ui-kit';
@@ -73,7 +73,7 @@ const vm = getCurrentInstanceProxy();
 
 > [!bug] 很好这 ***很 vue*** ，按照我多年 vue 阅读源码的经验告诉我，这个问题 ***9成9*** 是 vue 的锅。
 
-然后我就和 [@Sleaf](https://github.com/Sleaf)  讨论了起来:
+然后我就和 [Sleaf](../../朋友圈/Sleaf.md) 讨论了起来:
 
 > [!question] 如果 message 不行，其他的函数可以么?
 
@@ -142,7 +142,7 @@ bug demo， 你可以打开控制看到 instance.proxy 读取的 instance 是 nu
 
 <iframe border="0" frameborder="0" height="600" width="100%" src="https://stackblitz.com/edit/vitejs-vite-tipnja?embed=1&file=src%2FApp.vue" > </iframe>
 
-大约在 4 个 月前的版本中修复了这个问题： [修复 commit](https://github.com/vuejs/core/commit/7976f7044e66b3b7adac4c72a392935704658b10) , 修复的方式也比较简单，基本和 [@Sleaf](https://github.com/Sleaf)  说的一样，通过闭包储存上一个 prev 在下一次 unset 的时候还原来实现。
+大约在 4 个 月前的版本中修复了这个问题： [修复 commit](https://github.com/vuejs/core/commit/7976f7044e66b3b7adac4c72a392935704658b10) , 修复的方式也比较简单，基本和 [Sleaf](../../朋友圈/Sleaf.md) 说的一样，通过闭包储存上一个 prev 在下一次 unset 的时候还原来实现。
 
 
 
