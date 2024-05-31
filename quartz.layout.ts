@@ -27,12 +27,8 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Darkmode(),
     Component.DesktopOnly(Component.RecentNotes()),
     Component.DirectLink({
-      link: '/archives/',
-      title: '归档'
-    }),
-    Component.DirectLink({
-      link: '/tags/',
-      title: '标签'
+      link: '/explore/',
+      title: '探索'
     })
   ],
   right: [
@@ -49,14 +45,8 @@ export const defaultListPageLayout: PageLayout = {
     Component.Breadcrumbs(),
     Component.MobileOnly(
       Component.DirectLink({
-        link: '/archives/',
-        title: '归档'
-      })
-    ),
-    Component.MobileOnly(
-      Component.DirectLink({
-        link: '/tags/',
-        title: '标签'
+        link: '/explore/',
+        title: '探索'
       })
     ),
     Component.ArticleTitle(),
@@ -70,16 +60,10 @@ export const defaultListPageLayout: PageLayout = {
     Component.DesktopOnly(Component.RecentNotes()),
     Component.DesktopOnly(
       Component.DirectLink({
-        link: '/archives/',
-        title: '归档'
+        link: '/explore/',
+        title: '探索'
       })
     ),
-    Component.DesktopOnly(
-      Component.DirectLink({
-        link: '/tags/',
-        title: '标签'
-      })
-    )
   ],
   right: [],
 }
