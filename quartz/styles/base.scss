@@ -62,9 +62,6 @@ ul,
 strong {
   font-weight: $semiBoldWeight;
   font-weight: 600;
-  background-image: linear-gradient(120deg, var(--strong-em-color-1) 0%, var(--strong-em-color-2) 80%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   & code {
     background: inherit;
   }
@@ -155,6 +152,12 @@ a {
     p > strong {
       color: var(--dark);
     }
+  }
+
+  em > strong, strong > em {
+    background-image: linear-gradient(120deg, var(--strong-em-color-1) 0%, var(--strong-em-color-2) 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   & > #quartz-body {
@@ -417,12 +420,13 @@ pre {
 }
 
 code {
-  font-size: 0.9em;
-  color: var(--dark);
+  font-size: 1em;
+  font-weight: $semiBoldWeight;
   font-family: var(--codeFont);
   border-radius: 5px;
   padding: 0.1rem 0.2rem;
-  background: var(--lightgray);
+  color: hsla(25, 75%, 65%, 1);
+  background-color: hsla(204, 45%, 97%, 0);
 }
 
 tbody,
