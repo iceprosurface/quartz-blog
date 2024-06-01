@@ -4,7 +4,7 @@ date: 2018-04-09T07:00:53+08:00
 tags:
   - 工具
 comments: true
-updated: 2024-05-17T01:55:29+08:00
+updated: 2024-06-01T13:35:59+08:00
 permalink: /2018/04/08/2018/qiniu-picture-clould/
 ---
 
@@ -25,8 +25,6 @@ permalink: /2018/04/08/2018/qiniu-picture-clould/
 ## 配置
 
 前往 github 下载 markdown-image-alfred，双击打开自动安装，随后设置快捷键 option + command + v
-
-![事例图片](http://p6uufz131.bkt.clouddn.com/1523199742.png?imageMogr2/thumbnail/!70p)
 
 不过比较惨的事情就是上传速度不是太快有点卡卡的感觉，一般都要等一会才能上传成功。
 

@@ -6,7 +6,7 @@ tags:
   - 前端
   - 富文本编辑器
 comments: true
-updated: 2024-05-20T10:01:47+08:00
+updated: 2024-06-01T13:38:54+08:00
 permalink: /2018/01/18/2018/ckeditor/
 ---
 
@@ -83,6 +83,7 @@ export default  {
 
 
 首先锚点需要定一个独立的guid，这里就用最常见的guid的方式取生成，这个随机生成一个一下就好了，发生碰撞的概率很低，可以大胆使用
+
 ```javascript
 export default function guid () {
     function S4 () {
@@ -233,6 +234,7 @@ export default {
 ```
 
 我们在ckeditor.vue中可以这样绑定paste，当然如果上传流程是确定的话也不需要这样绑定，直接吧上述内容放置在ckeditor中即可
+
 ```javascript
 // this.editor 就是CKEDITOR.instance[id]取出来的内容
 // 可以选择在合适的时机绑定即可
@@ -278,30 +280,29 @@ CKEDITOR.plugins.add( 'timestamp', {
 照着葫芦画瓢还是简单的
 
 ```javascript
+CKEDITOR.plugins.add('linkage', {
+	icons: 'linkage', 
+	lang: 'zh', 
+	hidpi: true,
+	init: function (editor) {
+		 // 这里添加一个命令到时候用来执行内容
+		 editor.addCommand('linkage', {
+			exec: function () {
+				editor.fire('linkage', function (link) {
+					// 这里是linkage的回调了
+				});
+			}
+		 });
+		 // 这里添加一个按钮
+		 editor.ui.addButton && editor.ui.addButton('LinkageToken', {
+			 label: '链接',
+			 command: 'linkage',
+			 toolbar: 'insert,8',
+			 icon: this.path + 'icons/linkage.png'
+		 });
 
-    CKEDITOR.plugins.add('linkage', {
-        icons: 'linkage', 
-        lang: 'zh', 
-        hidpi: true,
-        init: function (editor) {
-             // 这里添加一个命令到时候用来执行内容
-             editor.addCommand('linkage', {
-                exec: function () {
-                    editor.fire('linkage', function (link) {
-                        // 这里是linkage的回调了
-                    });
-                }
-             });
-             // 这里添加一个按钮
-             editor.ui.addButton && editor.ui.addButton('LinkageToken', {
-                 label: '链接',
-                 command: 'linkage',
-                 toolbar: 'insert,8',
-                 icon: this.path + 'icons/linkage.png'
-             });
-
-        }
-    });
+	}
+});
 ```
 
 然后不难使用,类似于这种方式怼给vue就可以了，不难操作，我们通过回调来将link更新到ckeditor
@@ -318,7 +319,7 @@ this.editor.on('linkage', (event, cb) => {
 <span>aaa</span><span><span>bbbu <u>sss</u><sup>ssss</sup></span></span><span>sss</span>
 ```
 
-我们可以从aaa的第二个字开始一路划到sss的的第二个字，还有跨层划分等等。
+我们可以从 aaa 的第二个字开始一路划到sss的的第二个字，还有跨层划分等等。
 
 不过好在，我们有一个相对现成的组件可以借鉴，就是系统中自带的link组件，这个组件复杂度很高，非常难借鉴，但是要想抄过来勉强用下还是办得到的
 
@@ -328,91 +329,91 @@ this.editor.on('linkage', (event, cb) => {
 首先他提供了一个基础的plugin的组件，叫 link，
 
 这个组件我们可以直接拿来用，里面提供一些基础方法，然后非常暴力的抄袭一下link中找到的一些方法
-```javascript
-   var plugin = CKEDITOR.plugins.link,
-        initialLinkText;
 
+```javascript
+var plugin = CKEDITOR.plugins.link,
+	initialLinkText;
 function insertLinksIntoSelection (editor, data) {
-        var attributes = plugin.getLinkAttributes(editor, data),
-            ranges = editor.getSelection().getRanges(),
-            style = new CKEDITOR.style({
-                element: 'a',
-                attributes: attributes.set
-            }),
-            rangesToSelect = [],
-            range,
-            text,
-            nestedLinks,
-            i,
-            j;
-        style.type = CKEDITOR.STYLE_INLINE; // need to override... dunno why.
-        for (i = 0; i < ranges.length; i++) {
-            range = ranges[i];
-            // Use link URL as text with a collapsed cursor.
-            if (range.collapsed) {
-                // Short mailto link text view (http://dev.ckeditor.com/ticket/5736).
-                text = new CKEDITOR.dom.text(data.linkText ||
-                    (data.type == 'email' ? data.email.address : data.default || attributes.set['data-cke-saved-href'] ), editor.document);
-                // text.setAttribute("style","text-decoration:none;")
-                range.insertNode(text);
-                range.selectNodeContents(text);
-            } else if (initialLinkText !== data.linkText) {
-                text = new CKEDITOR.dom.text(data.linkText, editor.document);
-                // Shrink range to preserve block element.
-                range.shrink(CKEDITOR.SHRINK_TEXT);
-                // Use extractHtmlFromRange to remove markup within the selection. Also this method is a little
-                // smarter than range#deleteContents as it plays better e.g. with table cells.
-                editor.editable().extractHtmlFromRange(range);
-                range.insertNode(text);
-            }
-            // Editable links nested within current range should be removed, so that the link is applied to whole selection.
-            nestedLinks = range._find('a');
-            for (j = 0; j < nestedLinks.length; j++) {
-                nestedLinks[j].remove(true);
-            }
-            // Apply style.
-            style.applyToRange(range, editor);
-            rangesToSelect.push(range);
-        }
-        editor.getSelection().selectRanges(rangesToSelect);
-    }
-    function createRangeForLink (editor, link) {
-        var range = editor.createRange();
-        range.setStartBefore(link);
-        range.setEndAfter(link);
-        return range;
-    }
-    function editLinksInSelection (editor, selectedElements, data) {
-        var attributes = plugin.getLinkAttributes(editor, data),
-            ranges = [],
-            element,
-            href,
-            textView,
-            newText,
-            i;
-        for (i = 0; i < selectedElements.length; i++) {
-            // We're only editing an existing link, so just overwrite the attributes.
-            element = selectedElements[i];
-            href = element.data('cke-saved-href');
-            textView = element.getHtml();
-            element.setAttributes(attributes.set);
-            element.removeAttributes(attributes.removed);
-            if (data.linkText && initialLinkText != data.linkText) {
-                // Display text has been changed.
-                newText = data.linkText;
-            } else if (href == textView || data.type == 'email' && textView.indexOf('@') != -1) {
-                // Update text view when user changes protocol (http://dev.ckeditor.com/ticket/4612).
-                // Short mailto link text view (http://dev.ckeditor.com/ticket/5736).
-                newText = data.type == 'email' ? data.email.address : attributes.set['data-cke-saved-href'];
-            }
-            if (newText) {
-                element.setText(newText);
-            }
-            ranges.push(createRangeForLink(editor, element));
-        }
-        // We changed the content, so need to select it again.
-        editor.getSelection().selectRanges(ranges);
-    }
+	var attributes = plugin.getLinkAttributes(editor, data),
+		ranges = editor.getSelection().getRanges(),
+		style = new CKEDITOR.style({
+			element: 'a',
+			attributes: attributes.set
+		}),
+		rangesToSelect = [],
+		range,
+		text,
+		nestedLinks,
+		i,
+		j;
+	style.type = CKEDITOR.STYLE_INLINE; // need to override... dunno why.
+	for (i = 0; i < ranges.length; i++) {
+		range = ranges[i];
+		// Use link URL as text with a collapsed cursor.
+		if (range.collapsed) {
+			// Short mailto link text view (http://dev.ckeditor.com/ticket/5736).
+			text = new CKEDITOR.dom.text(data.linkText ||
+				(data.type == 'email' ? data.email.address : data.default || attributes.set['data-cke-saved-href'] ), editor.document);
+			// text.setAttribute("style","text-decoration:none;")
+			range.insertNode(text);
+			range.selectNodeContents(text);
+		} else if (initialLinkText !== data.linkText) {
+			text = new CKEDITOR.dom.text(data.linkText, editor.document);
+			// Shrink range to preserve block element.
+			range.shrink(CKEDITOR.SHRINK_TEXT);
+			// Use extractHtmlFromRange to remove markup within the selection. Also this method is a little
+			// smarter than range#deleteContents as it plays better e.g. with table cells.
+			editor.editable().extractHtmlFromRange(range);
+			range.insertNode(text);
+		}
+		// Editable links nested within current range should be removed, so that the link is applied to whole selection.
+		nestedLinks = range._find('a');
+		for (j = 0; j < nestedLinks.length; j++) {
+			nestedLinks[j].remove(true);
+		}
+		// Apply style.
+		style.applyToRange(range, editor);
+		rangesToSelect.push(range);
+	}
+	editor.getSelection().selectRanges(rangesToSelect);
+}
+function createRangeForLink (editor, link) {
+	var range = editor.createRange();
+	range.setStartBefore(link);
+	range.setEndAfter(link);
+	return range;
+}
+function editLinksInSelection (editor, selectedElements, data) {
+	var attributes = plugin.getLinkAttributes(editor, data),
+		ranges = [],
+		element,
+		href,
+		textView,
+		newText,
+		i;
+	for (i = 0; i < selectedElements.length; i++) {
+		// We're only editing an existing link, so just overwrite the attributes.
+		element = selectedElements[i];
+		href = element.data('cke-saved-href');
+		textView = element.getHtml();
+		element.setAttributes(attributes.set);
+		element.removeAttributes(attributes.removed);
+		if (data.linkText && initialLinkText != data.linkText) {
+			// Display text has been changed.
+			newText = data.linkText;
+		} else if (href == textView || data.type == 'email' && textView.indexOf('@') != -1) {
+			// Update text view when user changes protocol (http://dev.ckeditor.com/ticket/4612).
+			// Short mailto link text view (http://dev.ckeditor.com/ticket/5736).
+			newText = data.type == 'email' ? data.email.address : attributes.set['data-cke-saved-href'];
+		}
+		if (newText) {
+			element.setText(newText);
+		}
+		ranges.push(createRangeForLink(editor, element));
+	}
+	// We changed the content, so need to select it again.
+	editor.getSelection().selectRanges(ranges);
+}
 
 ```
  
@@ -469,6 +470,7 @@ function insertLinksIntoSelection (editor, data) {
 ```
 
 试图对该行作出修改时将会碰到一个问题，第一个a标签将永远无法获得，这里，在花费一定时间阅读源码后断定问题是出现在_find这个函数这里
+
 ```javascript
 /**
  * Looks for elements matching the `query` selector within a range.
@@ -584,13 +586,13 @@ CKEDITOR.instances[id].destroy(true)
 
 ## 结语
 
-本次项目踩得坑很多一方面是在构建初期的规划并不良好，一路下来基本上最后全部选择了使用计划方案中b或c方案，并没有使用相对更好的解决策略，此外经验方面的问题也尤为突出，并没有能够很好的预料到一些写法可能产生的巨坑，操作流程的考虑不周全也是本次产生问题的核心，
+本次项目踩得坑很多一方面是在构建初期的规划并不良好，一路下来基本上最后全部选择了使用计划方案中 b 或 c 方案，并没有使用相对更好的解决策略，此外经验方面的问题也尤为突出，并没有能够很好的预料到一些写法可能产生的巨坑，操作流程的考虑不周全也是本次产生问题的核心，
 
-最为致命的问题是，由于中途更换了主键方式，将一个外键+lang作为复合主键，导致原先基于 主键 的操作，在累计的修改下混乱甚至崩盘的情况，也是在初期没有完善思考项目整体架构的原因，最后在花费一整个下午打草稿理清整个创建/更新/删除的流程下才将逻辑理顺。
+最为致命的问题是，由于中途更换了主键方式，将一个 外键 + lang 作为复合主键，导致原先基于 主键 的操作，在累计的修改下混乱甚至崩盘的情况，也是在初期没有完善思考项目整体架构的原因，最后在花费一整个下午打草稿理清整个 `创建/更新/删除` 的流程下才将逻辑理顺。
 
 而其中大量的坑都是在更换外键 + lang 作为符合主键中埋下的。
 
-对于操作复杂，需要横跨多个组件通讯，涉及巨量状态，不同状态间相互影响的情况下，果断的使用vuex去集合处理全局的状态更新，而不要使用冒泡的方式去处理。这样能显著降低整体项目的耦合程度，减小代码复杂程度。
+对于操作复杂，需要横跨多个组件通讯，涉及巨量状态，不同状态间相互影响的情况下，果断的使用 vuex 去集合处理全局的状态更新，而不要使用冒泡的方式去处理。这样能显著降低整体项目的耦合程度，减小代码复杂程度。
 
 此外对于具有可能共性的东西，尽量花时间抽象，泛化，而不要选择跟着需求走，因为需求是在快速变更的，如果直接照抄需求制作项目，显然会出现下一次添加内容会变得繁琐的问题。
 

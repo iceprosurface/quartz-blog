@@ -5,7 +5,7 @@ comments: true
 permalink: /2016/05/23/2016/2016-05-23-octopress-to-new-vps/
 tags:
   - 服务器
-updated: 2024-05-17T01:57:38+08:00
+updated: 2024-06-01T13:15:28+08:00
 ---
 
 在github上挂了这么久的博客最后还是决定迁出blog，原因很简单吧，无非是github上面的速度实在有点慢，使用了大量的cnd站屏蔽了许多国外api，仍然无法在不使用vpn的情况下达到合理的访问时间（首次访问3s以下）
@@ -25,7 +25,7 @@ updated: 2024-05-17T01:57:38+08:00
 > 3. 对nginx有一定的了解（简单配置能看懂）
 > 
 
-### 1. 准备工作
+## 1. 准备工作
 
 首先，现在我有一个已经配置完毕的octopress内容，也就是生成已经不用考虑，所以唯一需要准备的就是你自己的vps。
 
@@ -33,7 +33,7 @@ updated: 2024-05-17T01:57:38+08:00
 
 假设，如果你是一个忠实的ubuntu使用者恭喜你，直接apt-get可能就可以完美运行了。
 
-### 2. 添加nginx源
+## 2. 添加nginx源
 
 首先ssh登陆你的vps：
 ```bash
@@ -49,7 +49,7 @@ ssh root@ip -p port
 vim /etc/yum.repos.d/nginx.repo
 ```
 
-这个__文件的内容__如下：
+这个 __文件的内容__ 如下：
 
 
 ```ini
@@ -60,7 +60,7 @@ gpgcheck=0
 enabled=1
 ```
 
-接着让我__更新__一下yum源
+接着让我 __更新__ 一下yum源
 ```bash
 #你可以看一眼是否正确
 cat > /etc/yum.repos.d/nginx.repo
@@ -69,7 +69,8 @@ yum update
 # 然后在一大串信息以后我们就可以安装nginx了
 yum install nginx
 ```
-### 3. 配置nginx
+
+## 3. 配置nginx
 
 在安装完以后需要配置一下nginx，这部分不是很难。
 
@@ -93,7 +94,7 @@ server{
 }
 ```
 
-将开头的__user root__替换为yourname
+将开头的 __user root__ 替换为yourname
 
 ```bash
 #替换成箭头处
@@ -165,7 +166,7 @@ rake gen_deploy
 
 ### 7. 添加rsa_pub
 
-```
+```bash
 #如果没有id_rsa.pub你可以使用ssh-keygen生成一个
 ssh-copy-id -i ~/.ssh/id_rsa.pub ip -p port
 ```
@@ -175,4 +176,5 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub ip -p port
 ```bash
 brew install ssh-copy-id
 ```
+
 好就这样，已经完成了迁移工作是不是值得庆贺呢？

@@ -4,7 +4,7 @@ date: 2018-04-18T05:19:01+08:00
 tags:
   - 服务器
 comments: true
-updated: 2024-05-17T01:55:47+08:00
+updated: 2024-06-01T13:36:55+08:00
 permalink: /2018/04/17/2018/ss-on-centos6/
 ---
 
@@ -54,7 +54,7 @@ Traceback (most recent call last):
 
 当时我脑海中就是,emmmm这是个啥,算了我装个python34好了,centos应该有
 
-```
+```bash
 yum install python34
 yum install python3
 yum install python35
@@ -68,7 +68,7 @@ what???没有,这个时候 打了一个 yum search一翻...对根本没有 pytho
 
 先把依赖装以下:
 
-```
+```bash
 yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel
 wget https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tgz
 tar vxf Python-2.7.13.tgz
@@ -84,6 +84,7 @@ checking for cl.exe... no
 configure: error: no acceptable C compiler found in $PATH
 See `config.log' for more details.
 ```
+
 what?没有gcc....
 
 
@@ -91,13 +92,13 @@ what?没有gcc....
 
 接着安装以下gcc
 
-```
+```bash
 yum install gcc
 ```
 
 再来一次
 
-```
+```bash
 ./configure --prefix=/usr/local
 make && make install
 ```
@@ -112,7 +113,7 @@ make: *** [python] 错误 1
 
 这是个啥...算了....我换个版本....
 
-```
+```bash
 wget https://www.python.org/ftp/python/2.7.8/Python-2.7.8.tgz
 tar vxf Python-2.7.8.tgz
 cd Python-2.7.8

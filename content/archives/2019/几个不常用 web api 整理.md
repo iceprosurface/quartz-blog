@@ -4,7 +4,7 @@ date: 2019-06-12T20:10:00+08:00
 tags:
   - 前端
 comments: true
-updated: 2024-05-17T02:00:51+08:00
+updated: 2024-06-01T13:40:20+08:00
 permalink: /2019/06/12/2019/seldom-web-api/
 ---
 
@@ -24,6 +24,7 @@ permalink: /2019/06/12/2019/seldom-web-api/
 + battery status
 
 <!-- more -->
+
 ### 正文
 
 #### page life cycle

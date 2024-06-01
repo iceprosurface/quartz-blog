@@ -5,7 +5,7 @@ comments: true
 tags:
   - node
 permalink: /2016/05/29/2016/2016-05-29-base-of-node-1/
-updated: 2024-05-17T01:57:42+08:00
+updated: 2024-06-01T13:16:22+08:00
 ---
 
 ## 1.起因
@@ -44,9 +44,8 @@ npm -v
 
 > npm的安装并不是必须的，并且npm源在国内通常无法使用，所以建议切换成淘宝cnpm。
 > [淘宝源链接](https://npm.taobao.org/)
-> 
 
-同时淘宝源上自带教程，再次就不多赘述了，此外还要一种pkg的下载方式，具体可以上[node](https://nodejs.org/en/)官网查看
+同时淘宝源上自带教程，再次就不多赘述了，此外还要一种pkg的下载方式，具体可以上 [node](https://nodejs.org/en/) 官网查看
 
 其余系统的设置可以自行百度，大致没有什么问题，不过需要注意一下的是，如果还在使用xp系统有可能会碰到xp系统导致的专属bug，建议使用vista或win7以上系统。
 
@@ -70,7 +69,7 @@ vim test.js
 console.log("Hello World");
 ```
 
-> 这里需要注意的是请*确保自己在test目录下*,当然为了避免错误使用~/test/test.js做路径也是完全可行的
+> 这里需要注意的是请 *确保自己在test目录下* ,当然为了避免错误使用 ~/test/test.js 做路径也是完全可行的
 
 ```bash
 node test.js
@@ -80,9 +79,9 @@ node test.js
 
 ## 4. 那么下面我们就可以编写第一个node程序了
 
-### 4.1 引入http模块
+### 4.1 引入 http 模块
 
-这一步的作用是引入一个http模块，并将这个模块定义为http。
+这一步的作用是引入一个 http 模块，并将这个模块定义为 http。
 
 ```js server.js
 var http = require("http");
@@ -250,9 +249,9 @@ url = "http://user:pass@host.com:8080/p/a/t/h?query=string#hash"
 这是个系统函数，可以参考这里[readfile](https://nodejs.org/dist/latest-v6.x/docs/api/fs.html#fs_fs_readfile_file_options_callback)
 文件系统，这个函数的完整参数是这样的fs.readFile(file[, options], callback)。
 
-这段话fs.readFile(pathname.substr(1), function (err, data) {...}这样会读取文件，err会返回两个情况，假设读取到文件就会返回true，反之false。
+这段话 `fs.readFile(pathname.substr(1), function (err, data) {...}` 这样会读取文件，err 会返回两个情况，假设读取到文件就会返回 true，反之false。
 
-于是就对应下面response里面的200和404。
+于是就对应下面response里面的 200 和 404 。
 
 >值得注意的是这是一个非同步方法，具体可以自行查找官方文档。
 

@@ -1,7 +1,7 @@
 ---
 title: 实现背包GUI
 date: 2024-05-16T23:08:00+08:00
-updated: 2024-05-17T00:52:01+08:00
+updated: 2024-06-01T13:22:17+08:00
 permalink: /godot/bag-system/gui/
 tags:
   - 游戏开发
@@ -61,7 +61,7 @@ public partial class BagResourceManager
 
 ## 扩展 BagItem
 
-为了方便使用，我们在 BagItem 中扩展一个字段用来获取他对应的 resource 数据, 他还可以帮助我们获取目标的 Texture，可能算一种变异的 [[../../编程/享元模式|享元模式]] 
+为了方便使用，我们在 BagItem 中扩展一个字段用来获取他对应的 resource 数据, 他还可以帮助我们获取目标的 Texture，可能算一种变异的 [[../../编程/设计模式/享元模式|享元模式]] 
 
 ```csharp
 public class BagItem  

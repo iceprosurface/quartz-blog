@@ -5,7 +5,7 @@ tags:
   - javascript
   - 疑难杂症
 comments: true
-updated: 2024-05-28T20:02:24+08:00
+updated: 2024-06-01T13:39:10+08:00
 permalink: /2018/04/18/2018/Invalid-Date/
 ccby: true
 ---
@@ -22,6 +22,7 @@ new Date("2018-01-03 13:30:00")
 ```
 
 <!-- more -->
+
 ### 起因
 
 同事给我说起一件奇怪的事情,在 chrome / firefox 好用的 datepicker 组件, 一跑到 IE / safari 就不能用了,全变成了 NAN .

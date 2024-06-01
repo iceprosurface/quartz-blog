@@ -4,7 +4,7 @@ date: 2020-05-06T17:37:22+08:00
 tags:
   - 前端
 comments: true
-updated: 2024-05-17T02:01:13+08:00
+updated: 2024-06-01T13:40:59+08:00
 permalink: /2020/05/06/2020/max-length-of-url/
 ---
 

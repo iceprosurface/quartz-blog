@@ -5,7 +5,7 @@ comments: true
 tags:
   - javascript
 permalink: /2016/12/07/2016/2016-12-07-object-freeze/
-updated: 2024-05-17T02:00:30+08:00
+updated: 2024-06-01T13:05:41+08:00
 ---
 
 ## 1. 起因
@@ -37,7 +37,7 @@ obj = 1;
 arr = 1;
 ```
 
-ok 喜闻乐见的是至少，我们可以确定的是，这些对象都非常ok的呗锁定了，这里console会提示``Uncaught TypeError: Assignment to constant variable.(…)``
+ok 喜闻乐见的是至少，我们可以确定的是，这些对象都非常ok的呗锁定了，这里console会提示 `Uncaught TypeError: Assignment to constant variable.(…)`
 
 __但是问题随之而来了，对是的直接修改引用，当然是不行的，那对内部元素的修改呢?__  这似乎没有尝试过
 

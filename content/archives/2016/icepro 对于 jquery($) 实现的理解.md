@@ -5,7 +5,7 @@ comments: true
 tags:
   - javascript
 permalink: /2016/05/29/2016/2016-05-29-base-of-node-1/
-updated: 2024-05-17T01:59:47+08:00
+updated: 2024-06-01T13:23:03+08:00
 ---
 
 ## 前言
@@ -22,13 +22,13 @@ updated: 2024-05-17T01:59:47+08:00
 
 首先我们要确定一个思路，jquery不论怎么封装都逃不过需要在全局环境下注册$和jQuery，所以这其中必定有一个
 
-{% raw %}
+
 > window.jQuery = jQuery;window.$ = $
 >
 > 或者
 >
 > window.jQuery = `{{`'&#95'`}}`;jQuery;window.$ = {{'&#95'}};$
-{% endraw %}
+
 
 那么检索一下，一共四个匹配项分别是以下位置
 

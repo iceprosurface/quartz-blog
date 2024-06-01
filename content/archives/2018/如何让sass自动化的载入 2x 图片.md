@@ -4,7 +4,7 @@ date: 2018-09-27T06:16:46+08:00
 tags:
   - css
 comments: true
-updated: 2024-05-17T01:55:20+08:00
+updated: 2024-06-01T13:35:38+08:00
 permalink: /2018/09/26/2018/auto-bg-with-sass/
 ---
 

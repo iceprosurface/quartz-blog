@@ -5,7 +5,8 @@ comments: true
 tags:
   - 生活
 permalink: /2016/08/04/2016/2016-08-04-ife-feeling-slash-s/
-updated: 2024-05-17T02:00:09+08:00
+updated: 2024-06-01T13:18:04+08:00
+draft: true
 ---
 
 ## 1. 零零碎碎的ife感想
