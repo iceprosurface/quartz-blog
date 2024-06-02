@@ -1,7 +1,7 @@
 ---
 title: Game101s
 date: 2024-06-02T12:42:55+08:00
-updated: 2024-06-02T13:04:54+08:00
+updated: 2024-06-02T15:20:45+08:00
 permalink: 
 tags:
   - 游戏开发
@@ -16,3 +16,23 @@ comments: true
 
 课程来源： [https://www.bilibili.com/video/BV1X7411F744](https://www.bilibili.com/video/BV1X7411F744)
 
+课程内容包括：
+
++ 光栅化
++ 几何
++ 光线追踪
++ 模拟 & 动画
+
+必备技能：
+
++ 数学
+	+ [线性代数](../线性代数/index.md)
+	+ 微积分
+	+ 统计
++ 物理
+	+ 光学
+	+ 力学
++ 其他
+	+ 信号处理
+	+ 数值分析
++ 美学
