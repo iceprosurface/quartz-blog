@@ -1,8 +1,8 @@
 ---
 title: 基础线性代数
 date: 2024-06-02T15:20:46+08:00
-updated: 2024-06-02T18:00:02+08:00
-permalink: 
+updated: 2024-06-02T18:16:44+08:00
+permalink: /linear-algebra/base/
 tags:
   - 线性代数
 ccby: false
