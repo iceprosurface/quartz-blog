@@ -1,7 +1,7 @@
 ---
 title: 博弈论-导论-lession1
 date: 2024-06-02T13:24:50+08:00
-updated: 2024-06-02T14:31:26+08:00
+updated: 2024-06-02T14:39:15+08:00
 permalink: 
 tags:
   - 博弈论
@@ -54,11 +54,13 @@ comments: true
 > 
 > 而 $s$ 就代表譬如 [上一节课](博弈论-导论-lession1.md) 中提交的那些个作业，就是一次单独的博弈，最后 $U_i(s)$ 就等于 
 > 
-> $$U_i(s)=\left\{\begin{aligned}
+> $$
+> U_i(s)=\left\{\begin{aligned}
 > 5-p \\
 > 0
 > \end{aligned}
-> \right.$$ 
+> \right.
+> $$ 
 > 
 > 其中 $p$ 代表误差
 
