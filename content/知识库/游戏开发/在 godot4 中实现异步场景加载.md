@@ -1,7 +1,7 @@
 ---
 title: 在 godot4 中实现异步场景加载
 date: 2024-05-08T16:17:00+08:00
-updated: 2024-05-13T10:33:13+08:00
+updated: 2024-06-02T13:04:06+08:00
 permalink: /2024/godot-loading-scene/
 tags:
   - 游戏开发

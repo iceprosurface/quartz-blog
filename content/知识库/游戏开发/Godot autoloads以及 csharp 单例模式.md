@@ -1,7 +1,7 @@
 ---
 title: Godot autoload 以及 csharp 单例模式
 date: 2024-05-12T15:57:25+08:00
-updated: 2024-05-16T23:41:30+08:00
+updated: 2024-06-02T13:04:05+08:00
 permalink: /game-dev/godot-autoloads-and-csharp/
 tags:
   - 游戏开发
