@@ -129,7 +129,6 @@ function createRouter() {
         // 说明是没有正确设置 hash 的 a 标签，跳过即可
         return;
       }
-
       try {
         navigate(url, false)
       } catch (e) {
