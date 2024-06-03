@@ -10,7 +10,10 @@ const generateHash = (content) => {
   const hash = crypto.createHash('sha256').update(content).digest('hex');
   return hash.substring(0, 7);
 };
-const textSet = new Set();
+// 先读取 font 列表
+const fontTextFilePath =  './font-list.txt';
+const textText = fs.existsSync(fontTextFilePath) ? fs.readFileSync(path.resolve(__dirname,fontTextFilePath), 'utf8') : '';
+const textSet = new Set(textText.split(''));
 const dir = path.resolve(__dirname, "../content");
 const files = klaw(dir);
 for await (const file of files) {
@@ -59,6 +62,16 @@ fontmin.run(function (err, files) {
   fs.writeFileSync(path.resolve(__dirname, '../quartz/hash.ts'), `
 export const xlwkHash = "${hash}";
 `);
+  fs.writeFileSync(
+    path.resolve(__dirname, fontTextFilePath),
+    Array.from(textSet)
+    // 按照 char code 排序
+    .sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0))
+    .join(''), 
+    {
+      encoding: 'utf8'
+    }
+  );
   if (err) {
       throw err;
   }
