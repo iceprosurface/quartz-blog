@@ -44,7 +44,7 @@ export const FolderList: QuartzComponent = ({ allFolders, fileData, allFiles }: 
               <div class="folder-section">
                 <div class="folder-desc">
                   <h3>
-                    <a href={resolveRelative(folder.slug!, folder.slug!)} class="internal">
+                    <a href={resolveRelative(folder.slug!, folder.slug!) + "/"} class="internal">
                       {folder.title}
                     </a>
                   </h3>
