@@ -29,6 +29,7 @@ export interface Options {
   parseBlockReferences: boolean
   enableInHtmlEmbed: boolean
   enableYouTubeEmbed: boolean
+  enableImageWidth: boolean
   enableVideoEmbed: boolean
   enableCheckbox: boolean
 }
@@ -44,6 +45,7 @@ const defaultOptions: Options = {
   parseBlockReferences: true,
   enableInHtmlEmbed: false,
   enableYouTubeEmbed: true,
+  enableImageWidth: true,
   enableVideoEmbed: true,
   enableCheckbox: false,
 }
@@ -595,7 +597,26 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> 
           }
         })
       }
-
+      if (opts.enableImageWidth) {
+        plugins.push(() => {
+          return (tree: HtmlRoot) => {
+            visit(tree, "element", (node) => {
+              if (node.tagName === "img" && typeof node.properties.src === "string") {
+                // 解析图片宽度
+                const match = node.properties.alt?.toString().match(/\|(\d+)((?:x)\d+)?$/)
+                if (match) {
+                  if (match[1]) {
+                    node.properties.width = match[1]
+                  }
+                  if (match[2]) {
+                    node.properties.height = match[2]
+                  }
+                }
+              }
+            })
+          }
+        })
+      }
       if (opts.enableYouTubeEmbed) {
         plugins.push(() => {
           return (tree: HtmlRoot) => {
