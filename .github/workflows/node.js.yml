@@ -38,5 +38,5 @@ jobs:
           pnpm install
           pnpm run build
           pnpm run zip
-          curl -F file=@public.zip -F password=${{secrets.UPLOAD_SECRET}} ${{secrets.UPLOAD_URL}}
+          curl -F file=@public.zip -F password=${{ secrets.UPLOAD_SECRET }} ${{ secrets.UPLOAD_URL }}
 
