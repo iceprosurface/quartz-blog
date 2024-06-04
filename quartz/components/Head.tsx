@@ -21,8 +21,8 @@ export default (() => {
 
     return (
       <head>
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com"></link>
-        <link rel="preconnect" href="https://cdn.iceprosurface.com/"></link>
+        <link rel="preconnect" spa-preserve href="https://cdnjs.cloudflare.com"></link>
+        <link rel="preconnect" spa-preserve href="https://cdn.iceprosurface.com/"></link>
         <title>{title}</title>
         <meta charSet="utf-8" />
         {cfg.theme.cdnCaching && cfg.theme.fontOrigin === "googleFonts" && (
@@ -32,7 +32,7 @@ export default (() => {
             <link rel="stylesheet" href={googleFontHref(cfg.theme)} />
           </>
         )}
-        <link rel="stylesheet" href={`/static/xlwk/LXGWWenKai-Light-${xlwkHash}.css`} />
+        <link rel="stylesheet" spa-preserve href={`/static/xlwk/LXGWWenKai-Light-${xlwkHash}.css`} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
