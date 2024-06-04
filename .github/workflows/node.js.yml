@@ -34,12 +34,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
       - name:  build and upload
-        env: 
-          UPLOAD_URL: ${{secrets.UPLOAD_URL}}
-          UPLOAD_SECRET: ${{secrets.UPLOAD_SECRET}}
         run: |
           pnpm install
           pnpm run build
           pnpm run zip
-          curl -F file=@public.zip -F password=${UPLOAD_SECRET} ${UPLOAD_URL}
+          curl -F file=@public.zip -F password=${{secrets.UPLOAD_SECRET}} ${{secrets.UPLOAD_URL}}
 
