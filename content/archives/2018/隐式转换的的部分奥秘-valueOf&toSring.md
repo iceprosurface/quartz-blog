@@ -4,7 +4,7 @@ date: 2018-09-18T14:33:15+08:00
 tags:
   - javascript
 comments: true
-updated: 2024-06-01T13:35:45+08:00
+updated: 2024-06-03T14:12:53+08:00
 permalink: /2018/09/18/2018/valueOf-and-toString/
 ---
 
@@ -203,7 +203,7 @@ y == ToPrimitive(y)
 
 
 
-这里的代码更长了，（icepro：写浏览器的人都是神仙）
+这里的代码更长了，（icepro：写浏览器的人都是神仙）
 
 ![image-20180921104847750](https://cdn.iceprosurface.com/upload/md/2018-09-21-024849.png)
 
