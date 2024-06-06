@@ -21,6 +21,9 @@ export default ((opts?: Options) => {
             <span>
               <a href="https://github.com/jackyzha0/quartz" target="_blank">quartz</a>
             </span>
+            <span style="margin-left: 8px">
+              <a href="https://status.iceprosurface.com/" target="_blank">站点状态</a>
+            </span>
 
           </div>
         </div>
