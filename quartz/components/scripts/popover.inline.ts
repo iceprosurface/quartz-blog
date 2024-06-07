@@ -1,6 +1,6 @@
 import { computePosition, flip, inline, shift } from "@floating-ui/dom"
 import { normalizeRelativeURLs } from "../../util/path"
-
+import { init } from './excalidraw.inline';
 const p = new DOMParser()
 async function mouseEnterHandler(
   this: HTMLLinkElement,
@@ -83,8 +83,11 @@ async function mouseEnterHandler(
       normalizeRelativeURLs(html, targetUrl)
       const elts = [...html.getElementsByClassName("popover-hint")]
       if (elts.length === 0) return
-
+      const excalidraw = html.querySelector("[data-excalidraw]")
       elts.forEach((elt) => popoverInner.appendChild(elt))
+      if (excalidraw) {
+        init()
+      }
   }
 
   setPosition(popoverElement)

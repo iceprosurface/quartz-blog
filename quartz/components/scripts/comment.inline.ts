@@ -1,17 +1,5 @@
-function loadScript(url: string) {
-  return new Promise<void>((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = url;
-    script.async = true;
-    script.onload = () => {
-      resolve();
-    };
-    script.onerror = () => {
-      reject(new Error(`Failed to load script: ${url}`));
-    };
-    document.head.appendChild(script);
-  });
-}
+import { loadScript } from "./util";
+
 async function init() {
   await Promise.all([
     loadScript('https://cdnjs.cloudflare.com/ajax/libs/twikoo/1.6.36/twikoo.min.js'),

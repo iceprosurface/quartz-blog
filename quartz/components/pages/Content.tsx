@@ -2,7 +2,9 @@ import { htmlToJsx } from "../../util/jsx"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "../types"
 import ccByStyle from '../styles/ccby.scss'
 import commentScript from './../scripts/comment.inline'
-const Content: QuartzComponent = ({ fileData, tree, cfg }: QuartzComponentProps) => {
+import { Exclidraw } from './../Excalidraw';
+const Content: QuartzComponent = (props: QuartzComponentProps) => {
+  const { fileData, tree, cfg } = props;
   const content = htmlToJsx(fileData.filePath!, tree)
   const classes: string[] = fileData.frontmatter?.cssclasses ?? []
   const classString = ["popover-hint", ...classes].join(" ")
@@ -14,6 +16,10 @@ const Content: QuartzComponent = ({ fileData, tree, cfg }: QuartzComponentProps)
   const link = `https://${cfg.baseUrl}${permalink}`;
   // 不添加默认原创
   const isPageOriginal = Boolean(fileData.frontmatter?.isPageOriginal ?? true);
+  const isExcalidraw = fileData.frontmatter?.['excalidraw-plugin'] ?? false;
+  if (isExcalidraw) {
+    return <Exclidraw {...props} />
+  }
   return <article class={classString}>
     {content}
     {permalink && <div class="cc-by">
@@ -33,6 +39,6 @@ const Content: QuartzComponent = ({ fileData, tree, cfg }: QuartzComponentProps)
 
 export default (() => {
   Content.css = (ccByStyle)
-  Content.afterDOMLoaded = commentScript;
+  Content.afterDOMLoaded = commentScript + '\n' + Exclidraw.afterDOMLoaded;
   return Content;
 }) satisfies QuartzComponentConstructor

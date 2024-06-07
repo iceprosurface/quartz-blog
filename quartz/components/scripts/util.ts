@@ -23,3 +23,21 @@ export function removeAllChildren(node: HTMLElement) {
     node.removeChild(node.firstChild)
   }
 }
+
+
+export function loadScript(url: string) {
+  return new Promise<void>((resolve, reject) => {
+    document.querySelector(`script[src="${url}"]`) && resolve();
+    const script = document.createElement('script');
+    script.src = url;
+    script.async = true;
+    script.setAttribute('spa-preserve', 'true');
+    script.onload = () => {
+      resolve();
+    };
+    script.onerror = () => {
+      reject(new Error(`Failed to load script: ${url}`));
+    };
+    document.head.appendChild(script);
+  });
+}
