@@ -1,7 +1,7 @@
 ---
 title: 实现背包GUI
 date: 2024-05-16T23:08:00+08:00
-updated: 2024-06-01T13:22:17+08:00
+updated: 2024-06-07T23:51:04+08:00
 permalink: /godot/bag-system/gui/
 tags:
   - 游戏开发
@@ -9,7 +9,8 @@ ccby: true
 ---
 在 [[如何设计一个背包的控制逻辑]] 中我们实现了背包的所有处理逻辑下面需要绑定 ui 了，ui 上逻辑就比较简单了，我们需要简单的做一个数据流程图去思考一下怎么实现数据的流转。 
 
-![背包功能逻辑.excalidraw](背包功能逻辑.excalidraw.md)
+
+![背包 gui 逻辑](https://cdn.iceprosurface.com/upload/md/202405162336601.png)
 
 我选择将 ui 层分为 4 块功能：
 
@@ -22,7 +23,7 @@ ccby: true
 
 # 背包功能逻辑
 
-![背包](https://cdn.iceprosurface.com/upload/md/202405162337200.png)
+![背包功能逻辑.excalidraw](背包功能逻辑.excalidraw.md)
 
 然后我们就可以简单的画出上面这个图，对于整个 GUI 组件而言，对于 BagContainer 并不关心里面存放的内容，他只需要设定背包的大小（从 godot 编辑器里面拖拽），设定行、列，随后设置一个全局唯一的 BagName 即可。
 
