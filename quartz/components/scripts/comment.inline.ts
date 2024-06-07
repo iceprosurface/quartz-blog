@@ -18,7 +18,6 @@ async function init() {
   });
 }
 init();
-
 document.addEventListener('nav', (event) => {
   init();
 })
