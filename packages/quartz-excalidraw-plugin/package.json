@@ -1,0 +1,32 @@
+{
+  "name": "quartz-excalidraw-plugin",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/quartz-excalidraw-plugin.umd.cjs",
+  "module": "dist/quartz-excalidraw-plugin.js",
+  "exports": {
+    ".": {
+      "import": "./dist/quartz-excalidraw-plugin.js",
+      "require": "./dist/quartz-excalidraw-plugin.umd.cjs",
+      "types": "./types/lib.d.ts"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build:lib": "tsc && vite build && cp dist/quartz-excalidraw-plugin.umd.cjs ../../quartz/static/quartz-excalidraw-plugin.js",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@excalidraw/excalidraw": "^0.17.6",
+    "lz-string": "^1.5.0",
+    "preact": "^10.22.0"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.8.2",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.12"
+  }
+}

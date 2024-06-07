@@ -21,6 +21,7 @@ export default (() => {
 
     return (
       <head>
+        <meta name="excalidraw-plugin" spa-preserve data-js content="/static/quartz-excalidraw-plugin.js" />
         <link rel="preconnect" spa-preserve href="https://cdnjs.cloudflare.com"></link>
         <link rel="preconnect" spa-preserve href="https://cdn.iceprosurface.com/"></link>
         <title>{title}</title>

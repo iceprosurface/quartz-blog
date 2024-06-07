@@ -128,6 +128,7 @@ async function startServing(
 
   const watcher = chokidar.watch(".", {
     persistent: true,
+    ignored: /packages\//,
     cwd: argv.directory,
     ignoreInitial: true,
   })

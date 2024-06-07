@@ -13,6 +13,14 @@ for await (const file of files) {
     filePaths.add(file);
   }
 }
+function resolveLink(src, filePath) {
+  // 绝对路径
+  if (src.startsWith('/')) {
+    return path.resolve(__dirname, '../public', src.slice(1));
+  }
+  // 相对路径
+  return path.resolve(path.dirname(filePath), src);
+}
 // 处理 js、css 文件
 for(const file of filePaths) {
   if ((file.path.endsWith('.js') || file.path.endsWith('.css')) && !file.path.includes('xlwk')) {
@@ -33,7 +41,7 @@ for(const file of filePaths) {
     $('script').each((index, element) => {
       const src = $(element).attr('src');
       if (src) {
-        const hash = resources.get(path.resolve(path.dirname(file.path), src));
+        const hash = resources.get(resolveLink(src, file.path));
         if (hash) {
           $(element).attr('src', src.replace(/\.js$/, `-${hash}.js`));
         }
@@ -43,12 +51,22 @@ for(const file of filePaths) {
     $('link').each((index, element) => {
       const href = $(element).attr('href');
       if (href) {
-        const hash = resources.get(path.resolve(path.dirname(file.path), href));
+        const hash = resources.get(resolveLink(href, file.path));
         if (hash) {
           $(element).attr('href', href.replace(/\.css$/, `-${hash}.css`));
         }
       }
     });
+    // meta
+    $('[data-js]').each((index, element) => {
+      const src = $(element).attr('content');
+      if (src) {
+        const hash = resources.get(resolveLink(src, file.path));
+        if (hash) {
+          $(element).attr('content', src.replace(/\.js$/, `-${hash}.js`));
+        }
+      }
+    })
     // 重新写入文件
     fs.writeFileSync(file.path, $.html());
   }

@@ -76,8 +76,12 @@ declare global {
     };
   }
 }
-export async function init() {
-  await loadScript('/static/quartz-excalidraw-plugin.umd@1.cjs', false);
+export async function initExcalidraw() {
+  const pluginPath = document.querySelector('meta[name="excalidraw-plugin"]')?.getAttribute('content');
+  if (!pluginPath) {
+    return false;
+  }
+  await loadScript(pluginPath, false);
   const element = document.querySelector('[data-excalidraw]');
   if (!element) {
     return;
