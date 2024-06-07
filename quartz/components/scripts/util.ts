@@ -77,7 +77,7 @@ declare global {
   }
 }
 export async function init() {
-  await loadScript('/static/quartz-excalidraw-plugin.umd.cjs', false);
+  await loadScript('/static/quartz-excalidraw-plugin.umd@1.cjs', false);
   const element = document.querySelector('[data-excalidraw]');
   if (!element) {
     return;
@@ -85,8 +85,5 @@ export async function init() {
   const data = element.getAttribute('data-excalidraw') ?? '';
   element.removeAttribute('data-excalidraw');
   const markdown = await fetch(data).then((res) => res.text());
-  window.QuartzExcalidrawPlugin.mountApp(element as HTMLElement, window.QuartzExcalidrawPlugin.decodeData(markdown), {
-    width: '100%',
-    height: '400px',
-  });
+  window.QuartzExcalidrawPlugin.mountApp(element as HTMLElement, window.QuartzExcalidrawPlugin.decodeData(markdown), {});
 }

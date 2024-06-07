@@ -5,7 +5,7 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 
 export const Exclidraw: QuartzComponent = ({ classString, fileData }: QuartzComponentProps) => {
   return <article class={classString + ' popover-hint'}>
-    <div class="excalidraw" data-excalidraw={resolveRelative(`${fileData.filePath!}` as FullSlug, fileData.slug!) + ".md"}></div>
+    <div class="excalidraw" style="width: 100%;height: 500px" data-excalidraw={resolveRelative(`${fileData.filePath!}` as FullSlug, fileData.slug!) + ".md"}></div>
   </article>
 }
 
