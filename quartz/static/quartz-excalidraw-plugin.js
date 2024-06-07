@@ -27359,26 +27359,294 @@
   })(lzString);
   var lzStringExports = lzString.exports;
   const LZString = /* @__PURE__ */ getDefaultExportFromCjs(lzStringExports);
+  const methodMap = [
+    [
+      "requestFullscreen",
+      "exitFullscreen",
+      "fullscreenElement",
+      "fullscreenEnabled",
+      "fullscreenchange",
+      "fullscreenerror"
+    ],
+    // New WebKit
+    [
+      "webkitRequestFullscreen",
+      "webkitExitFullscreen",
+      "webkitFullscreenElement",
+      "webkitFullscreenEnabled",
+      "webkitfullscreenchange",
+      "webkitfullscreenerror"
+    ],
+    // Old WebKit
+    [
+      "webkitRequestFullScreen",
+      "webkitCancelFullScreen",
+      "webkitCurrentFullScreenElement",
+      "webkitCancelFullScreen",
+      "webkitfullscreenchange",
+      "webkitfullscreenerror"
+    ],
+    [
+      "mozRequestFullScreen",
+      "mozCancelFullScreen",
+      "mozFullScreenElement",
+      "mozFullScreenEnabled",
+      "mozfullscreenchange",
+      "mozfullscreenerror"
+    ],
+    [
+      "msRequestFullscreen",
+      "msExitFullscreen",
+      "msFullscreenElement",
+      "msFullscreenEnabled",
+      "MSFullscreenChange",
+      "MSFullscreenError"
+    ]
+  ];
+  const nativeAPI = (() => {
+    if (typeof document === "undefined") {
+      return false;
+    }
+    const unprefixedMethods = methodMap[0];
+    const returnValue = {};
+    for (const methodList of methodMap) {
+      const exitFullscreenMethod = methodList == null ? void 0 : methodList[1];
+      if (exitFullscreenMethod in document) {
+        for (const [index, method] of methodList.entries()) {
+          returnValue[unprefixedMethods[index]] = method;
+        }
+        return returnValue;
+      }
+    }
+    return false;
+  })();
+  const eventNameMap = {
+    change: nativeAPI.fullscreenchange,
+    error: nativeAPI.fullscreenerror
+  };
+  let screenfull = {
+    // eslint-disable-next-line default-param-last
+    request(element = document.documentElement, options) {
+      return new Promise((resolve, reject) => {
+        const onFullScreenEntered = () => {
+          screenfull.off("change", onFullScreenEntered);
+          resolve();
+        };
+        screenfull.on("change", onFullScreenEntered);
+        const returnPromise = element[nativeAPI.requestFullscreen](options);
+        if (returnPromise instanceof Promise) {
+          returnPromise.then(onFullScreenEntered).catch(reject);
+        }
+      });
+    },
+    exit() {
+      return new Promise((resolve, reject) => {
+        if (!screenfull.isFullscreen) {
+          resolve();
+          return;
+        }
+        const onFullScreenExit = () => {
+          screenfull.off("change", onFullScreenExit);
+          resolve();
+        };
+        screenfull.on("change", onFullScreenExit);
+        const returnPromise = document[nativeAPI.exitFullscreen]();
+        if (returnPromise instanceof Promise) {
+          returnPromise.then(onFullScreenExit).catch(reject);
+        }
+      });
+    },
+    toggle(element, options) {
+      return screenfull.isFullscreen ? screenfull.exit() : screenfull.request(element, options);
+    },
+    onchange(callback) {
+      screenfull.on("change", callback);
+    },
+    onerror(callback) {
+      screenfull.on("error", callback);
+    },
+    on(event, callback) {
+      const eventName = eventNameMap[event];
+      if (eventName) {
+        document.addEventListener(eventName, callback, false);
+      }
+    },
+    off(event, callback) {
+      const eventName = eventNameMap[event];
+      if (eventName) {
+        document.removeEventListener(eventName, callback, false);
+      }
+    },
+    raw: nativeAPI
+  };
+  Object.defineProperties(screenfull, {
+    isFullscreen: {
+      get: () => Boolean(document[nativeAPI.fullscreenElement])
+    },
+    element: {
+      enumerable: true,
+      get: () => document[nativeAPI.fullscreenElement] ?? void 0
+    },
+    isEnabled: {
+      enumerable: true,
+      // Coerce to boolean in case of old WebKit.
+      get: () => Boolean(document[nativeAPI.fullscreenEnabled])
+    }
+  });
+  if (!nativeAPI) {
+    screenfull = { isEnabled: false };
+  }
+  const screenfull$1 = screenfull;
+  function getTargetElement(target, defaultElement) {
+    if (!target) {
+      return defaultElement;
+    }
+    let targetElement;
+    if ("current" in target) {
+      targetElement = target.current;
+    } else {
+      targetElement = target;
+    }
+    return targetElement;
+  }
+  function useLatest(value) {
+    const ref = F$1(value);
+    ref.current = value;
+    return ref;
+  }
+  function useFullScreen(target, options) {
+    const {
+      pageFullscreen = false,
+      onExit,
+      onEnter
+    } = options || {};
+    const [state, setState] = p$1(screenfull$1.isFullscreen);
+    const {
+      className = "page-fullscreen",
+      zIndex = 999999
+    } = typeof pageFullscreen === "boolean" || !pageFullscreen ? {} : pageFullscreen;
+    const onExitRef = useLatest(onExit);
+    const onEnterRef = useLatest(onEnter);
+    const invokeCallback = (fullscreen) => {
+      var _a, _b;
+      if (fullscreen) {
+        (_a = onEnterRef.current) == null ? void 0 : _a.call(onEnterRef);
+      } else {
+        (_b = onExitRef.current) == null ? void 0 : _b.call(onExitRef);
+      }
+    };
+    function getIsFullscreen() {
+      return screenfull$1.isEnabled && !!screenfull$1.element && screenfull$1.element === getTargetElement(target);
+    }
+    const stateRef = F$1(getIsFullscreen());
+    const toggleFullscreen = () => {
+      if (state) {
+        exitFullscreen();
+      } else {
+        enterFullscreen();
+      }
+    };
+    const enterFullscreen = () => {
+      const el = getTargetElement(target);
+      if (!el) {
+        return;
+      }
+      if (pageFullscreen) {
+        togglePageFullscreen(true);
+        return;
+      }
+      if (screenfull$1.isEnabled) {
+        try {
+          screenfull$1.request(el);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    };
+    const updateFullscreenState = (fullscreen) => {
+      if (stateRef.current !== fullscreen) {
+        invokeCallback(fullscreen);
+        setState(fullscreen);
+        stateRef.current = fullscreen;
+      }
+    };
+    const togglePageFullscreen = (fullscreen) => {
+      const el = getTargetElement(target);
+      if (!el) {
+        return;
+      }
+      let styleElem = document.getElementById(className);
+      if (fullscreen) {
+        el.classList.add(className);
+        if (!styleElem) {
+          styleElem = document.createElement("style");
+          styleElem.setAttribute("id", className);
+          styleElem.textContent = `
+          .${className} {
+            position: fixed; left: 0; top: 0; right: 0; bottom: 0;
+            width: 100% !important; height: 100% !important;
+            z-index: ${zIndex};
+          }`;
+          el.appendChild(styleElem);
+        }
+      } else {
+        el.classList.remove(className);
+        if (styleElem) {
+          styleElem.remove();
+        }
+      }
+      updateFullscreenState(fullscreen);
+    };
+    const exitFullscreen = () => {
+      const el = getTargetElement(target);
+      if (!el) {
+        return;
+      }
+      if (pageFullscreen) {
+        togglePageFullscreen(false);
+        return;
+      }
+      if (screenfull$1.isEnabled && screenfull$1.element === el) {
+        screenfull$1.exit();
+      }
+    };
+    return [state, {
+      enterFullscreen,
+      exitFullscreen,
+      toggleFullscreen,
+      isEnabled: screenfull$1.isEnabled
+    }];
+  }
   function App(props) {
     var _a;
     const [excalidrawAPI, setExcalidrawAPI] = p$1(null);
-    _$1(() => {
-      (async () => {
-        if (excalidrawAPI) {
-          await new Promise((resolve) => setTimeout(resolve, 100));
-          excalidrawAPI.scrollToContent(excalidrawAPI.getSceneElements(), {
-            fitToViewport: true,
-            animate: true,
-            duration: 300
-          });
-        }
-      })();
+    const ref = F$1(null);
+    const maxSize = x$1(async () => {
+      if (excalidrawAPI) {
+        await new Promise((resolve) => setTimeout(resolve, 100));
+        excalidrawAPI.scrollToContent(excalidrawAPI.getSceneElements(), {
+          fitToViewport: true,
+          animate: true,
+          duration: 300
+        });
+      }
     }, [excalidrawAPI]);
+    const [isFullscreen, {
+      toggleFullscreen
+    }] = useFullScreen(ref, {
+      pageFullscreen: true,
+      onEnter: maxSize,
+      onExit: maxSize
+    });
+    _$1(() => {
+      maxSize();
+    }, [maxSize]);
     return u("div", {
       style: {
         width: "100%",
         height: "100%"
       },
+      ref,
       children: u(mainExports.Excalidraw, {
         excalidrawAPI: (api) => setExcalidrawAPI(api),
         initialData: {
@@ -27390,7 +27658,13 @@
             zenModeEnabled: true
           }
         },
-        viewModeEnabled: true
+        viewModeEnabled: true,
+        children: u(mainExports.MainMenu, {
+          children: u(mainExports.MainMenu.Item, {
+            onSelect: toggleFullscreen,
+            children: isFullscreen ? "关闭全屏" : "全屏"
+          })
+        })
       })
     });
   }

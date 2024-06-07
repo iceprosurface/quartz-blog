@@ -9,7 +9,7 @@ ccby: true
 ---
 在 [[如何设计一个背包的控制逻辑]] 中我们实现了背包的所有处理逻辑下面需要绑定 ui 了，ui 上逻辑就比较简单了，我们需要简单的做一个数据流程图去思考一下怎么实现数据的流转。 
 
-![背包 gui 逻辑](https://cdn.iceprosurface.com/upload/md/202405162336601.png)
+![背包功能逻辑.excalidraw](背包功能逻辑.excalidraw.md)
 
 我选择将 ui 层分为 4 块功能：
 

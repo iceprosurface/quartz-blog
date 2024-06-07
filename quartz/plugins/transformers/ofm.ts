@@ -11,7 +11,7 @@ import { JSResource } from "../../util/resources"
 import calloutScript from "../../components/scripts/callout.inline.ts"
 // @ts-ignore
 import checkboxScript from "../../components/scripts/checkbox.inline.ts"
-import { FilePath, pathToRoot, slugTag, slugifyFilePath } from "../../util/path"
+import { FilePath, FullSlug, pathToRoot, resolveRelative, slugTag, slugifyFilePath } from "../../util/path"
 import { toHast } from "mdast-util-to-hast"
 import { toHtml } from "hast-util-to-html"
 import { PhrasingContent } from "mdast-util-find-and-replace/lib"
@@ -410,6 +410,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> 
         })
       }
 
+
       if (opts.callouts) {
         plugins.push(() => {
           return (tree: Root, _file) => {
@@ -597,6 +598,23 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> 
           }
         })
       }
+      // embeds with excalidraw
+      plugins.push(() => {
+        return (tree: Root, file) => {
+          // excalidraw
+          visit(tree, "element", (node, index, parent) => {
+            const path = node.properties.src;
+            if (node.tagName === "img" && typeof path === "string" && path.endsWith(".excalidraw.md")) {
+              node.tagName = "div"
+              node.properties = {
+                class: "excalidraw",
+                style: "width: 100%;height: 500px",
+                "data-excalidraw": path,
+              }
+            }
+          })
+        }
+      })
       if (opts.enableImageWidth) {
         plugins.push(() => {
           return (tree: HtmlRoot) => {

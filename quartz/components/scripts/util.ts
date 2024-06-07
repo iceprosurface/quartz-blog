@@ -76,18 +76,27 @@ declare global {
     };
   }
 }
-export async function initExcalidraw() {
-  const pluginPath = document.querySelector('meta[name="excalidraw-plugin"]')?.getAttribute('content');
+export function getJsByMeta(name: string) {
+  const pluginPath = document.querySelector(`meta[name="${name}"]`)?.getAttribute('content');
   if (!pluginPath) {
-    return false;
+    throw new Error('Excalidraw plugin path not found');
   }
-  await loadScript(pluginPath, false);
-  const element = document.querySelector('[data-excalidraw]');
-  if (!element) {
-    return;
-  }
+  return pluginPath;
+}
+async function loadExcalidraw(element: HTMLElement) {
   const data = element.getAttribute('data-excalidraw') ?? '';
   element.removeAttribute('data-excalidraw');
   const markdown = await fetch(data).then((res) => res.text());
   window.QuartzExcalidrawPlugin.mountApp(element as HTMLElement, window.QuartzExcalidrawPlugin.decodeData(markdown), {});
+}
+export async function initExcalidraw() {
+  const pluginPath = getJsByMeta('excalidraw-plugin');
+  await loadScript(pluginPath, false);
+  const elements = document.querySelectorAll('[data-excalidraw]');
+  if (!elements || !elements.length) {
+    return;
+  }
+  elements.forEach((element) => {
+    loadExcalidraw(element as HTMLElement);
+  });
 }

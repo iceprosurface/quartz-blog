@@ -22,7 +22,8 @@
   "dependencies": {
     "@excalidraw/excalidraw": "^0.17.6",
     "lz-string": "^1.5.0",
-    "preact": "^10.22.0"
+    "preact": "^10.22.0",
+    "screenfull": "^6.0.2"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.8.2",

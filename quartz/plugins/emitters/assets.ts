@@ -8,10 +8,7 @@ import { Argv } from "../../util/ctx"
 import { QuartzConfig } from "../../cfg"
 
 const filesToCopy = async (argv: Argv, cfg: QuartzConfig) => {
-  // glob all non MD files in content folder and copy it over
-  const assets = await glob("**", argv.directory, ["**/*.md", ...cfg.configuration.ignorePatterns])
-  const excalidrawAssets = await glob('**/*.excalidraw.md', argv.directory, cfg.configuration.ignorePatterns)
-  return [...assets, ...excalidrawAssets]
+  return await glob("**", argv.directory, ["**/*.md", ...cfg.configuration.ignorePatterns])
 }
 
 export const Assets: QuartzEmitterPlugin = () => {
@@ -38,8 +35,22 @@ export const Assets: QuartzEmitterPlugin = () => {
 
       return graph
     },
-    async emit({ argv, cfg }, _content, _resources): Promise<FilePath[]> {
+    async emit(ctx, content, _resources): Promise<FilePath[]> {
+      const { argv, cfg } = ctx;
       const assetsPath = argv.output
+      const list = await Promise.all(content.filter(([node, vfile]) => {
+        return vfile.data.frontmatter?.["excalidraw-plugin"]
+      }).map(async ([node, vfile]) => {
+        const filePath = vfile.data.slug + '.md';
+        if (filePath && vfile.data.filePath) {
+          const src = joinSegments(vfile.data.filePath) as FilePath
+          const dest = joinSegments(argv.output, filePath) as FilePath
+          const dir = path.dirname(dest) as FilePath
+          await fs.promises.mkdir(dir, { recursive: true }) // ensure dir exists
+          await fs.promises.copyFile(src, dest)
+        }
+        return filePath
+      }))
       const fps = await filesToCopy(argv, cfg)
       const res: FilePath[] = []
       for (const fp of fps) {

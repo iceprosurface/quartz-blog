@@ -1,8 +1,9 @@
-import { Excalidraw } from "@excalidraw/excalidraw";
+import { Excalidraw, MainMenu } from "@excalidraw/excalidraw";
 import { render } from 'preact';
 import LZString from 'lz-string';
 import { ExcalidrawImperativeAPI, ExcalidrawInitialDataState } from "@excalidraw/excalidraw/types/types";
-import { useEffect, useState } from "preact/hooks";
+import { useCallback, useEffect, useRef, useState } from "preact/hooks";
+import { useFullScreen } from "./useFullscreen";
 type ExcalidrawProps = {
   width?: number,
   height?: number
@@ -11,19 +12,27 @@ function App(props: {
   data?: ExcalidrawInitialDataState
 } & ExcalidrawProps) {
   const [excalidrawAPI, setExcalidrawAPI] = useState<ExcalidrawImperativeAPI | null>(null);
-  useEffect(() => {
-    (async () => {
-      if (excalidrawAPI) {
-        await new Promise((resolve) => setTimeout(resolve, 100));
-        excalidrawAPI.scrollToContent(excalidrawAPI.getSceneElements(), {
-          fitToViewport: true,
-          animate: true,
-          duration: 300,
-        });
-      }
-    })()
+  const ref = useRef(null);
+  const maxSize = useCallback(async () => {
+    if (excalidrawAPI) {
+      await new Promise((resolve) => setTimeout(resolve, 100))
+      excalidrawAPI.scrollToContent(excalidrawAPI.getSceneElements(), {
+        fitToViewport: true,
+        animate: true,
+        duration: 300,
+      });
+    }
   }, [excalidrawAPI])
-  return <div style={{ width: '100%', height: '100%' }}>
+  const [isFullscreen, { toggleFullscreen }] = useFullScreen(ref, {
+    pageFullscreen: true,
+    onEnter: maxSize,
+    onExit: maxSize
+  })
+  useEffect(() => {
+    maxSize()
+  }, [maxSize])
+
+  return <div style={{ width: '100%', height: '100%' }} ref={ref} >
     <Excalidraw
       excalidrawAPI={(api) => setExcalidrawAPI(api)}
       initialData={{
@@ -37,6 +46,9 @@ function App(props: {
       }}
       viewModeEnabled={true}
     >
+      <MainMenu>
+        <MainMenu.Item onSelect={toggleFullscreen}>{isFullscreen ? '关闭全屏' : '全屏'}</MainMenu.Item>
+      </MainMenu>
     </Excalidraw>
   </div>
 }
