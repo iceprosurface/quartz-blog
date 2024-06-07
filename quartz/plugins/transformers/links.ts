@@ -51,6 +51,31 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options> | undefined> =
 
             visit(tree, "element", (node, _index, _parent) => {
               // rewrite all links
+              if (node.tagName === 'div' && node.properties['data-excalidraw']) {
+                let dest = node.properties['data-excalidraw'] as string
+                const isInternal = !(isAbsoluteUrl(dest) || dest.startsWith("#"))
+                if (isInternal) {
+                  dest = node.properties.href = transformLink(
+                    file.data.slug!,
+                    dest,
+                    transformOptions,
+                  )
+
+                  // url.resolve is considered legacy
+                  // WHATWG equivalent https://nodejs.dev/en/api/v18/url/#urlresolvefrom-to
+                  const url = new URL(dest, "https://base.com/" + stripSlashes(curSlug, true))
+                  const canonicalDest = url.pathname
+                  let [destCanonical, _destAnchor] = splitAnchor(canonicalDest)
+                  if (destCanonical.endsWith("/")) {
+                    destCanonical += "index"
+                  }
+
+                  // need to decodeURIComponent here as WHATWG URL percent-encodes everything
+                  const full = decodeURIComponent(stripSlashes(destCanonical, true)) as FullSlug
+                  const simple = simplifySlug(full)
+                  outgoing.add(simple)
+                }
+              }
               if (
                 node.tagName === "a" &&
                 node.properties &&
@@ -155,7 +180,6 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options> | undefined> =
                 }
               }
             })
-
             file.data.links = [...outgoing]
           }
         },
