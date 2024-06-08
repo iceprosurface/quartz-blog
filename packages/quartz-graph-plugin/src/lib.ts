@@ -238,7 +238,6 @@ export async function renderGraph(container: HTMLElement, cfg: {
         }
       })
     }
-    let underDrag = false;
     let dragStartTime = 0;
     (cfg.graphData.nodes as D3NodeData[]).forEach((node) => {
       const gfx = new Graphics()
