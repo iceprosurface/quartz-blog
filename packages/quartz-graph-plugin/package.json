@@ -1,0 +1,31 @@
+{
+  "name": "quartz-graph-plugin",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/quartz-graph-plugin.umd.cjs",
+  "module": "dist/quartz-graph-plugin.js",
+  "exports": {
+    ".": {
+      "import": "./dist/quartz-graph-plugin.js",
+      "require": "./dist/quartz-graph-plugin.umd.cjs",
+      "types": "./types/lib.d.ts"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build:lib": "tsc && vite build && cp dist/quartz-graph-plugin.umd.cjs ../../quartz/static/quartz-graph-plugin.js",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tweenjs/tween.js": "^23.1.2",
+    "d3": "^7.9.0",
+    "pixi.js": "^8.1.6",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "vite": "^5.2.12"
+  }
+}
