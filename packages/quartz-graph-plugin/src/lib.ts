@@ -238,6 +238,7 @@ export async function renderGraph(container: HTMLElement, cfg: {
         }
       })
     }
+    let underDrag = false;
     (cfg.graphData.nodes as D3NodeData[]).forEach((node) => {
       const gfx = new Graphics()
 
@@ -293,7 +294,9 @@ export async function renderGraph(container: HTMLElement, cfg: {
         setCurrentHoverNodeId(null)
       });
       gfx.on('click', () => {
-        cfg.onNodeClick(node)
+        if (underDrag) {
+          cfg.onNodeClick(node)
+        }
       });
       node.gfx = gfx;
       node.r = nodeRadius(node);
@@ -334,6 +337,7 @@ export async function renderGraph(container: HTMLElement, cfg: {
           event.subject.fx = event.subject.x;
           event.subject.fy = event.subject.y;
           event.subject.__initialDragPos = { x: event.subject.x, y: event.subject.y, fx: event.subject.fx, fy: event.subject.fy };
+          underDrag = true;
         })
         .on('drag', function dragged(event) {
           const k = currentTransform.k;
@@ -346,6 +350,12 @@ export async function renderGraph(container: HTMLElement, cfg: {
           if (!event.active) simulation.alphaTarget(0);
           event.subject.fx = null;
           event.subject.fy = null;
+          event.sourceEvent.stopPropagation();
+          event.sourceEvent.preventDefault();
+          // 在同一个 tick 下，dragend 事件会在 click 事件之前触发，所以需要延迟 100ms，防止错误触发 click 事件
+          setTimeout(() => {
+            underDrag = false;
+          }, 100);
         }))
       .call(d3
         .zoom<HTMLCanvasElement, D3NodeData | undefined>()

@@ -35922,6 +35922,7 @@ ${parts.join("\n")}
           }
         });
       }
+      let underDrag = false;
       cfg.graphData.nodes.forEach((node) => {
         const gfx = new Graphics();
         gfx.circle(0, 0, nodeRadius(node));
@@ -35970,7 +35971,9 @@ ${parts.join("\n")}
           setCurrentHoverNodeId(null);
         });
         gfx.on("click", () => {
-          cfg.onNodeClick(node);
+          if (underDrag) {
+            cfg.onNodeClick(node);
+          }
         });
         node.gfx = gfx;
         node.r = nodeRadius(node);
@@ -36008,6 +36011,7 @@ ${parts.join("\n")}
         event.subject.fx = event.subject.x;
         event.subject.fy = event.subject.y;
         event.subject.__initialDragPos = { x: event.subject.x, y: event.subject.y, fx: event.subject.fx, fy: event.subject.fy };
+        underDrag = true;
       }).on("drag", function dragged(event) {
         const k2 = currentTransform.k;
         const initPos = event.subject.__initialDragPos;
@@ -36019,6 +36023,11 @@ ${parts.join("\n")}
           simulation$1.alphaTarget(0);
         event.subject.fx = null;
         event.subject.fy = null;
+        event.sourceEvent.stopPropagation();
+        event.sourceEvent.preventDefault();
+        setTimeout(() => {
+          underDrag = false;
+        }, 100);
       })).call(zoom().extent([
         [0, 0],
         [width, height]
