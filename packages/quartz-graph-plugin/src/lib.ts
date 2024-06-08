@@ -91,9 +91,9 @@ export async function renderGraph(container: HTMLElement, cfg: {
 
   let simulation = d3.forceSimulation<D3NodeData>()
     .force('link', d3.forceLink<D3NodeData, D3LinkData>().id((d) => d.id))
-    .force('charge', d3.forceManyBody().strength(-100 * (cfg.repelForce || 0.5)))
-    .force('center', d3.forceCenter(width / 2, height / 2).strength(cfg.centerForce || 0.3))
-    .force('collide', d3.forceCollide(() => 30));
+    .force('charge', d3.forceManyBody().strength(-50))
+    .force('center', d3.forceCenter(width / 2, height / 2).strength(0.2))
+    .force('collide', d3.forceCollide(() => 20))
 
   const colour = (d: D3NodeData) => {
     const isCurrent = d.id === cfg.slug
@@ -239,6 +239,7 @@ export async function renderGraph(container: HTMLElement, cfg: {
       })
     }
     let underDrag = false;
+    let dragStartTime = 0;
     (cfg.graphData.nodes as D3NodeData[]).forEach((node) => {
       const gfx = new Graphics()
 
@@ -293,11 +294,6 @@ export async function renderGraph(container: HTMLElement, cfg: {
         tweens.set(node.id, tween)
         setCurrentHoverNodeId(null)
       });
-      gfx.on('click', () => {
-        if (underDrag) {
-          cfg.onNodeClick(node)
-        }
-      });
       node.gfx = gfx;
       node.r = nodeRadius(node);
       const label = new Text({
@@ -333,11 +329,12 @@ export async function renderGraph(container: HTMLElement, cfg: {
           }
         })
         .on('start', function dragstarted(event) {
-          if (!event.active) simulation.alphaTarget(1).restart();
+          if (!event.active) simulation.alphaTarget(0.3).restart();
           event.subject.fx = event.subject.x;
           event.subject.fy = event.subject.y;
           event.subject.__initialDragPos = { x: event.subject.x, y: event.subject.y, fx: event.subject.fx, fy: event.subject.fy };
           underDrag = true;
+          dragStartTime = Date.now();
         })
         .on('drag', function dragged(event) {
           const k = currentTransform.k;
@@ -350,12 +347,11 @@ export async function renderGraph(container: HTMLElement, cfg: {
           if (!event.active) simulation.alphaTarget(0);
           event.subject.fx = null;
           event.subject.fy = null;
-          event.sourceEvent.stopPropagation();
-          event.sourceEvent.preventDefault();
           // 在同一个 tick 下，dragend 事件会在 click 事件之前触发，所以需要延迟 100ms，防止错误触发 click 事件
-          setTimeout(() => {
+          if (Date.now() - dragStartTime < 200) {
             underDrag = false;
-          }, 100);
+            cfg.onNodeClick(cfg.graphData.nodes.find((node) => node.id === event.subject.id) as NodeData);
+          }
         }))
       .call(d3
         .zoom<HTMLCanvasElement, D3NodeData | undefined>()
@@ -376,7 +372,7 @@ export async function renderGraph(container: HTMLElement, cfg: {
     simulation.nodes(cfg.graphData.nodes);
     simulation.force('link', d3.forceLink<D3NodeData, D3LinkData>(cfg.graphData.links)
       .id((d) => d.id)
-      .distance(cfg.linkDistance!));
+      .distance(85));
     (cfg.graphData.links as D3LinkData[]).forEach((link) => {
       link.alpha = 1;
       link.color = colorMap.get("--lightgray");
