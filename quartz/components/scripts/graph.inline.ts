@@ -118,7 +118,8 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
   }
   window.QuartzGraphPlugin.renderGraph(graph, {
     onNodeClick: (node: NodeData) => {
-      console.log(node)
+      const targ = resolveRelative(fullSlug, node.id)
+      window.spaNavigate(new URL(targ, window.location.toString()))
     },
     graphData,
     slug,

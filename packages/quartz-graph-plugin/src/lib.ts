@@ -16,9 +16,12 @@ type LinkData = {
 type D3NodeData = d3.SimulationNodeDatum & NodeData & {
   gfx?: Graphics;
   label?: Text;
+  active?: boolean;
 }
 type D3LinkData = d3.SimulationLinkDatum<D3NodeData> & {
-  color?: string
+  active?: boolean;
+  alpha?: number;
+  color?: string;
 }
 
 let tweens = new Map<string, {
@@ -62,11 +65,17 @@ export async function renderGraph(container: HTMLElement, cfg: {
   colorMap.set("--secondary", getColor("--secondary"));
   colorMap.set("--tertiary", getColor("--tertiary"));
   colorMap.set("--gray", getColor("--gray"));
+  colorMap.set("--dark", getColor("--dark"));
   colorMap.set("--light", getColor("--light"));
+  colorMap.set("--lightgray", getColor("--lightgray"));
 
+
+  nodeContainer.zIndex = 1;
+  labelContainer.zIndex = 2;
 
   stage.addChild(nodeContainer);
   stage.addChild(labelContainer);
+
   const height = Math.max(container.offsetHeight, 250)
   const width = container.offsetWidth
   const app = new Application();
@@ -83,7 +92,8 @@ export async function renderGraph(container: HTMLElement, cfg: {
   let simulation = d3.forceSimulation<D3NodeData>()
     .force('link', d3.forceLink<D3NodeData, D3LinkData>().id((d) => d.id))
     .force('charge', d3.forceManyBody().strength(-100 * (cfg.repelForce || 0.5)))
-    .force('center', d3.forceCenter(width / 2, height / 2).strength(cfg.centerForce || 0.3));
+    .force('center', d3.forceCenter(width / 2, height / 2).strength(cfg.centerForce || 0.3))
+    .force('collide', d3.forceCollide(() => 30));
 
   const colour = (d: D3NodeData) => {
     const isCurrent = d.id === cfg.slug
@@ -104,7 +114,77 @@ export async function renderGraph(container: HTMLElement, cfg: {
       const numLinks = cfg.graphData.links.filter((l: any) => l.source.id === d.id || l.target.id === d.id).length
       return (2 + Math.sqrt(numLinks)) * 2
     }
+    let currentHoverNodeId: string | null = null;
+    function setupLinkAnimation(links: D3LinkData[]) {
+      tweens.get('link')?.stop();
+      const tweenGroup = new TWEEN.Group();
+      links.forEach((link) => {
+        let alpha = 1;
+        if (currentHoverNodeId) {
+          alpha = link.active ? 1 : 0.2
+        }
+        tweenGroup.add(new TWEEN.Tween(link).to({
+          alpha,
+        }, 200))
+        link.color = link.active ? colorMap.get("--gray") : colorMap.get("--lightgray")
+      });
+      tweenGroup.getAll().forEach((tween) => {
+        tween.start()
+      });
+      tweens.set('link', {
+        update: tweenGroup.update.bind(tweenGroup),
+        stop() {
+          tweenGroup.getAll().forEach((tween) => {
+            tween.stop()
+          });
+        }
+      });
+    }
+    function setupLabelAnimation(nodes: D3NodeData[]) {
+      tweens.get('label')?.stop();
+      const tweenGroup = new TWEEN.Group();
+      nodes.forEach((node) => {
+        if (!node.label) return;
+        // 高亮逻辑
+        if (currentHoverNodeId === node.id) {
+          // 高亮当前节点, 放大显示 label
+          tweenGroup.add(new TWEEN.Tween(node.label!).to({
+            alpha: 1,
+            scale: {
+              x: 1 / 4 * 1.25,
+              y: 1 / 4 * 1.25
+            }
+          }, 200))
+        } else {
+          // 显示 label
+          // 判断 zoom 状态
+          let alpha = node.active ? 0.8 : 0
+          if (currentTransform.k > 0.5) {
+            alpha = 0.8
+          }
+          tweenGroup.add(new TWEEN.Tween(node.label!).to({
+            alpha,
+            scale: {
+              x: 1 / 4,
+              y: 1 / 4
+            }
+          }, 200))
+        }
+      });
+      tweenGroup.getAll().forEach((tween) => {
+        tween.start()
+      });
+      tweens.set('label', {
+        update: tweenGroup.update.bind(tweenGroup),
+        stop() {
+          tweenGroup.getAll().forEach((tween) => {
+            tween.stop()
+          });
+        }
+      });
+    }
     function setCurrentHoverNodeId(nodeId: string | null) {
+      currentHoverNodeId = nodeId;
       if (tweens.get('hover')) tweens.get('hover')?.stop();
       // 找出所有与当前节点相连的节点
       const connectedNodes = new Set<string>([]);
@@ -112,10 +192,8 @@ export async function renderGraph(container: HTMLElement, cfg: {
       (cfg.graphData.links as D3LinkData[]).forEach((link) => {
         const source = link.source as D3NodeData;
         const target = link.target as D3NodeData;
-        if (source.id === nodeId) {
-          connectedNodes.add(target.id)
-        }
-        if (source.id === nodeId) {
+        if (source.id === nodeId || target.id === nodeId) {
+          connectedNodes.add(source.id)
           connectedNodes.add(target.id)
         }
         links.push(link)
@@ -126,23 +204,28 @@ export async function renderGraph(container: HTMLElement, cfg: {
       const groupTween = new TWEEN.Group();
       // 隐藏所有非连接节点
       (cfg.graphData.nodes as D3NodeData[]).forEach((node) => {
-        const label = node.label!;
-        if (!connectedNodes.has(node.id)) {
-          const tween = new TWEEN.Tween(label, groupTween)
-            .to({ alpha: 0 }, 200)
-          groupTween.add(tween)
+        if (nodeId) {
+          node.active = connectedNodes.has(node.id);
+          if (node.id !== nodeId) {
+            // 其他节点
+            // 如果是连接的节点，显示 alpha 为 1，否则为 0.2
+            groupTween.add(new TWEEN.Tween(node.gfx!, groupTween).to({ alpha: connectedNodes.has(node.id) ? 1 : 0.2 }, 200))
+          }
         } else {
-          const tween = new TWEEN.Tween(label, groupTween)
-            .to({ alpha: 1 }, 200)
-          groupTween.add(tween)
+          // 恢复所有节点
+          node.active = false;
+          groupTween.add(new TWEEN.Tween(node.gfx!, groupTween).to({ alpha: 1 }, 200))
         }
       });
-      // 设置连接线的颜色
+      // 设置连接状态
       links.forEach((link) => {
-        const { source, target } = link;
-        // getColor("--secondary")
-        link.color = source === nodeId || target === nodeId ? "red" : colorMap.get("--gray");
+        const source = link.source as D3NodeData;
+        const target = link.target as D3NodeData;
+        link.active = source.id === nodeId || target.id === nodeId;
       });
+      setupLabelAnimation(cfg.graphData.nodes as D3NodeData[]);
+      setupLinkAnimation(links);
+
       groupTween.getAll().forEach((tween) => {
         tween.start()
       });
@@ -215,14 +298,16 @@ export async function renderGraph(container: HTMLElement, cfg: {
       node.gfx = gfx;
       node.r = nodeRadius(node);
       const label = new Text({
-        text: node.text,
+        // text 最多显示 9 个字符，超过 9 个字符显示 ...
+        text: node.text.length > 9 ? node.text.slice(0, 9) + '...' : node.text,
         style: {
-          fontSize: 12,
-          fill: colorMap.get("--gray")
+          fontSize: 12 * 4,
+          fill: colorMap.get("--dark")
         }
       });
+      label.scale.set(1 / 4, 1 / 4);
       label.anchor.set(0.5, 1);
-      label.alpha = 0;
+      label.alpha = 0.8;
       node.label = label;
       labelContainer.addChild(label);
       nodeContainer.addChild(gfx);
@@ -273,6 +358,7 @@ export async function renderGraph(container: HTMLElement, cfg: {
           currentTransform = transform
           stage.scale.set(transform.k, transform.k);
           stage.position.set(transform.x, transform.y);
+          setupLabelAnimation(cfg.graphData.nodes as D3NodeData[]);
         }))
 
 
@@ -281,6 +367,10 @@ export async function renderGraph(container: HTMLElement, cfg: {
     simulation.force('link', d3.forceLink<D3NodeData, D3LinkData>(cfg.graphData.links)
       .id((d) => d.id)
       .distance(cfg.linkDistance!));
+    (cfg.graphData.links as D3LinkData[]).forEach((link) => {
+      link.alpha = 1;
+      link.color = colorMap.get("--lightgray");
+    });
     function animate() {
       (cfg.graphData.nodes as D3NodeData[]).forEach((node) => {
         let { x, y, gfx, label, r } = node;
@@ -289,21 +379,26 @@ export async function renderGraph(container: HTMLElement, cfg: {
         if (label) {
           label.position.set(node.x!, node.y! - (r || 5));
         }
-
+        gfx.zIndex = node.active ? 2 : 1;
       });
 
       links.clear();
-      links.alpha = 0.6;
 
-      (cfg.graphData.links as D3LinkData[]).forEach((link) => {
+      (cfg.graphData.links as D3LinkData[]).sort((a, b) => {
+        // active 的排在前面
+        if (a.active && !b.active) return 1;
+        if (!a.active && b.active) return -1;
+        return 0;
+      }).forEach((link) => {
         const source = link.source as D3NodeData;
         const target = link.target as D3NodeData;
         const color = link.color;
         links.moveTo(source.x!, source.y!);
         links.lineTo(target.x!, target.y!);
         links.stroke({
-          width: 1,
-          color: color || colorMap.get("--gray")
+          width: 2,
+          color,
+          alpha: link.alpha
         });
       });
       links.fill();
