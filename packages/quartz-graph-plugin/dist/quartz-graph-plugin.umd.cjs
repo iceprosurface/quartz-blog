@@ -35786,7 +35786,7 @@ ${parts.join("\n")}
       autoStart: false
     });
     container.appendChild(app.canvas);
-    let simulation$1 = simulation().force("link", link().id((d2) => d2.id)).force("charge", manyBody().strength(-100 * (cfg.repelForce || 0.5))).force("center", center(width / 2, height / 2).strength(cfg.centerForce || 0.3)).force("collide", collide(() => 30));
+    let simulation$1 = simulation().force("link", link().id((d2) => d2.id)).force("charge", manyBody().strength(-50)).force("center", center(width / 2, height / 2).strength(0.2)).force("collide", collide(() => 20));
     const colour = (d2) => {
       const isCurrent = d2.id === cfg.slug;
       if (isCurrent) {
@@ -35922,7 +35922,7 @@ ${parts.join("\n")}
           }
         });
       }
-      let underDrag = false;
+      let dragStartTime = 0;
       cfg.graphData.nodes.forEach((node) => {
         const gfx = new Graphics();
         gfx.circle(0, 0, nodeRadius(node));
@@ -35970,11 +35970,6 @@ ${parts.join("\n")}
           tweens.set(node.id, tween);
           setCurrentHoverNodeId(null);
         });
-        gfx.on("click", () => {
-          if (underDrag) {
-            cfg.onNodeClick(node);
-          }
-        });
         node.gfx = gfx;
         node.r = nodeRadius(node);
         const label = new Text({
@@ -36007,11 +36002,11 @@ ${parts.join("\n")}
         }
       }).on("start", function dragstarted(event) {
         if (!event.active)
-          simulation$1.alphaTarget(1).restart();
+          simulation$1.alphaTarget(0.3).restart();
         event.subject.fx = event.subject.x;
         event.subject.fy = event.subject.y;
         event.subject.__initialDragPos = { x: event.subject.x, y: event.subject.y, fx: event.subject.fx, fy: event.subject.fy };
-        underDrag = true;
+        dragStartTime = Date.now();
       }).on("drag", function dragged(event) {
         const k2 = currentTransform.k;
         const initPos = event.subject.__initialDragPos;
@@ -36023,11 +36018,9 @@ ${parts.join("\n")}
           simulation$1.alphaTarget(0);
         event.subject.fx = null;
         event.subject.fy = null;
-        event.sourceEvent.stopPropagation();
-        event.sourceEvent.preventDefault();
-        setTimeout(() => {
-          underDrag = false;
-        }, 100);
+        if (Date.now() - dragStartTime < 200) {
+          cfg.onNodeClick(cfg.graphData.nodes.find((node) => node.id === event.subject.id));
+        }
       })).call(zoom().extent([
         [0, 0],
         [width, height]
@@ -36038,7 +36031,7 @@ ${parts.join("\n")}
         setupLabelAnimation(cfg.graphData.nodes);
       }));
       simulation$1.nodes(cfg.graphData.nodes);
-      simulation$1.force("link", link(cfg.graphData.links).id((d2) => d2.id).distance(cfg.linkDistance));
+      simulation$1.force("link", link(cfg.graphData.links).id((d2) => d2.id).distance(85));
       cfg.graphData.links.forEach((link2) => {
         link2.alpha = 1;
         link2.color = colorMap.get("--lightgray");
