@@ -332,7 +332,6 @@ export async function renderGraph(container: HTMLElement, cfg: {
           event.subject.fx = event.subject.x;
           event.subject.fy = event.subject.y;
           event.subject.__initialDragPos = { x: event.subject.x, y: event.subject.y, fx: event.subject.fx, fy: event.subject.fy };
-          underDrag = true;
           dragStartTime = Date.now();
         })
         .on('drag', function dragged(event) {
@@ -348,7 +347,6 @@ export async function renderGraph(container: HTMLElement, cfg: {
           event.subject.fy = null;
           // 在同一个 tick 下，dragend 事件会在 click 事件之前触发，所以需要延迟 100ms，防止错误触发 click 事件
           if (Date.now() - dragStartTime < 200) {
-            underDrag = false;
             cfg.onNodeClick(cfg.graphData.nodes.find((node) => node.id === event.subject.id) as NodeData);
           }
         }))
