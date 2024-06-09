@@ -1,7 +1,7 @@
 ---
 title: icepro 博客开发故事
 date: 2024-05-12T10:48:07+08:00
-updated: 2024-05-28T20:00:05+08:00
+updated: 2024-06-09T11:52:25+08:00
 permalink: /blog/moc/
 tags:
   - 生活
@@ -142,3 +142,12 @@ https://github.com/iceprosurface/quartz-blog/blob/d7785f47c40bcf7bb180c17491f011
   --codeFont: "xlwk-lite";
 }
 ```
+
+
+# 附录
+
+其他的一些更新：
+
++ [动态脚本加载](博客开发与维护/动态脚本加载.md)
++ [quartz关系图谱优化](博客开发与维护/quartz关系图谱优化.md)
++ [quartz插件加载更多功能](博客开发与维护/quartz插件加载更多功能.md)
