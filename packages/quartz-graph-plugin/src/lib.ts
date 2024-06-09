@@ -53,6 +53,9 @@ export async function renderGraph(container: HTMLElement, cfg: {
   opacityScale?: number,
   focusOnHover?: boolean,
 }) {
+  // 判断设备是否是手机
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const MAX_SCALE = isMobile ? 2 : 4;
   let stage = new Container();
   let nodeContainer = new Container();
   let labelContainer = new Container();
@@ -83,7 +86,7 @@ export async function renderGraph(container: HTMLElement, cfg: {
     width: width,
     height: height,
     backgroundAlpha: 0,
-    resolution: window.devicePixelRatio,
+    resolution: window.devicePixelRatio * MAX_SCALE,
     autoDensity: true,
     autoStart: false,
   });
@@ -151,8 +154,8 @@ export async function renderGraph(container: HTMLElement, cfg: {
           tweenGroup.add(new TWEEN.Tween(node.label!).to({
             alpha: 1,
             scale: {
-              x: 1 / 4 * 1.25,
-              y: 1 / 4 * 1.25
+              x: 1.25,
+              y: 1.25
             }
           }, 200))
         } else {
@@ -165,8 +168,8 @@ export async function renderGraph(container: HTMLElement, cfg: {
           tweenGroup.add(new TWEEN.Tween(node.label!).to({
             alpha,
             scale: {
-              x: 1 / 4,
-              y: 1 / 4
+              x: 1,
+              y: 1
             }
           }, 200))
         }
@@ -299,11 +302,11 @@ export async function renderGraph(container: HTMLElement, cfg: {
         // text 最多显示 9 个字符，超过 9 个字符显示 ...
         text: node.text.length > 9 ? node.text.slice(0, 9) + '...' : node.text,
         style: {
-          fontSize: 12 * 4,
+          fontSize: 12,
           fill: colorMap.get("--dark")
         }
       });
-      label.scale.set(1 / 4, 1 / 4);
+      label.scale.set(1, 1);
       label.anchor.set(0.5, 1);
       label.alpha = 0.8;
       node.label = label;
@@ -356,7 +359,7 @@ export async function renderGraph(container: HTMLElement, cfg: {
           [0, 0],
           [width, height],
         ])
-        .scaleExtent([0.25, 4])
+        .scaleExtent([0.25, MAX_SCALE])
         .on("zoom", ({ transform }) => {
           currentTransform = transform
           stage.scale.set(transform.k, transform.k);
