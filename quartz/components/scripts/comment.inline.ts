@@ -11,10 +11,11 @@ async function commentInit() {
     event.preventDefault();
     return false
   });
+  const id = document.getElementById("tcomment")?.dataset.id;
   (window as any).twikoo?.init({
     envId: 'https://comment.iceprosurface.com',
     el: '#tcomment',
-    path: (window as any).__comment_id__
+    path: id,
   });
 }
 document.addEventListener('nav', (event) => {
