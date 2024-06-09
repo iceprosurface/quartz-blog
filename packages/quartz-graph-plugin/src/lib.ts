@@ -53,6 +53,9 @@ export async function renderGraph(container: HTMLElement, cfg: {
   opacityScale?: number,
   focusOnHover?: boolean,
 }) {
+  // 重新渲染前清除所有 tween
+  tweens.forEach(tween => tween.stop())
+  tweens.clear()
   // 判断设备是否是手机
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   const MAX_SCALE = isMobile ? 2 : 4;
