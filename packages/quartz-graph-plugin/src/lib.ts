@@ -149,6 +149,7 @@ export async function renderGraph(container: HTMLElement, cfg: {
       });
     }
     function setupLabelAnimation(nodes: D3NodeData[]) {
+      const { connectedNodes } = getConnectedNodesAndLinks(currentHoverNodeId!);
       tweens.get('label')?.stop();
       const tweenGroup = new TWEEN.Group();
       nodes.forEach((node) => {
@@ -166,9 +167,12 @@ export async function renderGraph(container: HTMLElement, cfg: {
         } else {
           // 显示 label
           // 判断 zoom 状态
-          let alpha = node.active ? 0.8 : 0
+          let alpha = node.active ? 0.3 : 0
           if (currentTransform.k > 0.5) {
-            alpha = 0.8
+            alpha = 0.3
+          }
+          if (currentHoverNodeId && connectedNodes.has(node.id)) {
+            alpha = 0.7
           }
           tweenGroup.add(new TWEEN.Tween(node.label!).to({
             alpha,
@@ -191,10 +195,7 @@ export async function renderGraph(container: HTMLElement, cfg: {
         }
       });
     }
-    function setCurrentHoverNodeId(nodeId: string | null) {
-      currentHoverNodeId = nodeId;
-      if (tweens.get('hover')) tweens.get('hover')?.stop();
-      // 找出所有与当前节点相连的节点
+    function getConnectedNodesAndLinks(nodeId: string) {
       const connectedNodes = new Set<string>([]);
       const links: D3LinkData[] = [];
       (cfg.graphData.links as D3LinkData[]).forEach((link) => {
@@ -206,6 +207,16 @@ export async function renderGraph(container: HTMLElement, cfg: {
         }
         links.push(link)
       })
+      return {
+        connectedNodes,
+        links
+      };
+    }
+    function setCurrentHoverNodeId(nodeId: string | null) {
+      currentHoverNodeId = nodeId;
+      if (tweens.get('hover')) tweens.get('hover')?.stop();
+      // 找出所有与当前节点相连的节点
+      const { connectedNodes, links } = getConnectedNodesAndLinks(nodeId!);
       if (nodeId) {
         connectedNodes.add(nodeId)
       }
@@ -315,7 +326,7 @@ export async function renderGraph(container: HTMLElement, cfg: {
       });
       label.scale.set(1, 1);
       label.anchor.set(0.5, 1);
-      label.alpha = 0.8;
+      label.alpha = 0.3;
       node.label = label;
       labelContainer.addChild(label);
       nodeContainer.addChild(gfx);
