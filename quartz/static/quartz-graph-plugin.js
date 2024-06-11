@@ -35760,7 +35760,9 @@ ${parts.join("\n")}
     tweens.clear();
     const isMobile2 = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     const MAX_SCALE = isMobile2 ? 2 : 4;
+    const SIZE_BASE = MAX_SCALE;
     let stage = new Container();
+    stage.scale.set(1 / MAX_SCALE, 1 / MAX_SCALE);
     let nodeContainer = new Container();
     let labelContainer = new Container();
     function getColor(cssVar) {
@@ -35785,7 +35787,7 @@ ${parts.join("\n")}
       width,
       height,
       backgroundAlpha: 0,
-      resolution: window.devicePixelRatio * MAX_SCALE,
+      resolution: window.devicePixelRatio,
       autoDensity: true,
       autoStart: false
     });
@@ -35929,7 +35931,7 @@ ${parts.join("\n")}
       let dragStartTime = 0;
       cfg.graphData.nodes.forEach((node) => {
         const gfx = new Graphics();
-        gfx.circle(0, 0, nodeRadius(node));
+        gfx.circle(0, 0, nodeRadius(node) * SIZE_BASE);
         if (node.id.startsWith("tags/")) {
           gfx.fill({
             color: colorMap.get("--light")
@@ -35980,7 +35982,7 @@ ${parts.join("\n")}
           // text 最多显示 9 个字符，超过 9 个字符显示 ...
           text: node.text.length > 9 ? node.text.slice(0, 9) + "..." : node.text,
           style: {
-            fontSize: 12,
+            fontSize: 12 * SIZE_BASE,
             fill: colorMap.get("--dark")
           }
         });
@@ -35997,9 +35999,9 @@ ${parts.join("\n")}
         const y2 = currentTransform.invertY(e2.y);
         for (let i2 = cfg.graphData.nodes.length - 1; i2 >= 0; --i2) {
           const node = cfg.graphData.nodes[i2];
-          const dx = x2 - node.x;
-          const dy = y2 - node.y;
-          let r2 = nodeRadius(node) + 5;
+          const dx = (x2 - node.x) * SIZE_BASE;
+          const dy = (y2 - node.y) * SIZE_BASE;
+          let r2 = (node.r + 5) * SIZE_BASE;
           if (dx * dx + dy * dy < r2 * r2) {
             return node;
           }
@@ -36030,8 +36032,8 @@ ${parts.join("\n")}
         [width, height]
       ]).scaleExtent([0.25, MAX_SCALE]).on("zoom", ({ transform: transform2 }) => {
         currentTransform = transform2;
-        stage.scale.set(transform2.k, transform2.k);
-        stage.position.set(transform2.x, transform2.y);
+        stage.scale.set(currentTransform.k / SIZE_BASE, currentTransform.k / SIZE_BASE);
+        stage.position.set(currentTransform.x, currentTransform.y);
         setupLabelAnimation(cfg.graphData.nodes);
       }));
       simulation$1.nodes(cfg.graphData.nodes);
@@ -36045,9 +36047,9 @@ ${parts.join("\n")}
           let { x: x2, y: y2, gfx, label, r: r2 } = node;
           if (!gfx)
             return;
-          gfx.position = new Point(x2, y2);
+          gfx.position = new Point((x2 || 0) * SIZE_BASE, (y2 || 0) * SIZE_BASE);
           if (label) {
-            label.position.set(node.x, node.y - (r2 || 5));
+            label.position.set(node.x * SIZE_BASE, (node.y - (r2 || 5)) * SIZE_BASE);
           }
           gfx.zIndex = node.active ? 2 : 1;
         });
@@ -36062,10 +36064,10 @@ ${parts.join("\n")}
           const source2 = link2.source;
           const target = link2.target;
           const color2 = link2.color;
-          links.moveTo(source2.x, source2.y);
-          links.lineTo(target.x, target.y);
+          links.moveTo(source2.x * SIZE_BASE, source2.y * SIZE_BASE);
+          links.lineTo(target.x * SIZE_BASE, target.y * SIZE_BASE);
           links.stroke({
-            width: 2,
+            width: 2 * SIZE_BASE,
             color: color2,
             alpha: link2.alpha
           });
