@@ -61,6 +61,12 @@ export const decompress = (data: string,): string => {
 };
 
 export function decodeData(data: string): ExcalidrawInitialDataState {
+  // 非压缩数据格式
+  const partsNonCompressed = data.split("\n# Drawing\n```json\n");
+  if (partsNonCompressed.length === 2) {
+    return JSON.parse(partsNonCompressed[1].split("\n```\n%%")[0]) ?? [];
+  }
+  // 压缩数据格式
   const parts = data.split("\n# Drawing\n```compressed-json\n");
   if (parts.length !== 2) return {}
   const compressed = parts[1].split("\n```\n%%");

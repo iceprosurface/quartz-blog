@@ -27678,6 +27678,10 @@
     return LZString.decompressFromBase64(data.replaceAll("\n", "").replaceAll("\r", ""));
   };
   function decodeData(data) {
+    const partsNonCompressed = data.split("\n# Drawing\n```json\n");
+    if (partsNonCompressed.length === 2) {
+      return JSON.parse(partsNonCompressed[1].split("\n```\n%%")[0]) ?? [];
+    }
     const parts = data.split("\n# Drawing\n```compressed-json\n");
     if (parts.length !== 2)
       return {};
