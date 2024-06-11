@@ -1,5 +1,6 @@
 
 import { Application, Container, Point, Graphics, Text } from 'pixi.js'
+import * as PIXI from 'pixi.js'
 import * as d3 from 'd3'
 import * as TWEEN from '@tweenjs/tween.js'
 type NodeData = {
@@ -59,7 +60,9 @@ export async function renderGraph(container: HTMLElement, cfg: {
   // 判断设备是否是手机
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   const MAX_SCALE = isMobile ? 2 : 4;
+  const SIZE_BASE = MAX_SCALE;
   let stage = new Container();
+  stage.scale.set(1 / MAX_SCALE, 1 / MAX_SCALE);
   let nodeContainer = new Container();
   let labelContainer = new Container();
 
@@ -89,7 +92,7 @@ export async function renderGraph(container: HTMLElement, cfg: {
     width: width,
     height: height,
     backgroundAlpha: 0,
-    resolution: window.devicePixelRatio * MAX_SCALE,
+    resolution: window.devicePixelRatio,
     autoDensity: true,
     autoStart: false,
   });
@@ -248,7 +251,7 @@ export async function renderGraph(container: HTMLElement, cfg: {
     (cfg.graphData.nodes as D3NodeData[]).forEach((node) => {
       const gfx = new Graphics()
 
-      gfx.circle(0, 0, (nodeRadius(node)));
+      gfx.circle(0, 0, (nodeRadius(node) * SIZE_BASE));
 
       if (node.id.startsWith("tags/")) {
         gfx.fill({
@@ -305,7 +308,7 @@ export async function renderGraph(container: HTMLElement, cfg: {
         // text 最多显示 9 个字符，超过 9 个字符显示 ...
         text: node.text.length > 9 ? node.text.slice(0, 9) + '...' : node.text,
         style: {
-          fontSize: 12,
+          fontSize: 12 * SIZE_BASE,
           fill: colorMap.get("--dark")
         }
       });
@@ -325,9 +328,9 @@ export async function renderGraph(container: HTMLElement, cfg: {
           const y = currentTransform.invertY(e.y);
           for (let i = cfg.graphData.nodes.length - 1; i >= 0; --i) {
             const node = cfg.graphData.nodes[i];
-            const dx = x - node.x!;
-            const dy = y - node.y!;
-            let r = nodeRadius(node) + 5;
+            const dx = (x - node.x!) * SIZE_BASE;
+            const dy = (y - node.y!) * SIZE_BASE;
+            let r = (node.r! + 5) * SIZE_BASE;
             if (dx * dx + dy * dy < r * r) {
               return node;
             }
@@ -364,9 +367,9 @@ export async function renderGraph(container: HTMLElement, cfg: {
         ])
         .scaleExtent([0.25, MAX_SCALE])
         .on("zoom", ({ transform }) => {
-          currentTransform = transform
-          stage.scale.set(transform.k, transform.k);
-          stage.position.set(transform.x, transform.y);
+          currentTransform = transform;
+          stage.scale.set(currentTransform.k / SIZE_BASE, currentTransform.k / SIZE_BASE);
+          stage.position.set(currentTransform.x, currentTransform.y);
           setupLabelAnimation(cfg.graphData.nodes as D3NodeData[]);
         }))
 
@@ -384,9 +387,9 @@ export async function renderGraph(container: HTMLElement, cfg: {
       (cfg.graphData.nodes as D3NodeData[]).forEach((node) => {
         let { x, y, gfx, label, r } = node;
         if (!gfx) return;
-        gfx.position = new Point(x, y);
+        gfx.position = new Point((x || 0) * SIZE_BASE, (y || 0) * SIZE_BASE);
         if (label) {
-          label.position.set(node.x!, node.y! - (r || 5));
+          label.position.set(node.x! * SIZE_BASE, (node.y! - (r || 5)) * SIZE_BASE);
         }
         gfx.zIndex = node.active ? 2 : 1;
       });
@@ -402,10 +405,10 @@ export async function renderGraph(container: HTMLElement, cfg: {
         const source = link.source as D3NodeData;
         const target = link.target as D3NodeData;
         const color = link.color;
-        links.moveTo(source.x!, source.y!);
-        links.lineTo(target.x!, target.y!);
+        links.moveTo(source.x! * SIZE_BASE, source.y! * SIZE_BASE);
+        links.lineTo(target.x! * SIZE_BASE, target.y! * SIZE_BASE);
         links.stroke({
-          width: 2,
+          width: 2 * SIZE_BASE,
           color,
           alpha: link.alpha
         });

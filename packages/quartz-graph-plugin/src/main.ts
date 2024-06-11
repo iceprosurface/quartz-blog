@@ -1,9 +1,9 @@
 import { renderGraph } from './lib'
-// import testJson from './test.json'
+import testJson from './test.json'
 import verylarge from './very-large-text.json'
 renderGraph(document.getElementById('app')!, {
-  graphData: verylarge,
-  // graphData: testJson,
+  // graphData: verylarge,
+  graphData: testJson,
   onNodeClick: (node) => {
     console.log(node)
   },
