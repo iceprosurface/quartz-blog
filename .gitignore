@@ -12,3 +12,5 @@ replit.nix
 .idea
 .vercel
 public.zip
+quartz/static/quartz-excalidraw-plugin.js
+quartz/static/quartz-graph-plugin.js
