@@ -249,20 +249,22 @@ export async function renderGraph(container: HTMLElement, cfg: {
     let dragStartTime = 0;
     (cfg.graphData.nodes as D3NodeData[]).forEach((node) => {
       const gfx = new Graphics()
-
-      gfx.circle(0, 0, (nodeRadius(node) * SIZE_BASE));
-
       if (node.id.startsWith("tags/")) {
+        gfx.circle(0, 0, (nodeRadius(node)) * SIZE_BASE);
+        gfx.fill({
+          color: colour(node)
+        })
+        gfx.circle(0, 0, (nodeRadius(node) - 2) * SIZE_BASE);
         gfx.fill({
           color: colorMap.get("--light")
-        }).stroke({
-          width: 2,
-          color: colour(node)
         })
+        gfx.stroke()
       } else {
+        gfx.circle(0, 0, (nodeRadius(node) * SIZE_BASE));
         gfx.fill({
           color: colour(node)
         })
+        gfx.stroke()
       }
 
       gfx.eventMode = 'static';
