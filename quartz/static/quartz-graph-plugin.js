@@ -35756,6 +35756,10 @@ ${parts.join("\n")}
   }
   requestAnimationFrame(animate);
   async function renderGraph(container, cfg) {
+    tweens.forEach((tween) => tween.stop());
+    tweens.clear();
+    const isMobile2 = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const MAX_SCALE = isMobile2 ? 2 : 4;
     let stage = new Container();
     let nodeContainer = new Container();
     let labelContainer = new Container();
@@ -35781,7 +35785,7 @@ ${parts.join("\n")}
       width,
       height,
       backgroundAlpha: 0,
-      resolution: window.devicePixelRatio,
+      resolution: window.devicePixelRatio * MAX_SCALE,
       autoDensity: true,
       autoStart: false
     });
@@ -35842,8 +35846,8 @@ ${parts.join("\n")}
             tweenGroup.add(new Tween(node.label).to({
               alpha: 1,
               scale: {
-                x: 1 / 4 * 1.25,
-                y: 1 / 4 * 1.25
+                x: 1.25,
+                y: 1.25
               }
             }, 200));
           } else {
@@ -35854,8 +35858,8 @@ ${parts.join("\n")}
             tweenGroup.add(new Tween(node.label).to({
               alpha,
               scale: {
-                x: 1 / 4,
-                y: 1 / 4
+                x: 1,
+                y: 1
               }
             }, 200));
           }
@@ -35976,11 +35980,11 @@ ${parts.join("\n")}
           // text 最多显示 9 个字符，超过 9 个字符显示 ...
           text: node.text.length > 9 ? node.text.slice(0, 9) + "..." : node.text,
           style: {
-            fontSize: 12 * 4,
+            fontSize: 12,
             fill: colorMap.get("--dark")
           }
         });
-        label.scale.set(1 / 4, 1 / 4);
+        label.scale.set(1, 1);
         label.anchor.set(0.5, 1);
         label.alpha = 0.8;
         node.label = label;
@@ -36024,7 +36028,7 @@ ${parts.join("\n")}
       })).call(zoom().extent([
         [0, 0],
         [width, height]
-      ]).scaleExtent([0.25, 4]).on("zoom", ({ transform: transform2 }) => {
+      ]).scaleExtent([0.25, MAX_SCALE]).on("zoom", ({ transform: transform2 }) => {
         currentTransform = transform2;
         stage.scale.set(transform2.k, transform2.k);
         stage.position.set(transform2.x, transform2.y);
