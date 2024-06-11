@@ -1,6 +1,5 @@
 
 import { Application, Container, Point, Graphics, Text } from 'pixi.js'
-import * as PIXI from 'pixi.js'
 import * as d3 from 'd3'
 import * as TWEEN from '@tweenjs/tween.js'
 type NodeData = {
