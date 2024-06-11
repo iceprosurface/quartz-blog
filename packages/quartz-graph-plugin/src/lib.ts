@@ -1,24 +1,24 @@
 
 import { Application, Container, Point, Graphics, Text } from 'pixi.js'
-import * as d3 from 'd3'
-import * as TWEEN from '@tweenjs/tween.js'
+import { drag, forceCenter, forceCollide, forceLink, forceManyBody, forceSimulation, select, zoom, zoomIdentity, type SimulationLinkDatum, type SimulationNodeDatum } from 'd3'
+import { Group, Tween } from '@tweenjs/tween.js'
 type NodeData = {
   id: string
   text: string
   tags: string[]
   r?: number;
-} & d3.SimulationNodeDatum
+} & SimulationNodeDatum
 
 type LinkData = {
   source: string
   target: string
 };
-type D3NodeData = d3.SimulationNodeDatum & NodeData & {
+type D3NodeData = SimulationNodeDatum & NodeData & {
   gfx?: Graphics;
   label?: Text;
   active?: boolean;
 }
-type D3LinkData = d3.SimulationLinkDatum<D3NodeData> & {
+type D3LinkData = SimulationLinkDatum<D3NodeData> & {
   active?: boolean;
   alpha?: number;
   color?: string;
@@ -97,11 +97,11 @@ export async function renderGraph(container: HTMLElement, cfg: {
   });
   container.appendChild(app.canvas);
 
-  let simulation = d3.forceSimulation<D3NodeData>()
-    .force('link', d3.forceLink<D3NodeData, D3LinkData>().id((d) => d.id))
-    .force('charge', d3.forceManyBody().strength(-50))
-    .force('center', d3.forceCenter(width / 2, height / 2).strength(0.2))
-    .force('collide', d3.forceCollide(() => 20))
+  let simulation = forceSimulation<D3NodeData>()
+    .force('link', forceLink<D3NodeData, D3LinkData>().id((d) => d.id))
+    .force('charge', forceManyBody().strength(-50))
+    .force('center', forceCenter(width / 2, height / 2).strength(0.2))
+    .force('collide', forceCollide(() => 20))
 
   const colour = (d: D3NodeData) => {
     const isCurrent = d.id === cfg.slug
@@ -125,13 +125,13 @@ export async function renderGraph(container: HTMLElement, cfg: {
     let currentHoverNodeId: string | null = null;
     function setupLinkAnimation(links: D3LinkData[]) {
       tweens.get('link')?.stop();
-      const tweenGroup = new TWEEN.Group();
+      const tweenGroup = new Group();
       links.forEach((link) => {
         let alpha = 1;
         if (currentHoverNodeId) {
           alpha = link.active ? 1 : 0.2
         }
-        tweenGroup.add(new TWEEN.Tween(link).to({
+        tweenGroup.add(new Tween(link).to({
           alpha,
         }, 200))
         link.color = link.active ? colorMap.get("--gray") : colorMap.get("--lightgray")
@@ -151,13 +151,13 @@ export async function renderGraph(container: HTMLElement, cfg: {
     function setupLabelAnimation(nodes: D3NodeData[]) {
       const { connectedNodes } = getConnectedNodesAndLinks(currentHoverNodeId!);
       tweens.get('label')?.stop();
-      const tweenGroup = new TWEEN.Group();
+      const tweenGroup = new Group();
       nodes.forEach((node) => {
         if (!node.label) return;
         // 高亮逻辑
         if (currentHoverNodeId === node.id) {
           // 高亮当前节点, 放大显示 label
-          tweenGroup.add(new TWEEN.Tween(node.label!).to({
+          tweenGroup.add(new Tween(node.label!).to({
             alpha: 1,
             scale: {
               x: 1.25,
@@ -174,7 +174,7 @@ export async function renderGraph(container: HTMLElement, cfg: {
           if (currentHoverNodeId && connectedNodes.has(node.id)) {
             alpha = 0.7
           }
-          tweenGroup.add(new TWEEN.Tween(node.label!).to({
+          tweenGroup.add(new Tween(node.label!).to({
             alpha,
             scale: {
               x: 1,
@@ -220,7 +220,7 @@ export async function renderGraph(container: HTMLElement, cfg: {
       if (nodeId) {
         connectedNodes.add(nodeId)
       }
-      const groupTween = new TWEEN.Group();
+      const groupTween = new Group();
       // 隐藏所有非连接节点
       (cfg.graphData.nodes as D3NodeData[]).forEach((node) => {
         if (nodeId) {
@@ -228,12 +228,12 @@ export async function renderGraph(container: HTMLElement, cfg: {
           if (node.id !== nodeId) {
             // 其他节点
             // 如果是连接的节点，显示 alpha 为 1，否则为 0.2
-            groupTween.add(new TWEEN.Tween(node.gfx!, groupTween).to({ alpha: connectedNodes.has(node.id) ? 1 : 0.2 }, 200))
+            groupTween.add(new Tween(node.gfx!, groupTween).to({ alpha: connectedNodes.has(node.id) ? 1 : 0.2 }, 200))
           }
         } else {
           // 恢复所有节点
           node.active = false;
-          groupTween.add(new TWEEN.Tween(node.gfx!, groupTween).to({ alpha: 1 }, 200))
+          groupTween.add(new Tween(node.gfx!, groupTween).to({ alpha: 1 }, 200))
         }
       });
       // 设置连接状态
@@ -285,7 +285,7 @@ export async function renderGraph(container: HTMLElement, cfg: {
           x: 1,
           y: 1
         }
-        const tween = new TWEEN.Tween(scale, false)
+        const tween = new Tween(scale, false)
           .to({ x: 1.5, y: 1.5 }, 100)
           .onUpdate(() => {
             gfx.scale.set(scale.x, scale.y);
@@ -304,7 +304,7 @@ export async function renderGraph(container: HTMLElement, cfg: {
           x: gfx.scale.x,
           y: gfx.scale.y
         };
-        const tween = new TWEEN.Tween(scale, false)
+        const tween = new Tween(scale, false)
           .to({ x: 1, y: 1 }, 100)
           .onUpdate(() => {
             gfx.scale.set(scale.x, scale.y);
@@ -331,9 +331,9 @@ export async function renderGraph(container: HTMLElement, cfg: {
       labelContainer.addChild(label);
       nodeContainer.addChild(gfx);
     });
-    let currentTransform = d3.zoomIdentity;
-    d3.select<HTMLCanvasElement, D3NodeData | undefined>(app.canvas)
-      .call(d3.drag<HTMLCanvasElement, D3NodeData | undefined>()
+    let currentTransform = zoomIdentity;
+    select<HTMLCanvasElement, D3NodeData | undefined>(app.canvas)
+      .call(drag<HTMLCanvasElement, D3NodeData | undefined>()
         .container(() => app.canvas)
         .subject((e) => {
           const x = currentTransform.invertX(e.x);
@@ -371,24 +371,24 @@ export async function renderGraph(container: HTMLElement, cfg: {
             cfg.onNodeClick(cfg.graphData.nodes.find((node) => node.id === event.subject.id) as NodeData);
           }
         }))
-      .call(d3
-        .zoom<HTMLCanvasElement, D3NodeData | undefined>()
-        .extent([
-          [0, 0],
-          [width, height],
-        ])
-        .scaleExtent([0.25, MAX_SCALE])
-        .on("zoom", ({ transform }) => {
-          currentTransform = transform;
-          stage.scale.set(currentTransform.k / SIZE_BASE, currentTransform.k / SIZE_BASE);
-          stage.position.set(currentTransform.x, currentTransform.y);
-          setupLabelAnimation(cfg.graphData.nodes as D3NodeData[]);
-        }))
+      .call(
+        zoom<HTMLCanvasElement, D3NodeData | undefined>()
+          .extent([
+            [0, 0],
+            [width, height],
+          ])
+          .scaleExtent([0.25, MAX_SCALE])
+          .on("zoom", ({ transform }) => {
+            currentTransform = transform;
+            stage.scale.set(currentTransform.k / SIZE_BASE, currentTransform.k / SIZE_BASE);
+            stage.position.set(currentTransform.x, currentTransform.y);
+            setupLabelAnimation(cfg.graphData.nodes as D3NodeData[]);
+          }))
 
 
 
     simulation.nodes(cfg.graphData.nodes);
-    simulation.force('link', d3.forceLink<D3NodeData, D3LinkData>(cfg.graphData.links)
+    simulation.force('link', forceLink<D3NodeData, D3LinkData>(cfg.graphData.links)
       .id((d) => d.id)
       .distance(85));
     (cfg.graphData.links as D3LinkData[]).forEach((link) => {
