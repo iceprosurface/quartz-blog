@@ -1,7 +1,7 @@
 ---
 title: icepro 博客开发故事
 date: 2024-05-12T10:48:07+08:00
-updated: 2024-06-09T11:52:25+08:00
+updated: 2024-06-14T17:02:23+08:00
 permalink: /blog/moc/
 tags:
   - 生活
@@ -18,7 +18,7 @@ comments: true
 所以之前我基本还是将 obsidian 作为一个转发服务流程大概是编写完成以后 通过 git 上传到 github -> github workflow 将博客的内容同步专门的博客仓库 -> 博客仓库通过 github workflow 上传到对象存储，最后通过 cloudflare 访问，差不多类似于下面这个图这样。
 
 
-![image.png](https://cdn.iceprosurface.com/upload/md/20240512110846.png)
+![部署流程.excalidraw](附件/部署流程.excalidraw.md)
 
 总的来说还是很方便的，因为 obsidian 虽然内置的 git 性能很差，但是如果只是 *增量同步* 到 git 去 commit stage 的修改还是不错的。
 
@@ -30,7 +30,9 @@ comments: true
 
 由于在 obsidian 中编写的笔记某些是私人的话题，所以不便于开放出来，所以设立了一个 public 可以对外的文件夹用来发布，随后 public 文件夹回同步到 blog 的主仓库中的 content 文件夹中，并 commit ，随后提交。由于构建和部署服务用的是 vercel 所以不需要额外的活，只需要 vercel 那边配置一下自定义域名即可，这里就不手把手教授知识了。
 
-![image.png](https://cdn.iceprosurface.com/upload/md/20240512111533.png)
+![](附件/部署流程2.excalidraw.md)
+
+
 
 相关的知识点都可以在下面的网站上找到：
 
