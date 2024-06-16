@@ -1,7 +1,7 @@
 ---
 title: quartz插件加载更多功能
 date: 2024-06-09T09:30:19+08:00
-updated: 2024-06-09T09:42:52+08:00
+updated: 2024-06-16T14:04:24+08:00
 permalink: /blog/dev/quartz-plugin-script/
 tags: 
 ccby: false

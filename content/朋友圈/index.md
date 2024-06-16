@@ -1,7 +1,7 @@
 ---
 title: 朋友圈
 date: 2024-05-30T11:50:49+08:00
-updated: 2024-06-03T13:33:05+08:00
+updated: 2024-06-16T14:04:24+08:00
 permalink: /friends/
 tags: 
 ccby: false

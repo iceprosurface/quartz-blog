@@ -1,7 +1,7 @@
 ---
 title: obsidian常用配置指南
 date: 2024-06-01T11:31:28+08:00
-updated: 2024-06-03T11:25:30+08:00
+updated: 2024-06-16T14:04:24+08:00
 permalink: /2024/obsidian-plugin/
 tags:
   - 工具
