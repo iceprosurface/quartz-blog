@@ -4,7 +4,7 @@ date: 2018-09-18T14:33:15+08:00
 tags:
   - javascript
 comments: true
-updated: 2024-06-16T14:04:24+08:00
+updated: 2024-06-18T14:44:18+08:00
 permalink: /2018/09/18/2018/valueOf-and-toString/
 ---
 

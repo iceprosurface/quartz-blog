@@ -1,7 +1,7 @@
 ---
 title: 实现背包GUI
 date: 2024-05-16T23:08:00+08:00
-updated: 2024-06-16T14:04:24+08:00
+updated: 2024-06-18T14:44:18+08:00
 permalink: /godot/bag-system/gui/
 tags:
   - 游戏开发
