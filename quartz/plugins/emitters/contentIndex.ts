@@ -18,6 +18,7 @@ export type ContentDetails = {
   richContent?: string
   date?: Date
   description?: string
+  frontmatter?: Record<string, unknown>
 }
 
 interface Options {
@@ -71,6 +72,7 @@ function generateRSSFeed(cfg: GlobalConfiguration, idx: ContentIndex, limit?: nu
 
       return f1.title.localeCompare(f2.title)
     })
+    .filter(([_slug, content]) => !content.frontmatter?.['excalidraw-plugin'])
     .map(([slug, content]) => createURLEntry(simplifySlug(slug), content))
     .slice(0, limit ?? idx.size)
     .join("")
@@ -122,6 +124,7 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
         const date = getDate(ctx.cfg.configuration, file.data) ?? new Date()
         if (opts?.includeEmptyFiles || (file.data.text && file.data.text !== "")) {
           linkIndex.set(slug, {
+            frontmatter: file.data.frontmatter,
             title: file.data.frontmatter?.title!,
             links: file.data.links ?? [],
             tags: file.data.frontmatter?.tags ?? [],
