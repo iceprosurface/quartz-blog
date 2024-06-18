@@ -20,6 +20,7 @@ import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
 import DirectLink from "./DirectLink"
+import Rss from "./Rss"
 
 export {
   ArticleTitle,
@@ -44,4 +45,5 @@ export {
   RecentNotes,
   NotFound,
   Breadcrumbs,
+  Rss,
 }
