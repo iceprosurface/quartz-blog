@@ -130,7 +130,7 @@ quiet: true,
   ```
 
 > [!danger] 注意事项
-> 1. zx 中调用 git 不能使用 promise.all 因为 git 本身是 **带锁的**，同时调用 **会抛出异常**
+> 1. zx 中调用 git 不能使用 promise.all 因为 git 本身是 **带锁的**，同时调用 **会抛出异常** 提示 '.git/index.lock': File exists
 > 2. openapi_naming_strategy 建议使用 fqn 否则碰到重名会比较麻烦，会出现互相覆盖的问题
 
 在上面的 proto 将会生产一个 swagger.json 文件到 src 目录下面，随后按照自己的喜好编写 swagger-typescript-api 的模板，在编译 swagger 到 ts 代码即可，如果有需要的话，最后一步使用 tsc 简单的编译为 js + d.ts 提升在开发环境下的 ts 提示性能。
