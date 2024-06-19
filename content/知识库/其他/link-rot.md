@@ -1,9 +1,10 @@
 ---
 title: 链接丢失
 date: 2024-06-18T14:27:19+08:00
-updated: 2024-06-18T14:44:18+08:00
+updated: 2024-06-19T22:51:24+08:00
 permalink: /link-rot/
-tags: 
+tags:
+  - 思考
 ccby: false
 draft: false
 comments: true
