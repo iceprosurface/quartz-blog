@@ -91,6 +91,7 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options> | undefined> =
                     type: "element",
                     tagName: "svg",
                     properties: {
+                      height: "1ex",
                       class: "external-icon",
                       viewBox: "0 0 512 512",
                     },
