@@ -64,7 +64,7 @@ BlobStorageLimits CalculateBlobStorageLimitsImpl(
     const FilePath& storage_dir,
     bool disk_enabled,
     std::optional<uint64_t> optional_memory_size_for_testing) {
-    ```
+```
 
 这里只截取了注释：一旦 blob 超过 2G 那么就无法正确的分配内存了。
 
