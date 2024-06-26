@@ -1,7 +1,7 @@
 ---
-title: 流式下载文件并设置到input上
+title: 前端流式下载文件并设置到 input 上
 date: 2024-06-26T11:03:49+08:00
-updated: 2024-06-26T13:30:50+08:00
+updated: 2024-06-26T13:35:28+08:00
 permalink: /code/web-frontend/stream-download-to-input/
 tags:
   - 前端
@@ -152,7 +152,11 @@ testInput.files = container.files;
 testInput.dispatchEvent(new Event('change'));
 ```
 
-虽然 FileList 是不能直接创建的，但是我们有 DataTransfer，他 items 是一个 FileList 所以可以用它来生成 input 需要的 files 字段，随后利用自定义事件触发 event 即可。
+虽然 FileList 是不能直接修改的[^1]，因为本身 FileList 是一个 `attempt to create an unmodifiable list`[^2] 的行为，所以不能修改。
+
+而 FileList 没有提供对外的 new 方法，所以也同样不能创建。
+
+但是我们有 DataTransfer，他 items 是一个 FileList 所以可以用它来生成 input 需要的 files 字段，随后利用自定义事件触发 event 即可。
 
 ### 完整测试代码
 
@@ -242,3 +246,7 @@ testInput.dispatchEvent(new Event('change'));
 </body>
 </html>
 ```
+
+
+[^1]: https://developer.mozilla.org/en-US/docs/Web/API/FileList
+[^2]: https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156
