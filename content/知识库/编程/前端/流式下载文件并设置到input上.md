@@ -1,11 +1,11 @@
 ---
 title: 前端流式下载文件并设置到 input 上
 date: 2024-06-26T11:03:49+08:00
-updated: 2024-06-26T13:35:00+08:00
+updated: 2024-06-26T13:45:37+08:00
 permalink: /code/web-frontend/stream-download-to-input/
 tags:
   - 前端
-ccby: false
+ccby: true
 draft: false
 comments: true
 ---
