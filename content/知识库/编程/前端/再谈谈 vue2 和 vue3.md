@@ -1,8 +1,8 @@
 ---
 title: 再谈谈 vue2 和 vue3
 date: 2024-06-27T11:42:48+08:00
-updated: 2024-07-01T14:59:25+08:00
-permalink: 
+updated: 2024-07-01T15:00:44+08:00
+permalink: /code/web-frontend/vue2-vue3/
 tags:
   - vue
   - 前端
