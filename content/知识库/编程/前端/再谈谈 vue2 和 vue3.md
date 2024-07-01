@@ -1,7 +1,7 @@
 ---
 title: 再谈谈 vue2 和 vue3
 date: 2024-06-27T11:42:48+08:00
-updated: 2024-07-01T18:09:57+08:00
+updated: 2024-07-01T18:12:20+08:00
 permalink: /code/web-frontend/vue2-vue3/
 tags:
   - vue
@@ -102,6 +102,8 @@ export type ExtractComponentProps<Component extends { props: Record<string, any>
 而更为夸张的是 import 操作，在我按下自动导入的按钮后，他需要转 <u>大约 20-30 秒</u> 才能完成操作，加载并提供自动导入。
 
 > 可真是乌龟爬沙——**慢慢**来呢
+
+![时间不等人大兄弟|400](https://cdn.iceprosurface.com/upload/md/202407011811353.png)
 
 你也别给我说用 Anthony Fu 提供的 vite 插件 —— auto import，这只会让 volar[^4] 自身的卡顿更严重。
 
