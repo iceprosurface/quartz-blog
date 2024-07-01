@@ -1,7 +1,7 @@
 ---
 title: 再谈谈 vue2 和 vue3
 date: 2024-06-27T11:42:48+08:00
-updated: 2024-07-01T18:12:20+08:00
+updated: 2024-07-01T18:13:46+08:00
 permalink: /code/web-frontend/vue2-vue3/
 tags:
   - vue
@@ -14,6 +14,7 @@ comments: true
 
 >[!danger] 来自 v2ex 的嘴臭教学
 >怎么说呢，菜就多练吧
+>![菜就多练|150](https://cdn.iceprosurface.com/upload/md/202407011813804.png)
 
 对于这一点，我经常逛不同的社区，在绝大部分社区里面，vue 的帖子下面对这种类似的回复屡见不鲜，对此我已经无力吐槽了。那么我们抛开这些社区的成见不谈，**单纯 vue 有哪些问题呢**？
 
