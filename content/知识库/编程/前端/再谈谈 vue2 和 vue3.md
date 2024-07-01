@@ -1,7 +1,7 @@
 ---
 title: 再谈谈 vue2 和 vue3
 date: 2024-06-27T11:42:48+08:00
-updated: 2024-07-01T18:08:43+08:00
+updated: 2024-07-01T18:09:57+08:00
 permalink: /code/web-frontend/vue2-vue3/
 tags:
   - vue
@@ -130,7 +130,8 @@ export function createComponent<T> {
 ```
 
 > [!success] 太糟糕了
-> 倒是也不是不能用。
+> 倒是也不是不能用。比下面强一点
+> ![](https://cdn.iceprosurface.com/upload/md/202407011809404.png)
 
 
 ## vue2 -> vue3 
