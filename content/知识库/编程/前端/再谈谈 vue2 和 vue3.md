@@ -1,7 +1,7 @@
 ---
 title: 再谈谈 vue2 和 vue3
 date: 2024-06-27T11:42:48+08:00
-updated: 2024-07-01T15:00:44+08:00
+updated: 2024-07-01T18:08:43+08:00
 permalink: /code/web-frontend/vue2-vue3/
 tags:
   - vue
@@ -45,6 +45,7 @@ vue 的性能下限水平非常高，因为相对于 react 总要遍历 diff 更
 
 > [!bug] ？？？
 > 什么？我去解决机枪炮台？——拿着长矛的原始人试图对抗来自新时代的水冷气动机枪
+> ![](https://cdn.iceprosurface.com/upload/md/202407011807420.jpg)
 
 我们团队很早就开始使用 typescript 了，至少从 2020年开始就 `全面的` 将所有代码切换为了 typescript，而且我们的 composables、组件库 从 2021 年开始就已经搭建，并且**维护至今**，作为一个`频繁提供`这块支持的开发者:
 
@@ -96,7 +97,7 @@ export type ExtractComponentProps<Component extends { props: Record<string, any>
 
 我的开发笔记本使用 M1 pro，当时我使用的是 vscode，一打开项目，我整个电脑就开始发热，卡顿，对 template 上的代码提示`足足要等待 5 秒以上才能出提示`，这只是一个 <u>8 万行代码的 vue 项目</u>，而在对应的另外一个 <u>约十万行代码的 react 项目</u>，在 tsx 中仍然能够秒出提示。
 
-我确实不想 `端碗吃饭，放碗骂娘` ，但是这真的太影响体验的，我最后的选项就是直接关闭 vue 的提示，使用 github copilot 代替编辑器提示，哪怕网络差点也是只需要
+我确实不想 `端碗吃饭，放碗骂娘` ，但是这真的太影响体验的，我最后的选项就是直接关闭 vue 的提示，使用 github copilot 代替编辑器提示，哪怕网络差点也没这么离谱不是么？
 
 而更为夸张的是 import 操作，在我按下自动导入的按钮后，他需要转 <u>大约 20-30 秒</u> 才能完成操作，加载并提供自动导入。
 
