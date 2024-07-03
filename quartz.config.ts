@@ -16,7 +16,7 @@ const config: QuartzConfig = {
       tagId: "G-6X691M6ZVW"
     },
     locale: "zh-CN",
-    baseUrl: "next.iceprosurface.com",
+    baseUrl: "iceprosurface.com",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
     theme: {
