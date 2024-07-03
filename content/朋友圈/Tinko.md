@@ -1,12 +1,13 @@
 ---
 title: Tinko
 date: 2024-06-01T13:46:52+08:00
-updated: 2024-06-01T14:09:03+08:00
+updated: 2024-07-03T21:27:40+08:00
 permalink: 
 tags: 
 ccby: false
 draft: false
 comments: true
+no-rss: true
 ---
 某首席胡乱瞎搞工程师，“精通”胡乱瞎搞玩过的语言包括但不限于：
 
