@@ -24,7 +24,7 @@ const Content: QuartzComponent = (props: QuartzComponentProps) => {
     {content}
     {permalink && <div class="cc-by">
       <p><b>本文标题：</b>{fileData.frontmatter?.title}</p>
-      {permalink && <p><b>本文链接：</b><a href={link}>{link}</a></p>}
+      {permalink && <p><b>永久链接：</b><a href={link}>{link}</a></p>}
       {
         openCCBY && (<p><b>作者授权：</b>{isPageOriginal ? "本文由 icepro 原创编译并授权刊载发布。" : "本文为转载内容，详情见正文标注"}</p>)
       }
