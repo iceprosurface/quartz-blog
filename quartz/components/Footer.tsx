@@ -16,16 +16,24 @@ export default ((opts?: Options) => {
             <Rss {...setting} />
           </div>
           <div class="footer-right">
-            <span style="margin-right: 4px">
-              Comments by <a href="https://twikoo.js.org" target="_blank">Twikoo</a>
-            </span>
-            <span style="margin-right: 4px">,Site by</span>
-            <span>
-              <a href="https://github.com/jackyzha0/quartz" target="_blank">quartz</a>
-            </span>
-            <span style="margin-left: 8px">
-              <a href="https://status.iceprosurface.com/" target="_blank">站点状态</a>
-            </span>
+            <div>
+              <span style="margin-right: 4px">
+                Comments by <a href="https://twikoo.js.org" target="_blank">Twikoo</a>
+              </span>
+              <span>,</span>
+            </div>
+            <div>
+              <span style="margin-right: 4px">Site by</span>
+              <span>
+                <a href="https://github.com/jackyzha0/quartz" target="_blank">quartz</a>
+              </span>
+              <span>,</span>
+            </div>
+            <div>
+              <span style="margin-left: 8px">
+                <a href="https://status.iceprosurface.com/" target="_blank">站点状态</a>
+              </span>
+            </div>
           </div>
         </div>
       </footer>

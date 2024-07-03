@@ -16,6 +16,19 @@ footer#footer a {
 footer#footer .outer {
   display: flex;
   justify-content: space-between;
+  .footer-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-align: right;
+  }
+  @media all and (max-width: $mobileBreakpoint) {
+    flex-direction: column;
+    gap: 8px;
+    & .footer-right {
+      text-align: left;
+    }
+  }
 }
 .footer-left {
   display: flex;
