@@ -1,7 +1,7 @@
 ---
 title: icepro 博客开发故事
 date: 2024-05-12T10:48:07+08:00
-updated: 2024-06-18T14:44:18+08:00
+updated: 2024-07-03T13:28:06+08:00
 permalink: /blog/moc/
 tags:
   - 生活
@@ -48,6 +48,10 @@ comments: true
 对于源码这边还是会做一些修改的，这里会记录一些比较有意义的修改。由于修改应该不会向上游推送（如果需要推送会单独起一个仓库），所以修改上 _怎么方便怎么来_，并且也不会 **特意** 做 i18n。
 
 ## 字体
+
+> [!danger] 警告
+> 2024年07月03日记：下文中的字体部分实践已经过时，请参考 [重新谈谈字体加载](博客开发与维护/重新谈谈字体加载.md)
+
 本身网站的字体设置上有 self host 和 google font 两种，对我来说一般情况 google font 就足够了，不过这个字体和我用的还不太一致，所以这里对字体做了一些处理。
 
 本身 obsidian 中在使用的全局字体是 [霞鹜文楷](https://github.com/lxgw/LxgwWenKai) 是一个我认为 **比较精美** 且字 **比较齐全** 的字体。
@@ -144,6 +148,8 @@ https://github.com/iceprosurface/quartz-blog/blob/d7785f47c40bcf7bb180c17491f011
   --codeFont: "xlwk-lite";
 }
 ```
+
+
 
 
 # 附录
