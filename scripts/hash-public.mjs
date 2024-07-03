@@ -23,7 +23,7 @@ function resolveLink(src, filePath) {
 }
 // 处理 js、css 文件
 for(const file of filePaths) {
-  if ((file.path.endsWith('.js') || file.path.endsWith('.css') || file.path.endsWith('.json')) && !file.path.includes('xlwk')) {
+  if ((file.path.endsWith('.js') || file.path.endsWith('.css') || file.path.endsWith('.json'))) {
     const content = fs.readFileSync(file.path, 'utf8');
     const hash = crypto.createHash('sha256').update(content).digest('hex');
     const shortHash = hash.substring(0, 7);

@@ -38,12 +38,16 @@ if (!window.scriptPromiseMap) {
 }
 
 export function loadScript(url: string, preserve = true) {
-  let resolve: (value: void) => void;
-  let reject: (reason?: any) => void;
+  let resolve: (value: void) => void = () => {};
+  let reject: (reason?: any) => void = () => {};
   const promise = new Promise<void>((_resolve, _reject) => {
     resolve = _resolve;
     reject = _reject;
   });
+  if (!url) {
+    reject?.(new Error('URL is required'));
+    return promise
+  }
   if (window.scriptPromiseMap.get(url) && preserve) {
     return window.scriptPromiseMap.get(url) || Promise.resolve();
   }
