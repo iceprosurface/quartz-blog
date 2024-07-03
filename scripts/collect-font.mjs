@@ -18,9 +18,11 @@ const dir = path.resolve(__dirname, "../content");
 const files = klaw(dir);
 for await (const file of files) {
   if (!file.stats.isDirectory()) {
-    const content = fs.readFileSync(file.path, 'utf8');
-    for(let i = 0; i < content.length; i++) {
-      textSet.add(content[i]);
+    if (file.path.endsWith('md') && !file.path.endsWith('excalidraw.md')) {
+      const content = fs.readFileSync(file.path, 'utf8');
+      for(let i = 0; i < content.length; i++) {
+        textSet.add(content[i]);
+      }
     }
   }
 }
