@@ -5,7 +5,8 @@ comments: true
 tags:
   - javascript
 permalink: /2016/05/29/2016/2016-05-29-base-of-node-1/
-updated: 2024-06-01T13:23:03+08:00
+updated: 2024-07-03T14:51:56+08:00
+ccby: true
 ---
 
 ## 前言

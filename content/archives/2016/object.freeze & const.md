@@ -5,7 +5,8 @@ comments: true
 tags:
   - javascript
 permalink: /2016/12/07/2016/2016-12-07-object-freeze/
-updated: 2024-06-01T13:05:41+08:00
+updated: 2024-07-03T14:51:32+08:00
+ccby: true
 ---
 
 ## 1. 起因

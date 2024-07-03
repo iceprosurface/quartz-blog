@@ -5,7 +5,8 @@ comments: true
 tags:
   - 前端
 permalink: /2016/12/08/2016/2016-12-08-web-notification/
-updated: 2024-06-01T13:05:00+08:00
+updated: 2024-07-03T14:51:35+08:00
+ccby: true
 ---
 
 ## 1. 起因

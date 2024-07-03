@@ -6,8 +6,9 @@ tags:
   - 疑难杂症
   - css
 comments: true
-updated: 2024-06-01T13:57:27+08:00
+updated: 2024-07-03T14:53:59+08:00
 permalink: /2018/09/27/2018/avoid-flash-on-hovered-background/
+ccby: true
 ---
 
 

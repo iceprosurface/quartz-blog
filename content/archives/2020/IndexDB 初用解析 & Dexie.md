@@ -5,8 +5,9 @@ tags:
   - javascript
   - 数据库
 comments: true
-updated: 2024-05-12T12:42:32+08:00
+updated: 2024-07-03T14:55:10+08:00
 permalink: /2020/07/04/2020/dexiejs/
+ccby: true
 ---
 
 ### 什么是 IndexDB

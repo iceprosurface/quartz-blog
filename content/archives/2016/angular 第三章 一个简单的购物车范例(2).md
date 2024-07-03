@@ -6,7 +6,8 @@ comments: true
 tags:
   - javascript
 permalink: /2016/03/01/2016/2016-03-01-angular-3rd/
-updated: 2024-06-01T13:17:37+08:00
+updated: 2024-07-03T14:52:11+08:00
+ccby: true
 ---
 > 千里之行，始于足下
 

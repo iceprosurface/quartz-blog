@@ -1,11 +1,13 @@
 ---
 title: 有史以来最好用的 markdown 编辑器 —— obsidian
 date: 2022-10-22T21:34:49+08:00
-updated: 2024-05-12T11:56:49+08:00
+updated: 2024-07-03T14:56:01+08:00
 permalink: /2022/obsidian/
 tags:
   - 生产力
   - 编辑器
+comments: true
+ccby: true
 ---
 
 ## 序

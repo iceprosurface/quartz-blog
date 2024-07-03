@@ -1,10 +1,12 @@
 ---
 title: media的使用
 date: 2016-03-15 22:34:40 +0800
-updated: 2024-06-01T13:18:12+08:00
+updated: 2024-07-03T14:51:37+08:00
 comments: true
-tags: javascript
+tags:
+  - javascript
 permalink: /2016/03/15/2016/2016-03-15-media-control/
+ccby: true
 ---
 
 > 这是一个关于media的播放器模块化控制，用于个人iceplayer播放器

@@ -6,7 +6,8 @@ tags:
   - javascript
   - 框架
 permalink: /2017/05/13/2017/2017-05-13-how-to-implement-a-simple-mvc-3/
-updated: 2024-06-01T13:18:19+08:00
+updated: 2024-07-03T14:53:22+08:00
+ccby: true
 ---
 
 ## 1. 前言

@@ -6,7 +6,8 @@ comments: true
 tags:
   - javascript
 permalink: /2016/04/16/2016/2016-04-16-angular-4th/
-updated: 2024-05-24T10:43:03+08:00
+updated: 2024-07-03T14:52:08+08:00
+ccby: true
 ---
 
 生产模拟仿真考试考完终于可以继续写博客了，这里我要把之前的坑填完，这里将会讲述关于angular的路由功能，服务和指令。

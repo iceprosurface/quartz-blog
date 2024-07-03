@@ -4,8 +4,9 @@ date: 2018-04-18T05:19:01+08:00
 tags:
   - 服务器
 comments: true
-updated: 2024-06-01T13:36:55+08:00
+updated: 2024-07-03T14:54:20+08:00
 permalink: /2018/04/17/2018/ss-on-centos6/
+ccby: true
 ---
 
 ## 起因

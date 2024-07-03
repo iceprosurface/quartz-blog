@@ -1,11 +1,12 @@
 ---
 title: 现代 vim 编辑器指北
 date: 2022-02-08T18:15:00+08:00
-updated: 2024-05-17T02:01:41+08:00
+updated: 2024-07-03T14:56:12+08:00
 comments: true
 tags:
   - 编辑器
 permalink: /2022/02/08/2022/lunar-vim/
+ccby: true
 ---
 
 ## 旧时代的 vim

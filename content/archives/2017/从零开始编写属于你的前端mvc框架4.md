@@ -5,8 +5,9 @@ tags:
   - javascript
   - 框架
 date: 2017-05-14T21:01:25+08:00
-updated: 2024-06-01T13:18:21+08:00
+updated: 2024-07-03T14:53:25+08:00
 permalink: /2017/05/14/2017/2017-05-14-how-to-implement-a-simple-mvc-4/
+ccby: true
 ---
 
 ## 1. 前言

@@ -1,11 +1,12 @@
 ---
 title: MC 服务器更新相关
 date: 2019-06-30T20:10:00+08:00
-updated: 2024-06-01T13:51:50+08:00
+updated: 2024-07-03T14:54:40+08:00
 tags:
   - 生活
 comments: true
 permalink: /2019/06/30/2019/mc/
+ccby: false
 ---
 
 

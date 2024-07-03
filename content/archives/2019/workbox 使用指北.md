@@ -4,8 +4,9 @@ date: 2019-03-27T20:10:00+08:00
 tags:
   - javascript
 comments: true
-updated: 2024-06-01T13:51:51+08:00
+updated: 2024-07-03T14:54:49+08:00
 permalink: /2019/03/27/2019/guide-of-workbox/
+ccby: true
 ---
 
 ## 序

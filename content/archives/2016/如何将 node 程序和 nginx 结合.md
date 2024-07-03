@@ -6,7 +6,8 @@ tags:
   - node
   - 后端
 permalink: /2016/05/29/2016/2016-05-29-base-of-node-1/
-updated: 2024-05-17T01:58:05+08:00
+updated: 2024-07-03T14:52:35+08:00
+ccby: true
 ---
 
 > express是node处理静态文件的良好框架，但是专业的事情还是要交给专业的来，那么有请nginx给我们的node服务器提供转接服务吧~

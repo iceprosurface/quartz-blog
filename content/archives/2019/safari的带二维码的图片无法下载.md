@@ -4,8 +4,9 @@ date: 2019-03-28T15:42:00+08:00
 tags:
   - 前端
 comments: true
-updated: 2024-05-12T13:01:56+08:00
+updated: 2024-07-03T14:54:45+08:00
 permalink: /2019/03/28/2019/download-fail-with-qrcode-on-safari/
+ccby: false
 ---
 
 ## 序

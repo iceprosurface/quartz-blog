@@ -1,11 +1,12 @@
 ---
 title: "[angular.js]第二章 一个简单的购物车范例(1)"
 date: 2016-02-27 14:39:34 +0800
-updated: 2024-06-01T13:17:27+08:00
+updated: 2024-07-03T14:52:14+08:00
 comments: true
 tags:
   - javascript
 permalink: /2016/02/27/2016/2016-02-27-angular-2nd/
+ccby: true
 ---
 > 千里之行，始于足下
 

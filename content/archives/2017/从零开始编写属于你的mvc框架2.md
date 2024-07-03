@@ -1,12 +1,13 @@
 ---
 title: 从零开始编写属于你的mvc框架[2]
 date: 2017-05-07 14:12:06 +0800
-updated: 2024-06-01T13:19:23+08:00
+updated: 2024-07-03T14:53:32+08:00
 comments: true
 tags:
   - javascript
   - 框架
 permalink: /2017/05/07/2017/2017-05-7-how-to-implement-a-simple-mvc-2/
+ccby: true
 ---
 
 

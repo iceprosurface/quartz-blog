@@ -1,11 +1,12 @@
 ---
 title: "[angular.js]第一章 基础知识篇"
 date: 2016-02-26 19:56:38 +0800
-updated: 2024-06-01T13:23:51+08:00
+updated: 2024-07-03T14:52:05+08:00
 comments: true
 tags:
   - javascript
 permalink: /2016/02/26/2016/2016-02-26-angular-1st/
+ccby: true
 ---
 
 > 重要信息：在阅读该博文前请确保有以下前置知识：1) html  2) javascript   3) css

@@ -1,10 +1,12 @@
 ---
 title: notion blog
 date: 2021-11-14T18:35:16+08:00
-tags: 生活
+tags:
+  - 生活
 comments: true
-updated: 2024-06-01T13:52:39+08:00
+updated: 2024-07-03T14:55:16+08:00
 permalink: /2021/11/14/2021/notion-blog/
+ccby: false
 ---
 
 随着上班越来越忙，单独跑 blog 过来写 md 的时间其实是越来越短的，而且我的 cms 管理，也从原来的印象笔记切换成了 notion，是事实上 notion 本身就有一个比较好的展示页面：

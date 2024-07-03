@@ -5,7 +5,8 @@ comments: true
 tags:
   - javascript
 permalink: /2016/10/12/2016/2016-10-12-fetch-api/
-updated: 2024-06-01T13:18:01+08:00
+updated: 2024-07-03T14:52:02+08:00
+ccby: true
 ---
 
 ### 1. 前情提要

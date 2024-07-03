@@ -5,7 +5,8 @@ comments: true
 tags:
   - javascript
 permalink: /2016/10/10/2016/2016-10-10-what-is-polyfill/
-updated: 2024-05-17T01:58:28+08:00
+updated: 2024-07-03T14:52:26+08:00
+ccby: true
 ---
 
 ### 1 前言
