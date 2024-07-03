@@ -1,5 +1,5 @@
 ---
-title: 未命名
+title: RSS 订阅说明
 date: 2024-07-03T22:16:57+08:00
 updated: 2024-07-03T22:23:10+08:00
 permalink: /blog/rss/
