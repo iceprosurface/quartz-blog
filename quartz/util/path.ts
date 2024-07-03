@@ -120,6 +120,9 @@ export function normalizeRelativeURLs(el: Element | Document, destination: strin
     const rebased = new URL(url, destination)
     item.setAttribute("content", `0; url=${rebased.pathname + rebased.hash}`)
   })
+  el.querySelectorAll('[data-excalidraw]').forEach((item) => {
+    _rebaseHtmlElement(item, "data-excalidraw", destination)
+  })
 }
 
 const _rebaseHastElement = (

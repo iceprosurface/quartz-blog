@@ -37,6 +37,15 @@
     overflow: auto;
     white-space: normal;
   }
+  .excalidraw {
+    width: 75% !important;
+    height: 200px !important;
+    margin: 0 auto;
+    pointer-events: none;
+    .App-toolbar {
+      display: none;
+    }
+  }
 
   & > .popover-inner[data-content-type] {
     &[data-content-type*="pdf"],
