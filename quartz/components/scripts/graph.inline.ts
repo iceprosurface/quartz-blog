@@ -1,6 +1,6 @@
 import type { ContentDetails, ContentIndex } from "../../plugins/emitters/contentIndex"
 import * as d3 from "d3"
-import { getJsByMeta, loadScript, registerEscapeHandler, removeAllChildren } from "./util"
+import { fetchData, getJsByMeta, loadScript, registerEscapeHandler, removeAllChildren } from "./util"
 import { FullSlug, SimpleSlug, getFullSlug, resolveRelative, simplifySlug } from "../../util/path"
 
 type NodeData = {
@@ -54,7 +54,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
   } = JSON.parse(graph.dataset["cfg"]!)
 
   const data: Map<SimpleSlug, ContentDetails> = new Map(
-    Object.entries<ContentDetails>(await fetchData).map(([k, v]) => [
+    Object.entries<ContentDetails>(await fetchData()).map(([k, v]) => [
       simplifySlug(k as FullSlug),
       v,
     ]),

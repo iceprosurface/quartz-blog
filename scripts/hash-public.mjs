@@ -23,13 +23,13 @@ function resolveLink(src, filePath) {
 }
 // 处理 js、css 文件
 for(const file of filePaths) {
-  if ((file.path.endsWith('.js') || file.path.endsWith('.css')) && !file.path.includes('xlwk')) {
+  if ((file.path.endsWith('.js') || file.path.endsWith('.css') || file.path.endsWith('.json')) && !file.path.includes('xlwk')) {
     const content = fs.readFileSync(file.path, 'utf8');
     const hash = crypto.createHash('sha256').update(content).digest('hex');
     const shortHash = hash.substring(0, 7);
     resources.set(file.path, shortHash);
     // 重命名文件
-    fs.renameSync(file.path, file.path.replace(/(\.js|\.css)$/, `-${shortHash}$1`));
+    fs.renameSync(file.path, file.path.replace(/(\.js|\.css|\.json)$/, `-${shortHash}$1`));
   }
 }
 // 处理 html
@@ -64,6 +64,15 @@ for(const file of filePaths) {
         const hash = resources.get(resolveLink(src, file.path));
         if (hash) {
           $(element).attr('content', src.replace(/\.js$/, `-${hash}.js`));
+        }
+      }
+    })
+    $('[data-json]').each((index, element) => {
+      const src = $(element).attr('content');
+      if (src) {
+        const hash = resources.get(resolveLink(src, file.path));
+        if (hash) {
+          $(element).attr('content', src.replace(/\.json$/, `-${hash}.json`));
         }
       }
     })

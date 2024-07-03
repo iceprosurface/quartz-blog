@@ -21,10 +21,11 @@ export default (() => {
 
     return (
       <head>
-         <link rel="alternate" type="application/rss+xml" title="RSS" href="/index.xml"></link>
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="/index.xml"></link>
         <meta name="excalidraw-plugin" spa-preserve data-js content="/static/quartz-excalidraw-plugin.js" />
         <meta name="graph-plugin" spa-preserve data-js content="/static/quartz-graph-plugin.js" />
-        
+        <meta name="contentIndex" data-json content="/static/contentIndex.json" />
+
         <link rel="preconnect" spa-preserve href="https://cdnjs.cloudflare.com"></link>
         <link rel="preconnect" spa-preserve href="https://cdn.iceprosurface.com/"></link>
         <title>{title}</title>

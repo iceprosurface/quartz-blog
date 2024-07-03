@@ -1,3 +1,7 @@
+import { ContentIndex } from "../../plugins"
+import { ContentDetails } from "../../plugins/emitters/contentIndex"
+import { FullSlug } from "../../util/path"
+
 export function registerEscapeHandler(outsideContainer: HTMLElement | null, cb: () => void) {
   if (!outsideContainer) return
   function click(this: HTMLElement, e: HTMLElementEventMap["click"]) {
@@ -99,4 +103,24 @@ export async function initExcalidraw() {
   elements.forEach((element) => {
     loadExcalidraw(element as HTMLElement);
   });
+}
+
+declare global {
+  interface Window {
+    FetchData: Record<string, ContentDetails> | null;
+  }
+}
+window.FetchData = null
+export async function fetchData(): Promise<Record<string, ContentDetails>> {
+  if (window.FetchData) {
+    return window.FetchData;
+  }
+  const url = document.querySelector('meta[name="contentIndex"]')?.getAttribute('content')!;
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`Failed to fetch data: ${res.statusText}`);
+  }
+  const data: Record<string, ContentDetails> = await res.json();
+  window.FetchData = data;
+  return data;
 }
