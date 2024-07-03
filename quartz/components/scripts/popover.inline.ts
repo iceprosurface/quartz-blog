@@ -1,6 +1,6 @@
 import { computePosition, flip, inline, shift } from "@floating-ui/dom"
 import { normalizeRelativeURLs } from "../../util/path"
-import { initExcalidraw } from './util';
+import { initExcalidraw } from './util.inline';
 const p = new DOMParser()
 async function mouseEnterHandler(
   this: HTMLLinkElement,

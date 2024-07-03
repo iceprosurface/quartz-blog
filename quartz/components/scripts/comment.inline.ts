@@ -1,6 +1,6 @@
-import { loadScript } from "./util";
+import { loadScript } from "./util.inline";
 
-async function commentInit() {
+document.addEventListener('nav', async (event) => {
   await Promise.all([
     loadScript('https://cdnjs.cloudflare.com/ajax/libs/twikoo/1.6.36/twikoo.min.js', false),
     loadScript("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js")
@@ -17,8 +17,5 @@ async function commentInit() {
     el: '#tcomment',
     path: id,
   });
-}
-document.addEventListener('nav', (event) => {
-  commentInit();
 })
 

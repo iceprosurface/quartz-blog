@@ -1,6 +1,6 @@
 import FlexSearch from "flexsearch"
 import { ContentDetails } from "../../plugins/emitters/contentIndex"
-import { fetchData, registerEscapeHandler, removeAllChildren } from "./util"
+import { fetchData, registerEscapeHandler, removeAllChildren } from "./util.inline"
 import { FullSlug, normalizeRelativeURLs, resolveRelative } from "../../util/path"
 
 interface Item {

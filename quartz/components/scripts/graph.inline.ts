@@ -1,6 +1,6 @@
 import type { ContentDetails, ContentIndex } from "../../plugins/emitters/contentIndex"
 import * as d3 from "d3"
-import { fetchData, getJsByMeta, loadScript, registerEscapeHandler, removeAllChildren } from "./util"
+import { fetchData, getJsByMeta, loadScript, registerEscapeHandler, removeAllChildren } from "./util.inline"
 import { FullSlug, SimpleSlug, getFullSlug, resolveRelative, simplifySlug } from "../../util/path"
 
 type NodeData = {
