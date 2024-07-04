@@ -1,10 +1,11 @@
 ---
 title: JIT
 date: 2022-05-21T21:12:53+08:00
-updated: 2024-06-01T14:06:10+08:00
+updated: 2024-07-04T10:11:31+08:00
 tags:
   - 编译
 ccby: false
+no-rss: true
 ---
 
 Just-in-time，即动态(即时)编译

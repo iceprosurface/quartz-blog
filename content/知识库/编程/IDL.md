@@ -1,11 +1,12 @@
 ---
 title: IDL
 date: 2024-05-17T00:58:37+08:00
-updated: 2024-06-01T14:07:03+08:00
+updated: 2024-07-04T10:10:03+08:00
 permalink: 
 tags:
   - 编程知识
 ccby: false
+no-rss: true
 ---
 IDL，全称为接口定义语言（Interface Definition Language），是一种用于定义软件组件接口的语言。IDL 被设计用来确保不同系统（可能是不同编程语言、不同操作系统平台）之间的软件组件能够顺利通信和互操作。
 

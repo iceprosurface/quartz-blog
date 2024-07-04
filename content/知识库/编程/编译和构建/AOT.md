@@ -1,10 +1,11 @@
 ---
 title: AOT
 date: 2022-05-21T21:10:45+08:00
-updated: 2024-06-01T14:06:07+08:00
+updated: 2024-07-04T10:11:28+08:00
 tags:
   - 编译
 ccby: false
+no-rss: true
 ---
 
 Ahead Of Time 即运行前编译。
