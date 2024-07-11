@@ -25,9 +25,14 @@
     .section {
       display: flex;
       justify-content: space-between;
-      text-align: right;
       align-items: start;
-     
+      gap: 0.3rem;
+      .desc {
+        flex: 1;
+      }
+      .meta {
+        flex-shrink: 0;
+      }
     }
     .section .meta {
       margin: 0;
