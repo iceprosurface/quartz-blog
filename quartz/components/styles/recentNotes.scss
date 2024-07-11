@@ -15,10 +15,22 @@
         background-color: transparent;
       }
 
-      .section > .meta {
+      .section .meta {
         margin: 0 0 0.5rem 0;
         opacity: 0.6;
       }
+    }
+  }
+  &.recent-notes-page {
+    .section {
+      display: flex;
+      justify-content: space-between;
+      text-align: right;
+      align-items: start;
+     
+    }
+    .section .meta {
+      margin: 0;
     }
   }
 }
