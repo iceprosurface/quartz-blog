@@ -39,7 +39,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
     Component.MobileOnly(Component.RecentNotes({
-      linkToMore: '/recent/' as SimpleSlug,
+      linkToMore: '/recent' as SimpleSlug,
 
     })),
   ],
@@ -64,7 +64,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.Search(),
     Component.Darkmode(),
     Component.DesktopOnly(Component.RecentNotes({
-      linkToMore: '/recent/' as SimpleSlug,
+      linkToMore: '/recent' as SimpleSlug,
     })),
     Component.DesktopOnly(
       Component.DirectLink({
