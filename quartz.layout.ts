@@ -27,7 +27,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Search(),
     Component.Darkmode(),
     Component.DesktopOnly(Component.RecentNotes({
-      linkToMore: '/recent/' as SimpleSlug,
+      linkToMore: '/recent' as SimpleSlug,
     })),
     Component.DirectLink({
       link: '/explore/',
