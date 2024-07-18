@@ -111,7 +111,7 @@ vdom 对比直接操作 dom 显然是有成本的：
 ## 中立派—时间会抹平一切
 
 > Time's glory is to calm contending kings, to unmask falsehood, and bring truth to light.
-> - William Shakespeare
+> -> William Shakespeare
 
 时间会冲刷一切，所以 react 决定用复杂的 fiber，通过对不同事件划分的优先级（lane 模型）的打断机制有一定程度的改善主线程卡顿的现象。
 
