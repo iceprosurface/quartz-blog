@@ -199,6 +199,13 @@ a {
     & .sidebar.right {
       right: calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth);
       flex-wrap: wrap;
+      @media all and (min-width: $fullPageWidth) {
+        height: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
+        bottom: 0;
+        flex-wrap: nowrap;
+      }
       & > * {
         @media all and (max-width: $fullPageWidth) {
           flex: 1;
