@@ -1,7 +1,7 @@
 ---
 title: 基于GPT-4o的表格模板生成
 date: 2024-07-02T11:37:41+08:00
-updated: 2024-07-02T14:30:27+08:00
+updated: 2024-07-26T16:20:55+08:00
 permalink: /tool/gpt4o-table-template/
 tags:
   - 工具
@@ -10,7 +10,7 @@ ccby: true
 draft: false
 comments: true
 ---
-最近在尝试使用 ai 辅助提升开发效率，作为一个长期 “副驾”[^1] 使用者，副驾是个不错的 ai 助手，但是其经常 <u>胡言乱语的问题</u> 还是比较严重的，这个时候我忽然想到一点，前段时间 gpt-4o 可以用上了，并且在 gpt-4o 中对于图片 `有充足的识别能力` 了。是不是截图给 gpt 让他快速的生成 table 模板来使用呢？
+最近在尝试使用 ai 辅助提升开发效率，作为一个长期 “副驾”[^1] 使用者，副驾是个不错的 ai 助手，但是其经常 <u>胡言乱语的问题</u> 还是比较严重的，这个时候我忽然想到一点，前段时间 gpt-4o 可以用上了，并且在 gpt-4o 中对于图片 `有充足的识别能力` 了。是不是截图给 [GPT](../名词/GPT.md) 让他快速的生成 table 模板来使用呢？
 
 带着这个疑问我尝试写了一下提示词：
 
@@ -81,7 +81,7 @@ export type RenderLabelActionItem = { label: string; action: () => any; };
 ![设计稿|300](https://cdn.iceprosurface.com/upload/md/202407021153998.png)
 
 
-有意思的来了，gpt 给出了这样一个回答：
+有意思的来了，[GPT](../名词/GPT.md) 给出了这样一个回答：
 
 ```jsx
 import { createUseColumn } from '@taptap/vxe-table/es/compositions';
@@ -192,7 +192,7 @@ const columns = useColumns([
 ]);
 ```
 
-可以看得出 gpt 的回复质量极高，他能准确理解图片中内容的意思、并且准确的选择 interface 中[^2]的内容。
+可以看得出 [GPT](../名词/GPT.md) 的回复质量极高，他能准确理解图片中内容的意思、并且准确的选择 interface 中[^2]的内容。
 
 而很有意思的是对我们来说提取 interface 是一个简单的事情，因为 interface 是通过脚本自动生成的，你只需要简单的编写下面的代码
 
