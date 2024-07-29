@@ -20,7 +20,8 @@ export default (() => {
 
     return (
       <head>
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="/index.xml"></link>
+        <link rel="alternate" type="application/rss+xml" title="最近的 15 条" href="/index.xml"></link>
+        <link rel="alternate" type="application/rss+xml" title="全部笔记" href="/rss-full.xml"></link>
         <meta name="excalidraw-plugin" spa-preserve data-js content="/static/quartz-excalidraw-plugin.js" />
         <meta name="graph-plugin" spa-preserve data-js content="/static/quartz-graph-plugin.js" />
         <meta name="contentIndex" data-json content="/static/contentIndex.json" />
