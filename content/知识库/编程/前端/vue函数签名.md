@@ -1,7 +1,7 @@
 ---
 title: vue 函数签名（在 vue2中实现 vue3 函数签名）
 date: 2024-07-29T18:16:36+08:00
-updated: 2024-07-30T13:20:31+08:00
+updated: 2024-08-01T14:03:12+08:00
 permalink: /code/front-end/function-signature/
 tags:
   - vue
@@ -140,7 +140,7 @@ vue2 相关的渲染性能总体是接近的
 ![数据表格|400](https://cdn.iceprosurface.com/upload/md/202407301259984.png)
 
 
-> 图表中的数据是使用 [js-framework-benchmark](https://github.com/krausest/js-framework-benchmark) 在 M1 pro 上跑的，其中 vue2 部份都按照 vue 版本的代码，剔除 v-memo 后实现。
+> 图表中的数据是使用 [js-framework-benchmark](https://github.com/krausest/js-framework-benchmark) 在 M1 pro 上跑的，其中 vue2 部份都按照 vue3 版本的代码，剔除 v-memo 后实现。
 
 但是不得不提一句，此前我们已经在大表格上、大表单应用过 tsx 方案了，实际结果就是 —— 
 
@@ -310,7 +310,7 @@ export function toSync<V, T extends string>(value: Ref<V>, name: Exclude<Exclude
 
 ![](https://cdn.iceprosurface.com/upload/md/202407301147703.png)
 
-他可以提示出 props 上有的属性，比如 data 和 data2 并排出不需要的属性 `__handleChangedata`，当然你仍然无法区分 data 和 data2 ***是不是一个 sync model，但是总体已经是足够的了***。
+他可以提示出 props 上有的属性，比如 data 和 data2 并排除不需要的属性 `__handleChangedata`，当然你仍然无法区分 data 和 data2 ***是不是一个 sync model，但是总体已经是足够的了***。
 
 #### 更完善的类型错误提示
 

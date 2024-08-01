@@ -1,14 +1,16 @@
 ---
 title: volar更新正式版本！
 date: 2022-10-11T11:17:05+08:00
-updated: 2024-07-03T14:56:20+08:00
+updated: 2024-07-30T14:04:21+08:00
 permalink: /2022/volar-1.0/
 tags:
   - vue
   - 编辑器
   - 前端
 comments: true
-ccby: true
+ccby: false
+no-rss: true
+origin-link: https://blog.vuejs.org/posts/volar-1.0.html
 ---
 
 10月10号瞅见 volar 更新了，今天早上过来就把 volar 升级了，从官网上来说，volar 实现了一个与 vue 框架无关的外置 ts server 用来给 vue 以外的语言实现语言服务器，比如 svelte。
