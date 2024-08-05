@@ -18,6 +18,9 @@ export default (() => {
     const iconPath = joinSegments(baseDir, "static/icon.png")
     const ogImagePath = `https://${cfg.baseUrl}/static/og-image.png`
 
+    // 是否转载, 转载关闭索引
+    const isPageReproduction = Boolean(fileData.frontmatter?.['origin-link'] ?? false);
+
     return (
       <head>
         <link rel="alternate" type="application/rss+xml" title="最近的 15 条" href="/index.xml"></link>
@@ -25,7 +28,9 @@ export default (() => {
         <meta name="excalidraw-plugin" spa-preserve data-js content="/static/quartz-excalidraw-plugin.js" />
         <meta name="graph-plugin" spa-preserve data-js content="/static/quartz-graph-plugin.js" />
         <meta name="contentIndex" data-json content="/static/contentIndex.json" />
-
+        {
+          isPageReproduction && <meta name="robots" content="noindex" />
+        }
         <link rel="preconnect" spa-preserve href="https://cdnjs.cloudflare.com"></link>
         <link rel="preconnect" spa-preserve href="https://cdn.iceprosurface.com/"></link>
         <title>{title}</title>
