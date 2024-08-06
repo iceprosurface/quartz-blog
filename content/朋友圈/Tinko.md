@@ -1,8 +1,8 @@
 ---
 title: Tinko
 date: 2024-06-01T13:46:52+08:00
-updated: 2024-07-03T21:27:40+08:00
-permalink: 
+updated: 2024-08-06T10:29:08+08:00
+permalink: /friends/tinko/
 tags: 
 ccby: false
 draft: false

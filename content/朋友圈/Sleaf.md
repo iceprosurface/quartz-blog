@@ -1,8 +1,8 @@
 ---
 title: Sleaf
 date: 2024-05-30T11:29:59+08:00
-updated: 2024-07-03T21:27:35+08:00
-permalink: 
+updated: 2024-08-06T10:29:00+08:00
+permalink: /friends/sleaf/
 tags: 
 ccby: false
 draft: false
