@@ -1,7 +1,7 @@
 ---
 title: 现代 vim 编辑器指北
 date: 2022-02-08T18:15:00+08:00
-updated: 2024-07-03T14:56:12+08:00
+updated: 2024-08-07T13:30:32+08:00
 comments: true
 tags:
   - 编辑器
@@ -9,7 +9,7 @@ permalink: /2022/02/08/2022/lunar-vim/
 ccby: true
 ---
 
-## 旧时代的 vim
+# 旧时代的 vim
 
 最早用 ubuntu 的时候，那个时候还是 atom & vscode 针锋相对相对的时候，基于两者生态还没起来的原因，不免使用上有所不便，索性也就都不用了，直接把目光投向了最老牌的两个编辑器 —— emacs & vim。
 
@@ -32,7 +32,7 @@ vim 也能带上侧边栏，有自动补全（you complete me），但是说实�
 
 但是这些使用难免有那么一些割裂感，主要来源于 vim 键盘操作和各个编辑器本身快捷键操作的割裂。
 
-## 现代 vim —— neovim
+# 现代 vim —— neovim
 
 随着时代的推进，到了 15 年、16年的时候， neovim 横空出世，他的作者不满于 vim 薄弱的编辑功能，为此在 vim 的主线上单独拉出了一个全新的分支。
 
@@ -42,7 +42,7 @@ vim 也能带上侧边栏，有自动补全（you complete me），但是说实�
 
 此后，neovim 又一巨大的改进则是引入了 lua，lua 极大的提升了插件的表现能力，引发了插件生态的繁荣，至此一个现代 vim 的雏形诞生了。
 
-## LunarVim
+# LunarVim
 
 对于我而言早就过了折腾的年代的，现在只想着抄一抄别人的 vim 配置，而 LunarVim（[点击这里前往](https://www.lunarvim.org/)） 则是一个不错的选择：
 
@@ -65,13 +65,13 @@ brew install fd
 brew install ripgrep
 ```
 
-### 入口页面
+## 入口页面
 
 在命令行输入 lvim 后短暂的等待安装，即可启动：
 
 ![图片](https://cdn.iceprosurface.com/upload/md/2022-02-08/104648-qyfhIV.png)
 
-### 侧边栏和tab栏目
+## 侧边栏和tab栏目
 
 ![图片](https://cdn.iceprosurface.com/upload/md/2022-02-08/104504-wEqDQL.png)
 
@@ -79,7 +79,7 @@ brew install ripgrep
 
 使用 `<Leader> + e` 可以开启关闭侧边栏目
 
-### 搜索文件
+## 搜索文件
 
 使用 `<Leader> + f` 可以快速搜索文件并预览
 
@@ -88,35 +88,35 @@ brew install ripgrep
 ![图片](https://cdn.iceprosurface.com/upload/md/2022-02-08/105046-L1WVfa.png)
 
 
-### 搜索字符串
+## 搜索字符串
 
 使用 `<Leader> + s + t` 可以快速搜索关键词
 
 ![图片](https://cdn.iceprosurface.com/upload/md/2022-02-08/112142-wuzJFR.png)
 
-### git 功能
+## git 功能
 
 使用 `<Leader> + s + b` 可以快速切换 branch
 
 ![图片](https://cdn.iceprosurface.com/upload/md/2022-02-08/132155-IsNMKG.png)
 
-### lsp 补全 & lint 提示等
+## lsp 补全 & lint 提示等
 
 ![图片](https://cdn.iceprosurface.com/upload/md/2022-02-08/133206-9iPi5z.png)
 
 ![图片](https://cdn.iceprosurface.com/upload/md/2022-02-08/133243-KbCKFt.png)
 
 
-### 快速打开一个 terminal
+## 快速打开一个 terminal
 
 使用 `<Ctrl> + t` 可以快速打开一个命令行，当然你在按下这个快捷键前按个数字，就可以启动不同的命令行。
 
 ![图片](https://cdn.iceprosurface.com/upload/md/2022-02-11/171726-VpqvKj.png)
 
 
-### 各种语言的补全能力
+## 各种语言的补全能力
 
-#### vue
+### vue
 
 template
 
@@ -139,29 +139,29 @@ lint 提示情况
 ![图片](https://cdn.iceprosurface.com/upload/md/2022-02-11/172104-YXfXjK.png)
 
 
-#### ts/js/jsx/tsx
+### ts/js/jsx/tsx
 
 基本和 vscode 完全一致，所以不多赘述了
 
 
-#### php
+### php
 
 
 ![图片](https://cdn.iceprosurface.com/upload/md/2022-02-11/172332-hIuRmH.png)
 
 
-#### lua
+### lua
 
 ![图片](https://cdn.iceprosurface.com/upload/md/2022-02-11/172658-RRTWcL.png)
 
 
-#### 其他
+### 其他
 
 几乎所有的主流语言都完善的支持了
 
 ![图片](https://cdn.iceprosurface.com/upload/md/2022-02-11/172536-zy3mkp.png)
 
 
-## 使用体验
+# 使用体验
 
 在体验完以后，就在日常试了试，在纯粹的编写体验而言是远远超过单纯 vim 和 vscode 的，但是在日常使用期间，如果涉及到大面积的重构和 debug ，就这方面的体验而言，确实并不比 vscode 和 webstorm。
