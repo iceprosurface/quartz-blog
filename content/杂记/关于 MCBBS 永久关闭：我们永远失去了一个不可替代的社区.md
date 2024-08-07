@@ -1,7 +1,7 @@
 ---
 title: 关于 MCBBS 永久关闭：我们永远失去了一个不可替代的社区
 date: 2024-08-05T10:13:10+08:00
-updated: 2024-08-05T10:38:30+08:00
+updated: 2024-08-07T10:25:42+08:00
 permalink: /mcbbs-closure-loss/
 tags: 
 ccby: false
@@ -11,6 +11,7 @@ no-rss: true
 origin-link: https://www.minebbs.com/threads/mcbbs.23993/
 origin-author: Sheep-realms
 origin-license: CC BY-NC-SA 4.0
+origin-note: 对原文有做板式修改，并移除原文中的关键词章节
 ---
 > [!abstract] **摘要 / ABSTRACTS**  
 > MCBBS 能走到今天的高度取决于天时地利人和，这三个条件如今任何一个 Minecraft 社区都不具备。  
