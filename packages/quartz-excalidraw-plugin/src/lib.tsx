@@ -60,20 +60,24 @@ export const decompress = (data: string,): string => {
   return LZString.decompressFromBase64(data.replaceAll("\n", "").replaceAll("\r", ""));
 };
 
+ //https://github.com/zsviczian/obsidian-excalidraw-plugin/issues/182
+const DRAWING_COMPRESSED_REG =
+  /(\n##? Drawing\n[^`]*(?:```compressed\-json\n))([\s\S]*?)(```\n)/gm;
+const DRAWING_COMPRESSED_REG_FALLBACK =
+  /(\n##? Drawing\n(?:```compressed\-json\n)?)(.*)((```)?(%%)?)/gm;
 export function decodeData(data: string): ExcalidrawInitialDataState {
-  // 非压缩数据格式
-  const partsNonCompressed = data.split("\n# Drawing\n```json\n");
-  if (partsNonCompressed.length === 2) {
-    return JSON.parse(partsNonCompressed[1].split("\n```\n%%")[0]) ?? [];
+  let res = data.matchAll(DRAWING_COMPRESSED_REG);
+
+  //In case the user adds a text element with the contents "# Drawing\n"
+  let parts;
+  parts = res.next();
+  if (parts.done) {
+    //did not find a match
+    res = data.matchAll(DRAWING_COMPRESSED_REG_FALLBACK);
+    parts = res.next();
   }
-  // 压缩数据格式
-  const parts = data.split("\n# Drawing\n```compressed-json\n");
-  if (parts.length !== 2) return {}
-  const compressed = parts[1].split("\n```\n%%");
-  if (compressed.length !== 2) return {}
-  const decompressed = decompress(compressed[0]);
-  if (!decompressed) {
-    return {}
+  if (parts.value && parts.value.length > 1) {
+    return JSON.parse(decompress(parts.value[2]));
   }
-  return JSON.parse(decompressed) ?? [];
+  return {};
 }
