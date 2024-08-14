@@ -33,23 +33,26 @@ function App(props: {
   }, [maxSize])
 
   return <div style={{ width: '100%', height: '100%' }} ref={ref} >
-    <Excalidraw
-      excalidrawAPI={(api) => setExcalidrawAPI(api)}
-      initialData={{
-        ...props.data,
-        appState: {
-          ...props.data?.appState,
-          width: props.width,
-          height: props.height,
-          zenModeEnabled: true
-        },
-      }}
-      viewModeEnabled={true}
-    >
-      <MainMenu>
-        <MainMenu.Item onSelect={toggleFullscreen}>{isFullscreen ? '关闭全屏' : '全屏'}</MainMenu.Item>
-      </MainMenu>
-    </Excalidraw>
+    <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+      <Excalidraw
+        excalidrawAPI={(api) => setExcalidrawAPI(api)}
+        initialData={{
+          ...props.data,
+          appState: {
+            ...props.data?.appState,
+            width: props.width,
+            height: props.height,
+            zenModeEnabled: true
+          },
+        }}
+        viewModeEnabled={true}
+      >
+        <MainMenu>
+          <MainMenu.Item onSelect={toggleFullscreen}>{isFullscreen ? '关闭全屏' : '全屏'}</MainMenu.Item>
+        </MainMenu>
+      </Excalidraw>
+    </div>
+    {!isFullscreen && <div style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, zIndex: 2 }}></div>}
   </div>
 }
 
@@ -60,7 +63,7 @@ export const decompress = (data: string,): string => {
   return LZString.decompressFromBase64(data.replaceAll("\n", "").replaceAll("\r", ""));
 };
 
- //https://github.com/zsviczian/obsidian-excalidraw-plugin/issues/182
+//https://github.com/zsviczian/obsidian-excalidraw-plugin/issues/182
 const DRAWING_COMPRESSED_REG =
   /(\n##? Drawing\n[^`]*(?:```compressed\-json\n))([\s\S]*?)(```\n)/gm;
 const DRAWING_COMPRESSED_REG_FALLBACK =
