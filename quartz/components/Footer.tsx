@@ -36,6 +36,10 @@ export default ((opts?: Options) => {
             </div>
           </div>
         </div>
+        <div class="extra-footer-link">
+          <a class="planet-shuttle" target="_blank" href="https://www.boyouquan.com/planet-shuttle">「博友圈 · 星球穿梭」</a>
+          <a class="footer-link" target="_blank" href="https://www.boyouquan.com/home">博友圈</a>
+        </div>
       </footer>
     )
   }
