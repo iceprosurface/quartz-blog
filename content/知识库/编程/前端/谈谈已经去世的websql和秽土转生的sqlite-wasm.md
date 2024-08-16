@@ -1,7 +1,7 @@
 ---
 title: 谈谈已经去世的 websql 和秽土转生的 sqlite-wasm
 date: 2024-07-04T11:49:02+08:00
-updated: 2024-07-11T15:44:04+08:00
+updated: 2024-08-16T10:48:32+08:00
 permalink: /code/web-frontend/discuss-websql-and-sqlite-wasm/
 tags:
   - 工具
