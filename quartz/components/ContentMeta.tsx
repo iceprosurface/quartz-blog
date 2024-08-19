@@ -47,6 +47,9 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
       return (
         <p show-comma={options.showComma} class={classNames(displayClass, "content-meta")}>
           {segmentsElements}
+          <span>
+            访问量:<span id="twikoo_visitors">N/A</span>
+          </span>
         </p>
       )
     } else {
