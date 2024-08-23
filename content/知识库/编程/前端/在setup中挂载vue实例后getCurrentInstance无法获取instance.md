@@ -1,7 +1,7 @@
 ---
 title: 在 setup 中挂载 vue 实例后 getCurrentInstance 无法获取 instance
 date: 2024-05-27T10:30:48+08:00
-updated: 2024-06-01T14:03:36+08:00
+updated: 2024-08-19T14:06:58+08:00
 permalink: /code/vue/getCurrentInstance-get-null-after-mount-vue-app/
 tags:
   - vue
@@ -116,8 +116,7 @@ vue 的上下文原理是 **基于 js 单线程工作逻辑的**，他简单的�
 
 所以这个 bug 的核心问题就是：坏在了这个 *全局的 currentInstance* 上面，好巧不巧，我们成功的实现对 current instance 的多实例竞争，看一下下面这个图：
 
-
-![](https://cdn.iceprosurface.com/upload/md/202405271106044.png)
+![无法获取instance的vue加载情况.excalidraw](附件/无法获取instance的vue加载情况.excalidraw.md)
 
 不论是 vue2 还是 vue3 在此前的逻辑上都是 在 setup 结束时将 currentInstance 置 null 来完成操作的。
 
