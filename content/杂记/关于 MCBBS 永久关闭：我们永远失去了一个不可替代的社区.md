@@ -1,14 +1,14 @@
 ---
 title: 关于 MCBBS 永久关闭：我们永远失去了一个不可替代的社区
 date: 2024-08-05T10:13:10+08:00
-updated: 2024-08-30T14:31:39+08:00
+updated: 2024-08-30T14:35:09+08:00
 permalink: /mcbbs-closure-loss/
 tags: 
 ccby: false
 draft: false
 comments: true
 no-rss: true
-origin-link: https://sheep-realms.github.io/Document/article/2024/03/04-001/?h=mcbbs
+origin-link: https://sheep-realms.github.io/Document/article/2024/03/04-001/
 origin-author: Sheep-realms
 origin-license: CC BY-NC-SA 4.0
 origin-note: 对原文有做板式修改，并移除原文中的关键词章节
