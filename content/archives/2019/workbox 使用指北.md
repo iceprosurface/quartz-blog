@@ -4,10 +4,12 @@ date: 2019-03-27T20:10:00+08:00
 tags:
   - javascript
 comments: true
-updated: 2024-07-03T14:54:49+08:00
+updated: 2024-08-30T13:25:43+08:00
 permalink: /2019/03/27/2019/guide-of-workbox/
 ccby: true
 ---
+> [!danger] 警告
+> 自 2024年5月20日起，本篇文章中提及的本网站 service worker 相关的功能已经下线，文章内容并无问题且可做参考，但本 blog 将不会特意做 pwa 离线支持
 
 ## 序
 

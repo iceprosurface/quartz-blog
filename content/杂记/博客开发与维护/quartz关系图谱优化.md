@@ -1,7 +1,7 @@
 ---
 title: quartz 关系图谱优化
 date: 2024-06-09T10:30:43+08:00
-updated: 2024-08-30T13:17:25+08:00
+updated: 2024-08-30T13:23:46+08:00
 permalink: /blog/quartz-graph-pref/
 tags: 
 ccby: false
