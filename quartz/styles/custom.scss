@@ -25,3 +25,7 @@
 .tk-content > * {
   color: #f2f2f2;
 }
+
+.tk-content.tk-content-expand > * {
+  color: var(--darkgray);
+}
