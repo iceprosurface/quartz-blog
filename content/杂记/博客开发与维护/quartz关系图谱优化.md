@@ -1,14 +1,18 @@
 ---
 title: quartz 关系图谱优化
 date: 2024-06-09T10:30:43+08:00
-updated: 2024-06-18T14:44:18+08:00
+updated: 2024-08-30T13:17:25+08:00
 permalink: /blog/quartz-graph-pref/
 tags: 
 ccby: false
 draft: false
 comments: true
 ---
-
+> [!danger] 警告
+> 截止到2024年08月30日，已经内建使用 canvas 模式渲染：
+>  1. [修改](https://github.com/jackyzha0/quartz/commit/bca74623a393c6957074e8adab90d056299e4c03)
+>  2. [issue](https://github.com/jackyzha0/quartz/issues/1144)
+>  本篇文档应仅做参考
 # 前言
 
 quartz 的关系图谱用的是 d3 实现的，是通过 svg 生成的，固然 svg 的编写和开发相对来说是容易的，但是核心问题在于性能并不足以支撑较大规模的关系图谱展示，譬如下面这两个；
