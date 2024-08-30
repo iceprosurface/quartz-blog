@@ -338,8 +338,8 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
     removeAllChildren(results)
     if (finalResults.length === 0) {
       results.innerHTML = `<a class="result-card no-match">
-          <h3>No results.</h3>
-          <p>Try another search term?</p>
+          <h3>暂无数据</h3>
+          <p>试试其他搜索词?</p>
       </a>`
     } else {
       results.append(...finalResults.map(resultToHTML))
