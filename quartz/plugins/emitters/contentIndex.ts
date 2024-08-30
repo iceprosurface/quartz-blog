@@ -184,7 +184,7 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
           delete content.date
           delete content.richContent
           if (content.frontmatter?.['excalidraw-plugin']) {
-            return [slug, { ...content, content: "", richContent: "" }]
+            return [slug, { ...content, richContent: "" }]
           }
           return [slug, content]
         }),

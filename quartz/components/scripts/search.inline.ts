@@ -1,6 +1,6 @@
 import FlexSearch from "flexsearch"
 import { ContentDetails } from "../../plugins/emitters/contentIndex"
-import { fetchData, registerEscapeHandler, removeAllChildren } from "./util.inline"
+import { fetchData, initExcalidraw, registerEscapeHandler, removeAllChildren } from "./util.inline"
 import { FullSlug, normalizeRelativeURLs, resolveRelative } from "../../util/path"
 
 interface Item {
@@ -97,9 +97,8 @@ function highlight(searchTerm: string, text: string, trim?: boolean) {
     })
     .join(" ")
 
-  return `${startIndex === 0 ? "" : "..."}${slice}${
-    endIndex === tokenizedText.length - 1 ? "" : "..."
-  }`
+  return `${startIndex === 0 ? "" : "..."}${slice}${endIndex === tokenizedText.length - 1 ? "" : "..."
+    }`
 }
 
 function highlightHTML(searchTerm: string, el: HTMLElement) {
@@ -151,7 +150,7 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   const searchIcon = document.getElementById("search-icon")
   const searchBar = document.getElementById("search-bar") as HTMLInputElement | null
   const searchLayout = document.getElementById("search-layout")
-  const idDataMap = Object.keys(data).filter((id) => !(data[id].frontmatter?.['excalidraw-plugin'] )) as FullSlug[]
+  const idDataMap = Object.keys(data) as FullSlug[]
 
   const appendLayout = (el: HTMLElement) => {
     if (searchLayout?.querySelector(`#${el.id}`) === null) {
@@ -307,9 +306,8 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
     itemTile.classList.add("result-card")
     itemTile.id = slug
     itemTile.href = resolveUrl(slug).toString()
-    itemTile.innerHTML = `<h3>${title}</h3>${htmlTags}${
-      enablePreview && window.innerWidth > 600 ? "" : `<p>${content}</p>`
-    }`
+    itemTile.innerHTML = `<h3>${title}</h3>${htmlTags}${enablePreview && window.innerWidth > 600 ? "" : `<p>${content}</p>`
+      }`
     itemTile.addEventListener("click", (event) => {
       if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
       hideSearch()
@@ -396,6 +394,10 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
       (a, b) => b.innerHTML.length - a.innerHTML.length,
     )
     highlights[0]?.scrollIntoView({ block: "start" })
+    const excalidraw = preview.querySelector("[data-excalidraw]")
+    if (excalidraw) {
+      initExcalidraw()
+    }
   }
 
   async function onType(e: HTMLElementEventMap["input"]) {
