@@ -3,6 +3,9 @@ import rehypePrettyCode, { Options as CodeOptions, Theme as CodeTheme } from "re
 
 import {
   transformerNotationDiff,
+  transformerNotationWordHighlight,
+  transformerNotationFocus,
+  transformerNotationErrorLevel,
 } from '@shikijs/transformers';
 interface Theme extends Record<string, CodeTheme> {
   light: CodeTheme
@@ -29,7 +32,10 @@ export const SyntaxHighlighting: QuartzTransformerPlugin<Options> = (
     ...defaultOptions,
     ...userOpts,
     transformers: [
-      transformerNotationDiff()
+      transformerNotationDiff(),
+      transformerNotationWordHighlight(),
+      transformerNotationFocus(),
+      transformerNotationErrorLevel(),
     ]
   }
 

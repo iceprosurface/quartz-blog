@@ -21,15 +21,47 @@ pre.has-diff {
     background-color: rgba(16, 185, 129, .14);
     &::before {
       content: "+";
-      color: var(--vp-code-line-diff-add-symbol-color);
+      color: #18794e;
     }
   }
   .diff.remove {
-    background-color: #299764;
+    background-color: rgba(244, 63, 94, .14);
     opacity: .7;
     &::before {
       content: "-";
       color: #b34e52;
     }
   }
+}
+pre {
+  .highlighted-word {
+    background-color: #f6f6f7;
+    border: 1px solid #c2c2c4;
+    padding: 1px 3px;
+    margin: -1px -3px;
+    border-radius: 4px;
+  }
+  code .highlighted.error {
+    background-color: rgba(244, 63, 94, .14);
+  }
+  code .highlighted.warning {
+    background-color: rgba(234, 179, 8, .14);
+  }
+}
+
+
+pre.has-focused [data-line]:not(.focused) {
+  filter: blur(.095rem);
+  opacity: .4;
+  transition: filter .35s,opacity .35s
+}
+
+pre.has-focused [data-line]:not(.focused) {
+  opacity: .7;
+  transition: filter .35s,opacity .35s
+}
+
+pre:hover.has-focused [data-line]:not(.focused) {
+  filter: blur(0);
+  opacity: 1
 }
