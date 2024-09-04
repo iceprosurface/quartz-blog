@@ -38,8 +38,8 @@ if (!window.scriptPromiseMap) {
 }
 
 export function loadScript(url: string, preserve = true) {
-  let resolve: (value: void) => void = () => {};
-  let reject: (reason?: any) => void = () => {};
+  let resolve: (value: void) => void = () => { };
+  let reject: (reason?: any) => void = () => { };
   const promise = new Promise<void>((_resolve, _reject) => {
     resolve = _resolve;
     reject = _reject;
@@ -98,12 +98,21 @@ async function loadExcalidraw(element: HTMLElement) {
   window.QuartzExcalidrawPlugin.mountApp(element as HTMLElement, window.QuartzExcalidrawPlugin.decodeData(markdown), {});
 }
 export async function initExcalidraw() {
-  const elements = document.querySelectorAll('[data-excalidraw]');
-  if (!elements || !elements.length) {
+  await new Promise<void>((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, 100);
+  })
+  const hasExcalidraw = document.querySelector('[data-excalidraw]');
+  if (!hasExcalidraw) {
     return;
   }
   const pluginPath = getJsByMeta('excalidraw-plugin');
   await loadScript(pluginPath, false);
+  const elements = document.querySelectorAll('[data-excalidraw]');
+  if (!elements || !elements.length) {
+    return;
+  }
   elements.forEach((element) => {
     loadExcalidraw(element as HTMLElement);
   });

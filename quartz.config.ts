@@ -60,10 +60,10 @@ const config: QuartzConfig = {
       Plugin.Latex({ renderEngine: "katex" }),
       Plugin.SyntaxHighlighting({
         theme: {
-          light: "material-theme-ocean",
-          dark: "material-theme-ocean",
+          light: "github-light",
+          dark: "github-dark",
         },
-        keepBackground: true,
+        keepBackground: false,
       }),
       Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false, enableImageWidth: true }),
       Plugin.GitHubFlavoredMarkdown(),

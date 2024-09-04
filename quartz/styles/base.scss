@@ -23,6 +23,7 @@ section {
   background-color: var(--light);
   font-family: var(--bodyFont);
   color: var(--darkgray);
+  font-weight: 300;
 }
 
 .text-highlight {
@@ -179,6 +180,7 @@ a {
       box-sizing: border-box;
       padding: 0 4rem;
       position: fixed;
+      z-index: 5;
       @media all and (max-width: $fullPageWidth) {
         position: initial;
         flex-direction: row;
@@ -199,6 +201,7 @@ a {
     & .sidebar.right {
       right: calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth);
       flex-wrap: wrap;
+      z-index: 0;
       @media all and (min-width: $fullPageWidth) {
         height: auto;
         overflow-y: auto;
