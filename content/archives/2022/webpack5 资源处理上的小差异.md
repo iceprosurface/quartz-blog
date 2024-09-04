@@ -42,7 +42,7 @@ comments: true
 ### 例子
 
 
-```diff webpack.config.js
+```js title="webpack.config.js" showLineNumbers
 const path = require('path');
 
 module.exports = {
@@ -51,14 +51,14 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist')
   },
-+ module: {
-+   rules: [
-+     {
-+       test: /\.png/,
-+       type: 'asset/resource'
-+     }
-+   ]
-+ },
+  module: {// [!code ++]
+    rules: [// [!code ++]
+      {// [!code ++]
+        test: /\.png/,// [!code ++]
+        type: 'asset/resource'// [!code ++]
+      }// [!code ++]
+    ]// [!code ++]
+  },// [!code ++]
 };
 ```
 
@@ -73,7 +73,7 @@ img.src = mainImage; // '/dist/151cfcfa1bd74779aadb.png'
 
 ### 自定义输出文件名
 
-```diff webpack.config.js
+```js title="webpack.config.js" showLineNumbers ins={8} del={1}
 const path = require('path');
 
 module.exports = {
@@ -81,7 +81,7 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
-+   assetModuleFilename: 'images/[hash][ext][query]'
+    assetModuleFilename: 'images/[hash][ext][query]'
   },
   module: {
     rules: [
