@@ -242,6 +242,18 @@ a {
 .footnotes {
   margin-top: 2rem;
   border-top: 1px solid var(--lightgray);
+  font-size: 12px;
+  #footnote-label {
+    font-size: 14px;
+    margin-bottom: 4px;
+    margin-top: 16px;
+  }
+  ol {
+    padding-inline-start: 18px;
+  }
+  p {
+    line-height: 1.1rem;
+  }
 }
 
 input[type="checkbox"] {
