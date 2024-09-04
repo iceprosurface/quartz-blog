@@ -1,7 +1,7 @@
 ---
 title: vue 函数签名（在 vue2中实现 vue3 函数签名）
 date: 2024-07-29T18:16:36+08:00
-updated: 2024-08-01T14:03:12+08:00
+updated: 2024-09-04T13:08:51+08:00
 permalink: /code/front-end/function-signature/
 tags:
   - vue
@@ -49,7 +49,7 @@ const Comp = defineComponent(
 
 vue 官方的 function-signature 方案同旧的方案并无二致，唯一的区别是将 setup 提升到了 第一个参数，从[源码](https://github.com/vuejs/core/blob/af60e3560c84e44136f950fc3d0e39b576098c6c/packages/runtime-core/src/apiDefineComponent.ts#L301)[^3]看就是简单的做了一个分发，然后利用函数重载实现的：
 
-```ts
+```ts 
 // implementation, close to no-op
 /*! #__NO_SIDE_EFFECTS__ */
 export function defineComponent(

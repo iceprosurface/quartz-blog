@@ -2,7 +2,7 @@
 title: webpack5 资源处理上的小差异
 permalink: /2022/wepack5-asset-diff/
 date: 2022-05-22T19:35:10+08:00
-updated: 2024-06-01T14:07:02+08:00
+updated: 2024-09-04T13:07:31+08:00
 tags:
   - 编译
   - 前端
@@ -42,7 +42,7 @@ comments: true
 ### 例子
 
 
-```js title="webpack.config.js" showLineNumbers
+```js title="webpack.config.js"
 const path = require('path');
 
 module.exports = {
@@ -73,7 +73,7 @@ img.src = mainImage; // '/dist/151cfcfa1bd74779aadb.png'
 
 ### 自定义输出文件名
 
-```js title="webpack.config.js" showLineNumbers ins={8} del={1}
+```js title="webpack.config.js" 
 const path = require('path');
 
 module.exports = {
@@ -81,7 +81,7 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
-    assetModuleFilename: 'images/[hash][ext][query]'
+    assetModuleFilename: 'images/[hash][ext][query]'// [!code ++]
   },
   module: {
     rules: [
