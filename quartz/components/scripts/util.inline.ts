@@ -98,12 +98,12 @@ async function loadExcalidraw(element: HTMLElement) {
   window.QuartzExcalidrawPlugin.mountApp(element as HTMLElement, window.QuartzExcalidrawPlugin.decodeData(markdown), {});
 }
 export async function initExcalidraw() {
-  const pluginPath = getJsByMeta('excalidraw-plugin');
-  await loadScript(pluginPath, false);
   const elements = document.querySelectorAll('[data-excalidraw]');
   if (!elements || !elements.length) {
     return;
   }
+  const pluginPath = getJsByMeta('excalidraw-plugin');
+  await loadScript(pluginPath, false);
   elements.forEach((element) => {
     loadExcalidraw(element as HTMLElement);
   });

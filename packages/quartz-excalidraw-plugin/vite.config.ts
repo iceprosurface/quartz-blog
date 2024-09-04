@@ -8,7 +8,7 @@ export default defineConfig({
     "process.env.NODE_ENV": JSON.stringify("production")
   },
   build: {
-    minify: false,
+    minify: true,
     lib: {
       entry: 'src/lib.tsx',
       name: 'QuartzExcalidrawPlugin',
