@@ -1,7 +1,7 @@
 ---
 title: 为 quartz 添加额外 shikijs transform
 date: 2024-09-04T13:35:27+08:00
-updated: 2024-09-04T14:17:33+08:00
+updated: 2024-09-04T14:24:39+08:00
 permalink: /blog/quartz-shikijs-transform/
 tags: 
 ccby: true
@@ -47,7 +47,8 @@ export const SyntaxHighlighting: QuartzTransformerPlugin<Options> = (
       return [[rehypePrettyCode, opts]]
     },
   }
-}```
+}
+```
 
 随后在新增一个 sass 文件即可，这里写的比较粗糙，没有整理变量。
 
