@@ -18,7 +18,8 @@ const config: QuartzConfig = {
       },
       {
         provider: "umami",
-        websiteId: "0b2f9076-353d-4276-a162-717ea619cdf7",
+        websiteId: "cdf3e238-4ec3-4428-8449-91b9ffbe8c03",
+        host: "https://umami.iceprosurface.com"
       }
     ],
     locale: "zh-CN",
