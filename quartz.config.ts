@@ -11,10 +11,16 @@ const config: QuartzConfig = {
     pageTitle: "icepro`s blog",
     enableSPA: true,
     enablePopovers: true,
-    analytics: {
-      provider: "google",
-      tagId: "G-6X691M6ZVW"
-    },
+    analytics: [
+      {
+        provider: "google",
+        tagId: "G-6X691M6ZVW"
+      },
+      {
+        provider: "umami",
+        websiteId: "0b2f9076-353d-4276-a162-717ea619cdf7",
+      }
+    ],
     locale: "zh-CN",
     baseUrl: "iceprosurface.com",
     ignorePatterns: ["private", "templates", ".obsidian"],
