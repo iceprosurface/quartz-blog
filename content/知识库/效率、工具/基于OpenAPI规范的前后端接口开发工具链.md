@@ -1,7 +1,7 @@
 ---
 title: 基于 OpenAPI 规范的前后端接口开发工具链
 date: 2024-06-18T16:47:06+08:00
-updated: 2024-06-19T22:43:59+08:00
+updated: 2024-09-14T14:06:57+08:00
 permalink: /code/openapi-based-api-development-toolchain/
 tags:
   - 工具
@@ -14,7 +14,7 @@ comments: true
 
 我们利用 proto 来作为前后端的接口文档类似于下图这样：
 
-![接口开发流程.excalidraw](接口开发流程.excalidraw.md)
+![接口开发流程.excalidraw](attachments/接口开发流程.excalidraw.md)
 
 我们后端使用的是 [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway) ，这里前端这边使用 他 提供的 open-api-v2 插件生成 swagger 在通过 [swagger-typescript-api](https://github.com/acacode/swagger-typescript-api) 生成对应的 ts 代码。
 
@@ -30,7 +30,7 @@ ts 构建服务完成构建以后会提交到代码仓库作为备份，同时�
 
 此时前端就可以通过 `@taptap/proto-xxx`  安装并使用对应的接口。
 
-![proto构建流程.excalidraw](proto构建流程.excalidraw.md)
+![proto构建流程.excalidraw](attachments/proto构建流程.excalidraw.md)
 
 ## 构建脚本
 
