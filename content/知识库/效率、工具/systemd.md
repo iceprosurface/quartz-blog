@@ -1,7 +1,7 @@
 ---
 title: systemd
 date: 2024-09-18T17:44:44+08:00
-updated: 2024-09-19T10:26:52+08:00
+updated: 2024-09-19T10:31:27+08:00
 permalink: /tools/systemd/
 tags:
   - 服务器
@@ -97,9 +97,9 @@ sudo systemctl edit application.service
 
 ## 删除
 
-删除一个 service 直接删除对应的文件即可：
+删除一个 service 直接删除对应的文件即可，譬如下文的 删除一个 nginx 的配置：
 
-```bash
+```bash /nginx/
 sudo rm -r /etc/systemd/system/nginx.service.d
 sudo rm /etc/systemd/system/nginx.service
 ```
@@ -143,9 +143,9 @@ service 通常会包含以下几个字段：
 		+ simple：`ExecStart`字段启动的进程为主进程
 		+ forking： `ExecStart`字段将以`fork()`方式启动
 		+ oneshot ：只**执行一次**，等它执行完，才启动其他服务
-		+ dbus： 会等待 D-Bus 信号后启动
+		+ dbus： 会等待 `D-Bus` 信号后启动
 		+ notify： 启动结束后会发出通知信号，才启动其他服务
-		+ idle： 等待空闲（其他任务执行结束），才会启动该服务
+		+ idle： 等待空闲（其他任务执行结束），才启动该服务
 	+ User 服务运行的用户
 	+ Group 服务运行的用户组
 	+ WorkingDirectory 服务 cwd
@@ -165,8 +165,8 @@ service 通常会包含以下几个字段：
 	+ Restart 定义服务进程退出后，systemd的重启方式，默认是不重启的
 		+ no： 退出不重启
 		+ on-success：只有正常退出时（状态码为0）重启
-		+ on-failure：非正常退出时（状态码非0, 包括 kill 和超时）重启
-		+ on-abnormal：终止和超时时重启
+		+ on-failure：非正常退出时（状态码非0, 包括 `SIGKILL` 和超时）重启
+		+ on-abnormal：终止(包括 `SIGKILL` 和 `SIGTERM` )和超时时重启
 		+ on-abort：收到非正常”信号时（如 `SIGABRT`，即中止信号）重启
 		+ on-watchdog：超时后重启
 		+ always：总是重启
