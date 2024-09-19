@@ -1,7 +1,7 @@
 ---
 title: systemd
 date: 2024-09-18T17:44:44+08:00
-updated: 2024-09-19T10:31:27+08:00
+updated: 2024-09-19T10:37:03+08:00
 permalink: /tools/systemd/
 tags:
   - 服务器
@@ -107,7 +107,7 @@ sudo rm /etc/systemd/system/nginx.service
 
 上文中的任意操作写、改、删操作后，都需要重载配置
 
-```bash
+```bash /daemon-reload/
 sudo systemctl daemon-reload
 ```
 
@@ -132,8 +132,8 @@ unit 通常会包含：
 	+ After 描述服务类别，表示本服务需要在哪一个服务启动后在启动
 	+ Before 表示需要在某些服务启动之前启动
 + 依赖关系
-	+ Wants 定义一个弱依赖关系，当自己启动时也会试图启动 Wants 列表中的 service ，但是列表中的服务退出以后自己不会退出
-	+ Requires  与 Wants 不同，Requires 描述强依赖关系，当列表中的服务退出以后，自身也会退出
+	+ Wants 定义一个**弱依赖关系**，当自己启动时也会试图启动 Wants 列表中的 service ，但是列表中的 **服务退出以后自己不会退出**
+	+ Requires  与 Wants 不同，Requires 描述**强依赖关系**，当**列表中的服务退出以后，自身也会退出**
 
 ## service
 
@@ -143,7 +143,7 @@ service 通常会包含以下几个字段：
 		+ simple：`ExecStart`字段启动的进程为主进程
 		+ forking： `ExecStart`字段将以`fork()`方式启动
 		+ oneshot ：只**执行一次**，等它执行完，才启动其他服务
-		+ dbus： 会等待 `D-Bus` 信号后启动
+		+ dbus： 会等待 [D-Bus](../名词/D-Bus.md) 信号后启动
 		+ notify： 启动结束后会发出通知信号，才启动其他服务
 		+ idle： 等待空闲（其他任务执行结束），才启动该服务
 	+ User 服务运行的用户
