@@ -1,7 +1,7 @@
 ---
 title: 试试用 bitwarden 来管理你的密码
 date: 2024-09-09T14:32:08+08:00
-updated: 2024-09-09T16:21:32+08:00
+updated: 2024-09-19T10:28:38+08:00
 permalink: /code/try-to-use-bitwarden/
 tags:
   - 生产力
@@ -202,7 +202,7 @@ remotePort = "<port2>"
 
 #### 配置系统服务
 
-你可以写一个 service 服务来开机自启动项目，防止意外断电等情况
+你可以写一个  [service 服务](systemd.md) 来开机自启动项目，防止意外断电等情况
 
 ```ini title="/etc/systemd/system/frpc.service" {6} /frpc/
 [Unit]
@@ -237,6 +237,7 @@ token = "<token>"
 
 #### 配置系统服务
 
+
 ```ini title="/etc/systemd/system/frps.service" {6} /frps/ 
 [Unit]
 Description=frps service
@@ -251,7 +252,7 @@ WantedBy=multi-user.target
 
 ```
 
-服务处理同上
+ [service 服务](systemd.md) 处理同上
 
 ```bash /frps/
 # 刷新服务列表 

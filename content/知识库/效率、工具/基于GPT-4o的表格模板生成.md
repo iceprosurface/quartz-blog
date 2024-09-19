@@ -1,7 +1,7 @@
 ---
 title: 基于GPT-4o的表格模板生成
 date: 2024-07-02T11:37:41+08:00
-updated: 2024-07-26T16:20:55+08:00
+updated: 2024-09-14T16:46:48+08:00
 permalink: /tool/gpt4o-table-template/
 tags:
   - 工具
