@@ -1,7 +1,7 @@
 ---
 title: systemd
 date: 2024-09-18T17:44:44+08:00
-updated: 2024-09-19T10:37:03+08:00
+updated: 2024-09-19T10:40:20+08:00
 permalink: /tools/systemd/
 tags:
   - 服务器
@@ -9,7 +9,7 @@ tags:
 ccby: true
 draft: false
 comments: true
-no-rss: true
+no-rss: false
 ---
 # systemd 是什么
 
@@ -83,7 +83,7 @@ systemctl is-active application.service
 
 ## 编辑
 
-可以直接使用 edit 来编辑一个 service
+可以直接使用 `edit` 来编辑一个 service
 
 ```bash /application/
 # 修改完整代码
