@@ -555,6 +555,7 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
 
   function renderGlobalGraph() {
     const slug = getFullSlug(window)
+    document.body.appendChild(container!)
     container?.classList.add("active")
     if (sidebar) {
       sidebar.style.zIndex = "1"
