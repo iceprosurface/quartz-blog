@@ -1,7 +1,7 @@
 ---
 title: 试试用 AbortController 来替代自己实现的取消 API
 date: 2024-10-08T10:58:35+08:00
-updated: 2024-10-08T13:29:55+08:00
+updated: 2024-10-08T13:41:26+08:00
 permalink: /code/front-end/abort-controller/
 tags:
   - 前端
@@ -12,9 +12,9 @@ no-rss: false
 ---
 # 介绍
 
-`AbortController` 是用来适配 `AbortSignal` 接口的对象，封装了关于终止的行为（`AbortController.abort()`）。
+AbortController 是用来适配 `AbortSignal` 接口的对象，封装了关于终止的行为（AbortController.abort()）。
 
-一般而言，都会使用 `AbortController` 新建一个控制器，随后通过 `abortController.signal` 获取 `AbortSignal` 的具体实现，在需要的地方通过  `AbortController.abort()` 终止目标行为，比较常见的场合可以使用在 `fetch` （终止 fetch）或是 `stream`（获取 stream 终止行为） 上。
+一般而言，都会使用 AbortController 新建一个控制器，随后通过 `abortController.signal` 获取 `AbortSignal` 的具体实现，在需要的地方通过  `AbortController.abort()` 终止目标行为，比较常见的场合可以使用在 fetch （终止 fetch）或是 stream（获取 stream 终止行为） 上。
 
 > [!note] 注意事项
 >
@@ -42,7 +42,7 @@ fetch(
 
 ### 超时
 
-而基于此方案同样可以更简单的实现超时行为的控制,  但是由于 timeout 方法实现在 `AbortSignal` 上，所以事实上 **无法方便** 的组合 **自定义取消** 和 **超时**。
+而基于此方案同样可以更简单的实现超时行为的控制,  但是由于 timeout 方法实现在 AbortSignal 上，所以事实上 **无法方便** 的组合 **自定义取消** 和 **超时**。
 
 ```ts
 const res = await fetch(url, { signal: AbortSignal.timeout(5000) });
@@ -72,7 +72,7 @@ const res = await fetch(url, { signal: AbortSignal.any([AbortSignal.timeout(5000
 > `AbortSignal.any` 姑且算是好用，可惜是 2024年 5 月才推广到所有浏览器可用，最起码也要 chrome 116 版本以上，**不是一个完全可用的 API**
 ## stream
 
-一般来说在 `stream` 中 `AbortController` 只是用来获取 `abort` 事件的，相当于官方提供了统一的 abort 接口，而类似于[以前写的](流式下载文件并设置到input上.md) `createWritable` 这样的 API 都没有提供直接的方法以供使用。
+一般来说在 stream 中 AbortController 只是用来获取 `abort` 事件的，相当于官方提供了统一的 abort 接口，而类似于[以前写的](流式下载文件并设置到input上.md) `createWritable` 这样的 API 都没有提供直接的方法以供使用。
 
 通常得使用更为手动的 API 比如 `WritableStream`:
 
@@ -92,7 +92,7 @@ writer.abort();
 
 ### 错误事件
 
-在 `AbortSignal` 事件监听返回值为 `AbortSignal` 对象，通常可以使用下面的方式获取
+在 AbortSignal 事件监听返回值为 AbortSignal 对象，通常可以使用下面的方式获取
 
 ```ts {4} /event.target/
 new Promise((resolve, reject) => {
@@ -104,7 +104,7 @@ new Promise((resolve, reject) => {
 })
 ```
 
-上文中的代码就是常见的将 `AbortController` 同 `promise` 混合使用，随后利用  `event.target` 获取 reason。
+上文中的代码就是常见的将 AbortController 同 `promise` 混合使用，随后利用  `event.target` 获取 `reason`。
 
 reason 返回的是一个 `AbortError` 对象，你可以很方便的使用 `reason.name === 'AbortError'` 来判断。
 
