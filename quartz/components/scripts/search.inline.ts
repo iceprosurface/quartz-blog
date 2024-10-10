@@ -146,6 +146,7 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   const currentSlug = e.detail.url
   const data = (await fetchData())
   const container = document.getElementById("search-container")
+  document.body.appendChild(container as Node)
   const sidebar = container?.closest(".sidebar") as HTMLElement
   const searchIcon = document.getElementById("search-icon")
   const searchBar = document.getElementById("search-bar") as HTMLInputElement | null
