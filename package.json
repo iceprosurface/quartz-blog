@@ -17,7 +17,7 @@
     "hashPublic": "node ./scripts/hash-public.mjs",
     "quartz": "./quartz/bootstrap-cli.mjs",
     "serve": "npx quartz build --serve",
-    "build": "pnpm run build:lib && npx quartz build && node ./scripts/hash-public.mjs",
+    "build": "pnpm run build:lib && npx quartz build && cp quartz/static/favicon.ico public/favicon.ico && node ./scripts/hash-public.mjs",
     "build:lib": "pnpm -r build:lib",
     "docs": "npx quartz build --serve -d docs",
     "check": "tsc --noEmit && npx prettier . --check",
