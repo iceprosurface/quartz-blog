@@ -89,6 +89,10 @@ function generateRSSFeed(cfg: GlobalConfiguration, idx: ContentIndex, limit?: nu
 
   return `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
+    <follow_challenge>
+        <feedId>52340201851637774</feedId>
+        <userId>68901958086173696</userId>
+    </follow_challenge>
     <channel>
       <title>${escapeHTML(cfg.pageTitle)}</title>
       <link>https://${base}</link>
