@@ -35,6 +35,9 @@ button#toc {
   &.collapsed > .overflow::after {
     opacity: 0;
   }
+  ul.overflow {
+    max-height: unset;
+  }
 
   & ul {
     list-style: none;
