@@ -1,7 +1,7 @@
 ---
 title: 在 setup 中挂载 vue 实例后 getCurrentInstance 无法获取 instance
 date: 2024-05-27T10:30:48+08:00
-updated: 2024-08-19T14:06:58+08:00
+updated: 2024-12-10T14:14:44+08:00
 permalink: /code/vue/getCurrentInstance-get-null-after-mount-vue-app/
 tags:
   - vue
@@ -139,7 +139,7 @@ watch immediate 也是同步操作，在同步操作中触发 setup 就会导致
 
 bug demo， 你可以打开控制看到 instance.proxy 读取的 instance 是 null，这显然是不符合预期的：
 
-<iframe border="0" frameborder="0" height="600" width="100%" src="https://stackblitz.com/edit/vitejs-vite-tipnja?embed=1&file=src%2FApp.vue" > </iframe>
+<iframe border="0" frameborder="0" height="600" width="100%" src="https://stackblitz.com/edit/vitejs-vite-eybzcnzk?ctl=1&embed=1&file=src%2FApp.vue&hideNavigation=1&view=editor" > </iframe>
 
 大约在 4 个 月前的版本中修复了这个问题： [修复 commit](https://github.com/vuejs/core/commit/7976f7044e66b3b7adac4c72a392935704658b10) , 修复的方式也比较简单，基本和 [Sleaf](../../../朋友圈/Sleaf.md) 说的一样，通过闭包储存上一个 prev 在下一次 unset 的时候还原来实现。
 

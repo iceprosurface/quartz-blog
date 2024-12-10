@@ -1,7 +1,7 @@
 ---
 title: vue2.7.12中使用 watch 观察数组对象将会触发多次
 date: 2023-03-08T23:29:49+08:00
-updated: 2024-06-01T13:55:06+08:00
+updated: 2024-12-10T14:22:24+08:00
 permalink: /2023/vue-watch-bug-for-array-obj/
 tags:
   - vue
@@ -43,7 +43,7 @@ combObj.value = { ...combObj.value, b: 3 }
 
 看到某 [Sleaf](../../朋友圈/Sleaf.md) 发来的视频，我满头问号 ❓ ❓ ❓。是我对 vue 的理解出了偏差？再次拿着下面的例子试了一下确实是这样的：
 
-<iframe border="0" frameborder="0" height="600" width="100%" src="https://stackblitz.com/edit/github-yoj2vm-rgvmu9?embed=1&file=src/views/Main.vue" > </iframe>
+<iframe border="0" frameborder="0" height="600" width="100%" src="https://stackblitz.com/edit/github-yoj2vm-cz89auze?ctl=1&embed=1&file=src%2Fviews%2FMain.vue" > </iframe>
 
 很是不服气的我，当场掏出的源码一探究竟。
 
