@@ -5,10 +5,10 @@ updated: 2024-12-11T10:38:43+08:00
 permalink: /tools/vscode-file-nesting-config/
 tags:
   - 生产力
-ccby: false
-draft: true
+ccby: true
+draft: false
 comments: true
-no-rss: true
+no-rss: false
 ---
 作为一个 idea 用户，在 idea 中，衍生的文件一般会被归并起来比如 js 和 js.map 这样的文件，最近有朋友问我 vscode 能不能也这样收起：
 
