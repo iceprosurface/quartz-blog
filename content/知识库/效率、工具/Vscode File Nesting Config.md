@@ -1,7 +1,7 @@
 ---
 title: 使用 vscode 的 File Nesting config 来收起不重要的衍生文件
 date: 2024-12-11T10:29:29+08:00
-updated: 2024-12-11T10:38:43+08:00
+updated: 2024-12-11T10:39:26+08:00
 permalink: /tools/vscode-file-nesting-config/
 tags:
   - 生产力
