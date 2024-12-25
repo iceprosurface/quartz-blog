@@ -1,7 +1,7 @@
 ---
 title: set-like
 date: 2024-07-04T10:41:55+08:00
-updated: 2024-07-04T11:23:54+08:00
+updated: 2024-12-25T17:09:09+08:00
 permalink: /code/js/set-like/
 tags:
   - 编程知识
@@ -40,6 +40,7 @@ console.log(a.union(b));
 # 其他关联 set-like API
 
 ## readonly
+
 + [`GPUSupportedFeatures`](https://developer.mozilla.org/en-US/docs/Web/API/GPUSupportedFeatures)
 - [`XRAnchorSet`](https://developer.mozilla.org/en-US/docs/Web/API/XRAnchorSet)
 
