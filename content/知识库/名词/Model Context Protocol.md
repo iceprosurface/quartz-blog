@@ -1,9 +1,9 @@
 ---
 title: Model Context Protocol
 date: 2025-03-06T16:13:33+08:00
-updated: 2025-03-06T16:15:09+08:00
+updated: 2025-03-06T17:00:59+08:00
 permalink: /knowledge/model-context-protocol/
-tags: 
+tags:
   - 名词
 ccby: false
 draft: false
