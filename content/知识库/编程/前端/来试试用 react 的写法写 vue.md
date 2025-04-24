@@ -1,7 +1,7 @@
 ---
 title: 来试试用 react 的写法写 vue
 date: 2025-04-24T12:39:19+08:00
-updated: 2025-04-24T13:37:58+08:00
+updated: 2025-04-24T13:46:59+08:00
 permalink: /code/front-end/try-use-vueireact/
 tags:
   - 前端
@@ -26,9 +26,9 @@ no-rss: false
 + 性能，你无法使用任何 vue-compiler 带来的优化，如果具有强烈性能要求的场景，需要你手工优化
 + 屏蔽了绝大部分 vue sfc 的语法糖，你只能使用完全符合 typescript 中定义的语法
 
-项目地址位于： [https://github.com/iceprosurface/vueireact](https://github.com/iceprosurface/vueireact) 
+项目地址位于： [https://github.com/iceprosurface/vueireact](https://github.com/iceprosurface/vueireact) ，喜欢这个项目的话可以帮忙点个 star ～
 
-如果你只是希望体验一下功能的话可以直接前往 [REPL](https://vueireact-repl.vercel.app/) 体验， REPL 尚未支持样式，你可以选择使用 unocss 代替（class）。
+如果你只是希望体验一下功能的话可以直接前往 [REPL](https://vueireact-repl.vercel.app/) 体验， REPL 尚未支持样式，你可以选择使用 unocss 代替（以内置，使用 class 提供支持）。
 
 # 安装
 
@@ -66,7 +66,7 @@ export default defineConfig({
 
 ## 如何声明一个组件
 
-在 vueireact 中，我们的组件只包含两个组成部分，函数的 setup 声明区域和 返回值 render function ：
+在 vueireact 中，我们的组件只包含两个组成部分，函数的 **setup 声明区域**和 **返回值 render function** ：
 
 
 ```ts
@@ -143,7 +143,7 @@ function App() {
   }
   return () => (
     <div>
-      {/* 这里组件会自动识别泛型，并约束 */}
+      {/* 这里组件会自动识别泛型，并约束，如果需要手工标注则可以这样写： <GenericComponent<string> */}
       <GenericComponent
         list={list.value}
         onListChange={(v) => list.value = v}
@@ -203,3 +203,5 @@ export default toVue(App)
 # 结语
 
 在 vue 中使用 react 的写法是完全可行的，至少我在 vue2 中使用并上线了超过 20万行代码，但是 vue2 版本的实现方式和 vue3 版本有比较大差异，vue3 版本的代码尚未经过检验，请谨慎使用。
+
+其他功能可以查看 [官方文档](https://vueireact-docs.vercel.app/zh/guide/getting-started.html)
