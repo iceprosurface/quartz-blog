@@ -5,7 +5,7 @@ comments: true
 tags:
   - 前端
 permalink: /2016/12/08/2016/2016-12-08-web-notification/
-updated: 2024-07-03T14:51:35+08:00
+updated: 2025-05-07T17:38:03+08:00
 ccby: true
 ---
 
@@ -57,6 +57,6 @@ var notification = new Notification(title,option);
 
 ## 3. demo
 
-最后是我自己制作的一个最简单的demo，可以供看看，[大力点击这里](http://www.iceprosurface.com/demo/notifition/demo.html)。
+最后是我自己制作的一个最简单的demo，可以供看看，[大力点击这里](https://cdn.iceprosurface.com/demo/notifition/demo.html)。
 
 有什么问题欢迎致电子邮件或通过github联系我。
