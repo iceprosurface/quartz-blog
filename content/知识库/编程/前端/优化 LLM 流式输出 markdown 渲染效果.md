@@ -139,7 +139,7 @@ const vnode = toJsxRuntime(ast, {
 });
 ```
 
-然后我们需要实现一个 jsx 的转换函数，vue 官方在 `vue/jsx-runtime` [^1] 中提供了 jsx 的转换函数，但是这个函数实现上有一定的问题 [^4]，我们 copy 过来以后进行一定的改造：
+然后我们需要实现一个 jsx 的转换函数，vue 官方在 `vue/jsx-runtime` [^1] 中提供了 jsx 的转换函数，但是这个函数实现上有一定的问题 [^2]，我们 copy 过来以后进行一定的改造：
 
 
 ```ts
@@ -185,10 +185,12 @@ function HTMLToVNode(props: { html: string }) {
 
 如果你使用的是 vue2 的话，也可以使用类似的写法（处理成 scoped slot，并添加 fragment 库解决）。原生方案上 Snabbdom 是一个不错的选择。
 
+# 相关阅读
+
++ [hast](https://github.com/syntax-tree/hast)
++ [hast-util-to-jsx-runtime](https://github.com/syntax-tree/hast-util-to-jsx-runtime)
 
 
 
 [^1]: [vue-jsx-runtime](https://github.com/vuejs/core/blob/main/packages/vue/jsx-runtime/index.js)
-[^2]: [hast-util-to-jsx-runtime](https://github.com/syntax-tree/hast-util-to-jsx-runtime)
-[^3]: [hast](https://github.com/syntax-tree/hast)
-[^4]: [Non-function value encountered for default slot. Prefer function slots for better performance.](https://github.com/mdx-js/mdx/issues/2512#issuecomment-2220985663)
+[^2]: [Non-function value encountered for default slot. Prefer function slots for better performance.](https://github.com/mdx-js/mdx/issues/2512#issuecomment-2220985663)
