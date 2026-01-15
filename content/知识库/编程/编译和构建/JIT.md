@@ -6,6 +6,7 @@ tags:
   - 编译
 ccby: false
 no-rss: true
+permalink: /2022/jit/
 ---
 
 Just-in-time，即动态(即时)编译

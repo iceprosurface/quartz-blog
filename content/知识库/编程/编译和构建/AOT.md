@@ -6,6 +6,7 @@ tags:
   - 编译
 ccby: false
 no-rss: true
+permalink: /2022/aot/
 ---
 
 Ahead Of Time 即运行前编译。
