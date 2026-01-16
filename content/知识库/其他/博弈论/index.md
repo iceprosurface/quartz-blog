@@ -2,7 +2,7 @@
 title: 博弈论
 date: 2024-05-30T13:21:43+08:00
 updated: 2024-06-02T13:04:02+08:00
-permalink: 
+permalink: /game-theory/ 
 tags:
   - 博弈论
 ccby: false

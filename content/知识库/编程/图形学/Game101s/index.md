@@ -2,7 +2,7 @@
 title: Game101s
 date: 2024-06-02T12:42:55+08:00
 updated: 2024-06-02T17:58:45+08:00
-permalink: 
+permalink: /graphics/game101s/ 
 tags:
   - 游戏开发
   - 图形学

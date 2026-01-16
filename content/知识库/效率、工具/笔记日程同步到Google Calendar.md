@@ -4,16 +4,10 @@ date: 2025-12-18T11:55:00+08:00
 permalink: /2024/markdown-calendar-sync/
 tags:
   - 工具
-  - 生产力
-  - Obsidian
-  - GitHub Actions
-  - Cursor
 ccby: true
 draft: false
 comments: true
 ---
-
-# Obsidian 笔记日程同步到 Google Calendar
 
 在日常工作中，我习惯用 Obsidian 记录各种待办事项和日程安排。问题是，这些日程只存在于笔记里，不会主动提醒我——我总是被别人提醒才想起来「哦对，那个会议」。
 

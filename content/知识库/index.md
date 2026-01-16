@@ -2,7 +2,7 @@
 title: 知识库入口
 date: 2024-05-14T11:04:42+08:00
 updated: 2024-05-17T01:46:22+08:00
-permalink: 
+permalink: /knowledge/ 
 tags: 
 ccby: false
 ---
