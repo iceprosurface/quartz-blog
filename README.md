@@ -1,3 +1,5 @@
+> 本项目已经终止维护并迁移到: https://github.com/iceprosurface/astro-blog 维护
+
 # icepro`s blog
 
 这里是 icepro 博客的源码站，由于 obisidian 本身的博客内容中存在一些敏感内容（部分可能存在密码等），所以单独划分了一块区域用于对外发布。
